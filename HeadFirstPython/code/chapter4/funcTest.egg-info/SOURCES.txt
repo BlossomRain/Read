@@ -1,0 +1,7 @@
+README.txt
+funcTest.py
+setup.py
+funcTest.egg-info/PKG-INFO
+funcTest.egg-info/SOURCES.txt
+funcTest.egg-info/dependency_links.txt
+funcTest.egg-info/top_level.txt
