@@ -1,37 +1,27 @@
-# Read
+# Read 2020读书笔记
 
-#### 介绍
-2020读书笔记
+## 介绍
+ 项目收集自己阅读的书籍笔记,以后后续查阅快速定位(在GitHub图片不能正常显示,应该是我网速原因,所以链接都是gitee,GitHub也会有一样的文件)
 
-#### 软件架构
-软件架构说明
+环境: Typora + idea +  Java8 
 
+已经完成的项目
 
-#### 安装教程
+### 1 基础知识
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+[HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
-#### 使用说明
+[Java8实战](https://gitee.com/lihuadaiyu/read/blob/master/Java8%E5%AE%9E%E6%88%98/Java8%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+[Java8并发编程实战](https://gitee.com/lihuadaiyu/read/blob/master/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
 
-#### 参与贡献
+[Java核心技术 卷Ⅰ](https://gitee.com/lihuadaiyu/read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71.md)
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+[Java核心技术 卷Ⅱ](https://gitee.com/lihuadaiyu/read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72_%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
 
+### 2 技能提升
 
-#### 特技
+### 3 杂项
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+[HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
+
