@@ -21,11 +21,13 @@
 
 ### 2 技能提升
 
-#### JVM
+#### 2.1 JVM
 
-深入理解Java虚拟机
+[深入理解Java虚拟机](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA.md)
 
-Effective Java
+#### 2.2 优化
+
+[Effective Java](https://gitee.com/lihuadaiyu/read/blob/master/Effective%20Java/Effective%20Java.md)
 
 ### 3 杂项
 
