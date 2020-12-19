@@ -21,6 +21,12 @@
 
 ### 2 技能提升
 
+#### JVM
+
+深入理解Java虚拟机
+
+Effective Java
+
 ### 3 杂项
 
 [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
