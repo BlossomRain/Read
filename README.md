@@ -7,7 +7,9 @@
 
 已经完成的项目
 
-### 1 基础知识
+### 1 知识掌握
+
+#### 1.1 基础知识
 
 [HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
@@ -18,6 +20,12 @@
 [Java核心技术 卷Ⅰ](https://gitee.com/lihuadaiyu/read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71.md)
 
 [Java核心技术 卷Ⅱ](https://gitee.com/lihuadaiyu/read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72_%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
+
+#### 1.2 框架
+
+##### 1.2.1 Spring家族
+
+Spring in action
 
 ### 2 技能提升
 
@@ -32,4 +40,3 @@
 ### 3 杂项
 
 [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
-
