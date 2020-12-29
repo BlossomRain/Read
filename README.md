@@ -7,6 +7,8 @@
 
 已经完成的项目
 
+## 目录
+
 ### 1 知识掌握
 
 #### 1.1 基础知识
@@ -25,7 +27,11 @@
 
 ##### 1.2.1 Spring家族
 
-Spring in action
+[Spring实战](https://gitee.com/lihuadaiyu/read/blob/master/Spring%E5%AE%9E%E6%88%98/Spring%E5%AE%9E%E6%88%98.md)
+
+##### 1.2.2 高并发
+
+Netty实战
 
 ### 2 技能提升
 
@@ -38,5 +44,11 @@ Spring in action
 [Effective Java](https://gitee.com/lihuadaiyu/read/blob/master/Effective%20Java/Effective%20Java.md)
 
 ### 3 杂项
+
+#### 3.1 工具
+
+maven实战
+
+#### 3.2 其他语言
 
 [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
