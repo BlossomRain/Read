@@ -31,7 +31,7 @@
 
 ##### 1.2.2 高并发
 
-Netty实战
+[Netty实战](https://gitee.com/lihuadaiyu/read/blob/master/Netty%E5%AE%9E%E6%88%98/Netty%E5%AE%9E%E6%88%98.md)
 
 ### 2 技能提升
 
@@ -47,7 +47,9 @@ Netty实战
 
 #### 3.1 工具
 
-maven实战
+[maven实战](https://gitee.com/lihuadaiyu/read/blob/master/maven%E5%AE%9E%E6%88%98/maven%E5%AE%9E%E6%88%98.md)
+
+深入浅出Docker
 
 #### 3.2 其他语言
 
