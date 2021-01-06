@@ -3,7 +3,7 @@
 ## 介绍
  项目收集自己阅读的书籍笔记,以后后续查阅快速定位(在GitHub图片不能正常显示,应该是我网速原因,所以链接都是gitee,GitHub也会有一样的文件)
 
-环境: Typora + idea +  Java8 
+环境: Typora + idea +  Java11 
 
 已经完成的项目
 
@@ -11,9 +11,13 @@
 
 ### 1 知识掌握
 
-#### 1.1 基础知识
+基础知识 框架 
 
-[HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
+#### 1.1 必需知识
+
+基础的Java语法,设计模式,操作系统知识,
+
+##### 1.1.1 基础知识
 
 [Java8实战](https://gitee.com/lihuadaiyu/read/blob/master/Java8%E5%AE%9E%E6%88%98/Java8%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
 
@@ -23,7 +27,15 @@
 
 [Java核心技术 卷Ⅱ](https://gitee.com/lihuadaiyu/read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72_%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
 
+##### 1.1.2 设计模式
+
+[HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
+
+
+
 #### 1.2 框架
+
+Spring家族 中间件
 
 ##### 1.2.1 Spring家族
 
@@ -33,7 +45,25 @@
 
 [Netty实战](https://gitee.com/lihuadaiyu/read/blob/master/Netty%E5%AE%9E%E6%88%98/Netty%E5%AE%9E%E6%88%98.md)
 
+##### 1.2.3 
+
+
+
+#### 1.3 数据库
+
+关系型与非关系型数据库
+
+##### 1.3.1 SQL
+
+MySQL是怎样运行的：从根儿上理解MySQL
+
+##### 1.3.2 NoSQL
+
+
+
 ### 2 技能提升
+
+Java底层原理以及优化
 
 #### 2.1 JVM
 
@@ -44,6 +74,8 @@
 [Effective Java](https://gitee.com/lihuadaiyu/read/blob/master/Effective%20Java/Effective%20Java.md)
 
 ### 3 杂项
+
+工具使用 其他语言 
 
 #### 3.1 工具
 
