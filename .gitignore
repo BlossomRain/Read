@@ -17,7 +17,7 @@
 *.ear
 *.zip
 *.tar.gz
-*.rar
+
 
 #idea
 .idea
@@ -61,3 +61,8 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### ShangGuiGu ###
+*.doc
+*.docx
+*.xmind

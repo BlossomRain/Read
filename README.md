@@ -15,7 +15,7 @@
 
 #### 1.1 必需知识
 
-基础的Java语法,设计模式,操作系统知识,
+基础的Java语法,设计模式,操作系统知识
 
 ##### 1.1.1 基础知识
 
@@ -45,7 +45,9 @@ Spring家族 中间件
 
 [Netty实战](https://gitee.com/lihuadaiyu/read/blob/master/Netty%E5%AE%9E%E6%88%98/Netty%E5%AE%9E%E6%88%98.md)
 
-##### 1.2.3 
+##### 1.2.3 大数据
+
+Hadoop权威指南
 
 
 
@@ -83,6 +85,15 @@ Java底层原理以及优化
 
 [深入浅出Docker](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker.md)
 
+[Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
+
 #### 3.2 其他语言
 
 [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
+
+#### 3.3 视频学习
+
+##### 3.3.1 尚硅谷
+
+Hadoop 入门
+
