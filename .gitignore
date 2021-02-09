@@ -20,6 +20,7 @@
 *.tar
 *.gz
 *.gz2
+*.tgz
 
 
 #idea
