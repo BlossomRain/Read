@@ -17,7 +17,9 @@
 *.nar
 *.ear
 *.zip
-*.tar.gz
+*.tar
+*.gz
+*.gz2
 
 
 #idea
