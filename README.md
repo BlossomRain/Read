@@ -95,5 +95,5 @@ Java底层原理以及优化
 
 ##### 3.3.1 尚硅谷
 
-[Hadoop 入门](https://gitee.com/lihuadaiyu/read/tree/master/%E5%B0%9A%E7%A1%85%E8%B0%B7%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/Hadoop%E5%85%A5%E9%97%A8)
+[B站](https://space.bilibili.com/302417610)
 

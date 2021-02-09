@@ -12,6 +12,7 @@
 
 # Package Files #
 *.jar
+*.rar
 *.war
 *.nar
 *.ear
@@ -66,3 +67,4 @@ build/
 *.doc
 *.docx
 *.xmind
+*.pdf
