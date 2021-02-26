@@ -41,7 +41,7 @@ Spring家族 中间件
 
 [Spring实战](https://gitee.com/lihuadaiyu/read/blob/master/Spring%E5%AE%9E%E6%88%98/Spring%E5%AE%9E%E6%88%98.md)
 
-Spring源码深度解析
+[Spring源码深度解析](https://gitee.com/lihuadaiyu/read/blob/master/Spring%E6%BA%90%E7%A0%81%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90/Spring%E6%BA%90%E7%A0%81%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90.md)
 
 ##### 1.2.2 高并发
 
@@ -49,9 +49,11 @@ Spring源码深度解析
 
 ##### 1.2.3 大数据
 
-Hadoop权威指南
+[Hadoop权威指南](https://gitee.com/lihuadaiyu/read/blob/master/Hadoop%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/Hadoop%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.md)
 
+##### 1.2.4 ORM
 
+MyBatis技术内幕
 
 #### 1.3 数据库
 
