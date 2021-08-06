@@ -328,35 +328,301 @@
 
 ### 9.2 case条件语句实践
 
+- console_codes代码表示颜色
+- echo -e 配合上者可以改变字体颜色
+
+## 第 10 章 while循环和until循环的实践
+
+### 10.1 当型和直到型循环语法
+
+- ```shell
+  while [condition]
+  do
+  	...
+  done
+  ```
+
+- ```shell
+  until [condition]
+  do
+  	...
+  done
+  ```
+
+### 10.2 当型和直到型循环的基本范例
+
+- `uptime` 查看负载
+- `sleep` 休眠n秒，`nsleep` 休眠微秒
+- `cmd &` 后台运行，`tail -f`实时监控
+- 防止被打断，使用`&`后台运行，或者使用 `nohub cmd &`，或者利用 `screen`保持当前会话。
+
+### 10.3 让Shell脚本在后台运行的知识
+
+- ![](images/epub_851551_158)
+  - kill、killall、pkill：杀掉进程。
+  - ps：查看进程。
+  - pstree：显示进程状态树。
+  - top：显示进程。
+  - renice：改变优先权。
+  - nohup：用户退出系统之后继续工作。
+  - pgrep：查找匹配条件的进程。
+  - strace：跟踪一个进程的系统调用情况。
+  - ltrace：跟踪进程调用库函数的情况。
+
+### 10.5 while循环按行读文件的方式总结
+
+- 采用exec读取文件，重定向输入
+- cat 利用管道输出给 read
+- 在while循环结尾done处通过输入重定向指定读取的文件
+
+## 第 11 章 for和select循环语句的应用实践
+
+### 11.1 for循环语法结构
+
+- ```shell
+  for i in list
+  do 
+  	...
+  done
+  
+  ###########
+  for (( i=0;i<len;i++))
+  do
+  	...
+  done
+  ```
+
+- 批量处理可以使用花括号
 
 
 
+### 11.5 Linux系统产生随机数的6种方法
 
+- `$RANDOM` 范围0~32767后再一起执行`md5sum`操作并截取结果的后n位
 
+- `openssl rand -base64 8` 产生8位随机数
+- `date +%s%N`
+- `head /dev/urandom|cksum`
 
+- `cat /proc/sys/kernel/random/uuid`
 
+- `mkpasswd -l 9 -d 2 -c 3 -C 3 -s 1` 需要安装expect
 
+### 11.6 select循环语句介绍及语法
 
+- ```shell
+  select var [ in list]
+  do 
+  	...
+  done
+  
+  ######
+  修改PS3环境变量可以修改提示符
+  ```
 
+## 第 12 章 循环控制及状态返回值的应用实践
 
+### 12.1 break、continue、exit、return的区别和对比
 
+- ![](images/epub_851551_193)
 
+### 12.2 break、continue、exit功能执行流程图
 
+- ```shell
+  # `ifconfig` 可以用来配置ip，`ip`也可以
+  ifconfig eth0:0 10.0.2.10/24 up	# add ip
+  ip addr add 10.0.0.1/24 dev eth0 label eth0:0 #add ip
+  ```
 
+  
 
+## 第 13 章 Shell数组的应用实践
 
+### 13.2 Shell数组的定义与增删改查
 
+- 使用小括号定义，不用逗号分隔元素，括号里面可以使用命令
 
+  `echo ${array{*}}`可以打印数组
 
+- `echo ${#array[*]}` 获取数组长度
 
+- 删除使用 `unset`
 
+### 13.4 Shell数组的重要命令
 
+- ```shell
+  array=(1 2 3) #静态数组
+  array=($(ls /))
+  ###########
+  for ((i=0;i<${#array[*]};i++))
+  do
+  	...
+  done
+  #########
+  for n in ${array[*]}
+  do
+  	...
+  done
+  ```
 
+## 第 14 章 Shell脚本开发规范
 
+### 14.1 Shell脚本基本规范
 
+- ```shell
+  #!/bin/bash
+  #Date: xxx
+  #Author: Created by xxx
+  #Mail:
+  #Function: xxxxxxx
+  #Version: x.x.x  可以修改.vimrc配置文件自动加上以上信息
+  # 尽量不要使用中文，最好统一字符集，如：export LANG="zh_CN.UTF-8"
+  ```
 
+- 中括号需要加空格，最好把流程控制语法一起写完再写代码
 
+### 14.2 Shell脚本变量命名及引用变量规范
 
+- 全局变量全大写，使用下划线连接，使用 export
+- 局部变量最好统一，比如驼峰命名法等
+- 引用变量前后都有字符，则需要使用${APACHE_ERR}，变量内容为字符串加上双引号，整数则不用括号语法
 
+### 14.3 Shell函数的命名及函数定义规范
 
+- 函数命名也差不多，可以加上前后缀，比如Min，Max，Get，Do等
 
+### 14.4 Shell脚本（模块）高级命名规范
+
+1）常规Shell脚本使用统一的后缀：.sh，例如oldboy.sh。
+
+2）模块的启动和停止脚本统一命名为start\_模块名．sh和stop\_模块名．sh。
+
+3）监控脚本通常以\*\_mon.sh为后缀。
+
+4）控制脚本一般以\*\_ctl.sh为后缀。
+
+### 14.5 Shell脚本的代码风格
+
+- 如果是通用的公共函数可以存放于/etc/init.d/functions下，调用时采用source文件全路径即可。
+
+### 14.6 Shell脚本的变量及文件检查规范
+
+- 通过检查存在性和给定默认值
+
+## 第 15 章 Shell脚本的调试
+
+### 15.1 常见Shell脚本错误范例
+
+- if 缺少结尾，循环缺少结尾，括号引号没有配对
+- 中括号没有空格
+
+### 15.2 Shell脚本调试技巧
+
+- 使用dos2unix命令处理在Windows下开发的脚本
+
+- 使用bash命令调试
+
+  ```shell
+  sh [-nvx] test.sh
+  # -n 不执行，仅检查
+  # -v 执行脚本先打印
+  # -x 将执行的脚本内容及输出显示到屏幕上
+  ```
+
+- ```shell
+  set命令也可以用于辅助脚本调试。
+  # set -n：读命令但并不执行。
+  # set -v：显示读取的所有行。
+  # set -x：显示所有命令及其参数。
+  ```
+
+- 调试工具 -- bashdb 和 shellcheck
+
+## 第 16 章 Shell脚本开发环境的配置和优化实践
+
+### 16.1 使用vim而不是vi编辑器
+
+- 就是取个别名，可以放在 /etc/profile 里面
+
+### 16.2 配置文件．vimrc的重要参数介绍
+
+- vim 配置文件位置 ～/.vimrc（全局路径为/etc/vimrc）
+- 直接网上搜自己改改即可
+
+## 第 17 章 Linux信号及trap命令的企业应用实践
+
+### 17.1 信号知识
+
+- Linux的信号是由一个整数构成的异步消息，它可以由某个进程发给其他的进程，也可以在用户按下特定键发生某种异常事件时，由系统发给某个进程
+- `kill -l`可以查看信号
+- ![](images/epub_851551_246)
+
+### 17.2 使用trap控制信号
+
+- trap命令用于指定在接收到信号后将要采取的行动，是在脚本程序被中断时完成清理工作，或者屏蔽用户非法使用的某些信号
+
+- ```shell
+  trap 'cmd;cmd' SIG_NO 
+  trap 'echo hello' 2 # 捕捉ctrl-c信号
+  stty -a  # 可以列出中断信号与键盘的对应信息
+  ```
+
+## 第 18 章 Expect自动化交互式程序应用实践
+
+### 18.1 Expect介绍
+
+- Expect是一个用来实现自动交互功能的软件套件（Expect is a softwaresuite for automating interactive tools，这是作者的定义），是基于TCL的脚本编程工具语言，方便学习，功能强大。
+- spawn启动指定进程 → expect获取期待的关键字 → send向指定进程发送指定字符 → 进程执行完毕，退出结束。
+
+### 18.2 安装Expect软件
+
+-	```shell
+    rpm -qa expect
+    yum install expect -y
+    rpm -qa expect
+    ```
+
+### 18.3 小试牛刀：实现Expect自动交互功能
+
+- ```shell
+  #!/usr/bin/expect
+  spawn ssh root@ip uptime #执行一个命令
+  expect "*password" {send "123456\n"}# 根据获取的信息，执行动作
+  expect eof
+  ###########
+  expect test.exp
+  #如果需要一次匹配多个字符串，那么不同的匹配之间就要加上exp_continue
+  # send_user命令可用来打印Expect脚本信息
+  ```
+  
+  
+
+## 第 20 章 子shell及shell嵌套模式知识应用
+
+### 20.1 子Shell的知识及实践说明
+
+- 通过执行`pstree -a`命令就可以看到init及系统中其他进程的进程树信息
+
+- ```shell
+  # 都会产生子shell
+  cmd &		#可以异步
+  cmd | cmd   #可以异步
+  ()
+  sh xx.sh
+  ```
+
+### 20.2 子Shell在企业应用中的“坑”
+
+- 使用管道与while循环时遭遇的“坑”，可以用重定向解决
+
+### 20.3 Shell调用脚本的模式说明
+
+- fork模式是最普通的脚本调用方式，即直接在父脚本里面用“/bin/sh/directory/script.sh”来调用脚本
+- exec模式被调用的脚本与父脚本在同一个Shell内执行，父内容不再执行
+  - source 父内容继续执行
+
+### 20.5 Shell调用脚本3种不同模式的应用场景
+
+- fork模式调用脚本主要应用于常规嵌套脚本执行的场合，父脚本不需要引用嵌套脚本内容
+- exec模式调用脚本需要应用于嵌套脚本在主脚本的末尾执行的场合
+- source模式调用脚本是比较重要且最常用的一种嵌套方式，主要应用之一是执行嵌套脚本启动某些服务程序

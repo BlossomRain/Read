@@ -31,6 +31,10 @@
 
 - [HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
+##### 1.1.3 Linux
+
+- [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
+
 
 
 #### 1.2 框架
@@ -86,11 +90,9 @@
 #### 3.1 工具
 
 - [maven实战](https://gitee.com/lihuadaiyu/read/blob/master/maven%E5%AE%9E%E6%88%98/maven%E5%AE%9E%E6%88%98.md)
-
 - [深入浅出Docker](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker.md)
-
-- [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
-- 跟老男孩学Linux运维：Shell编程实战
+- 跟老男孩学Linux运维：Shell编程实战 -- 不推荐
+- 跟老男孩学Linux运维：核心系统命令实战 -- 不推荐
 
 #### 3.2 其他语言
 
