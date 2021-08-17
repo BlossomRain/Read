@@ -31,12 +31,6 @@
 
 - [HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
-##### 1.1.3 Linux
-
-- [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
-
-
-
 #### 1.2 框架
 
 - Spring家族 中间件
@@ -57,7 +51,7 @@
 
 ##### 1.2.4 ORM
 
-- MyBatis技术内幕
+- [MyBatis技术内幕](https://gitee.com/lihuadaiyu/read/blob/master/MyBatis%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/MyBatis%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95.md)
 
 #### 1.3 数据库
 
@@ -83,6 +77,12 @@
 
 - [Effective Java](https://gitee.com/lihuadaiyu/read/blob/master/Effective%20Java/Effective%20Java.md)
 
+#### 2.3 Linux
+
+- [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
+- cURL必知必会
+- UNIX环境高级编程
+
 ### 3 杂项
 
 - 工具使用 其他语言 
@@ -91,8 +91,8 @@
 
 - [maven实战](https://gitee.com/lihuadaiyu/read/blob/master/maven%E5%AE%9E%E6%88%98/maven%E5%AE%9E%E6%88%98.md)
 - [深入浅出Docker](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker.md)
-- 跟老男孩学Linux运维：Shell编程实战 -- 不推荐
-- 跟老男孩学Linux运维：核心系统命令实战 -- 不推荐
+- [跟老男孩学Linux运维：Shell编程实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/blob/master/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9AShell%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9AShell%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98.md)
+- [跟老男孩学Linux运维：核心系统命令实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/tree/master/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9A%E6%A0%B8%E5%BF%83%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E5%AE%9E%E6%88%98)
 
 #### 3.2 其他语言
 
