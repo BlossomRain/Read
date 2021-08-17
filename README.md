@@ -44,6 +44,7 @@
 ##### 1.2.2 高并发
 
 - [Netty实战](https://gitee.com/lihuadaiyu/read/blob/master/Netty%E5%AE%9E%E6%88%98/Netty%E5%AE%9E%E6%88%98.md)
+- 深入理解Nginx模块开发与架构解析
 
 ##### 1.2.3 大数据
 
@@ -63,7 +64,8 @@
 
 ##### 1.3.2 NoSQL
 
-
+- MongoDB权威指南
+- Redis设计与实现
 
 ### 2 技能提升
 
@@ -82,6 +84,7 @@
 - [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
 - cURL必知必会
 - UNIX环境高级编程
+- 图解HTTP
 
 ### 3 杂项
 
@@ -98,9 +101,15 @@
 
 - [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
 
+#### 
+
 #### 3.3 视频学习
 
 ##### 3.3.1 尚硅谷
 
 - [B站](https://space.bilibili.com/302417610)
+
+#### 3.4 其他
+
+- 从零开始学架构 照着做，你也能成为架构师
 
