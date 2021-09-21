@@ -44,7 +44,7 @@
 ##### 1.2.2 高并发
 
 - [Netty实战](https://gitee.com/lihuadaiyu/read/blob/master/Netty%E5%AE%9E%E6%88%98/Netty%E5%AE%9E%E6%88%98.md)
-- 深入理解Nginx模块开发与架构解析
+- [深入理解Nginx模块开发与架构解析](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Nginx%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Nginx%E6%A8%A1%E5%9D%97%E5%BC%80%E5%8F%91%E4%B8%8E%E6%9E%B6%E6%9E%84%E8%A7%A3%E6%9E%90.md)
 
 ##### 1.2.3 大数据
 
@@ -64,8 +64,8 @@
 
 ##### 1.3.2 NoSQL
 
-- MongoDB权威指南
-- Redis设计与实现
+- [MongoDB权威指南](https://gitee.com/lihuadaiyu/read/blob/master/MongoDB%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/MongoDB%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.md)
+- [Redis设计与实现](https://gitee.com/lihuadaiyu/read/blob/master/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
 
 ### 2 技能提升
 
@@ -82,9 +82,9 @@
 #### 2.3 Linux
 
 - [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://gitee.com/lihuadaiyu/read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
-- cURL必知必会
-- UNIX环境高级编程
-- 图解HTTP
+- [cURL必知必会](https://gitee.com/lihuadaiyu/read/blob/master/cURL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/cURL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
+- [UNIX环境高级编程](https://gitee.com/lihuadaiyu/read/blob/master/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
+- [图解HTTP](https://gitee.com/lihuadaiyu/read/blob/master/%E5%9B%BE%E8%A7%A3HTTP/%E5%9B%BE%E8%A7%A3HTTP.md)
 
 ### 3 杂项
 
@@ -101,8 +101,6 @@
 
 - [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
 
-#### 
-
 #### 3.3 视频学习
 
 ##### 3.3.1 尚硅谷
@@ -111,5 +109,9 @@
 
 #### 3.4 其他
 
-- 从零开始学架构 照着做，你也能成为架构师
+- [从零开始学架构 照着做，你也能成为架构师](https://gitee.com/lihuadaiyu/read/blob/master/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E6%9E%B6%E6%9E%84%20%E7%85%A7%E7%9D%80%E5%81%9A%EF%BC%8C%E4%BD%A0%E4%B9%9F%E8%83%BD%E6%88%90%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E6%9E%B6%E6%9E%84%20%E7%85%A7%E7%9D%80%E5%81%9A%EF%BC%8C%E4%BD%A0%E4%B9%9F%E8%83%BD%E6%88%90%E4%B8%BA%E6%9E%B6%E6%9E%84%E5%B8%88.md)
 
+- [其他记录](https://gitee.com/lihuadaiyu/read/tree/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95)
+  - [Docker启动容器](https://gitee.com/lihuadaiyu/read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Docker%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8.md)
+  - [Java注意事项](https://gitee.com/lihuadaiyu/read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Java%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
+  - [centos7操作](https://gitee.com/lihuadaiyu/read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/centos7.md)
