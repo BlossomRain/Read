@@ -31,6 +31,11 @@
 
 - [HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
+##### 1.1.3 数学
+
+- 线性代数
+- 单变量微积分
+
 #### 1.2 框架
 
 - Spring家族 中间件
