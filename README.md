@@ -3,9 +3,9 @@
 ## 介绍
  项目收集自己阅读的书籍笔记,以后后续查阅快速定位(在GitHub图片不能正常显示,应该是我网速原因,所以链接都是gitee,GitHub也会有一样的文件)
 
-环境: Typora + idea +  Java11 + CentOS7(虚拟机) + Win10
+环境: Typora + idea +  Java11 + CentOS7(虚拟机) + python3.9 + pycharm + Win10 
 
-已经完成的项目
+主要语言有 Java / Python / C# / C++ / Javascript
 
 ## 目录
 
@@ -17,7 +17,7 @@
 
 - 基础的Java语法,设计模式,操作系统知识
 
-##### 1.1.1 基础知识
+##### 1.1.1 Java基础知识
 
 - [Java8实战](https://gitee.com/lihuadaiyu/read/blob/master/Java8%E5%AE%9E%E6%88%98/Java8%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
 
@@ -36,7 +36,7 @@
 - 线性代数
 - 单变量微积分
 
-#### 1.2 框架
+#### 1.2 Java框架
 
 - Spring家族 中间件
 
@@ -72,6 +72,45 @@
 - [MongoDB权威指南](https://gitee.com/lihuadaiyu/read/blob/master/MongoDB%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/MongoDB%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.md)
 - [Redis设计与实现](https://gitee.com/lihuadaiyu/read/blob/master/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0/Redis%E8%AE%BE%E8%AE%A1%E4%B8%8E%E5%AE%9E%E7%8E%B0.md)
 
+
+
+#### 1.4 数学
+
+##### 1.4.1 微积分
+
+##### 1.4.2  线性代数
+
+##### 1.4.3 概率论
+
+##### 1.4.4 杂项
+
+- [程序员的数学1](https://gitee.com/lihuadaiyu/read/blob/master/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E6%95%B0%E5%AD%A6.md)
+
+
+
+#### 1.5 Python语言
+
+- [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
+
+#### 1.6 C/C++/C#语言
+
+- [WPF编程宝典](https://gitee.com/lihuadaiyu/csharp-study/blob/master/WPF%E7%BC%96%E7%A8%8B%E5%AE%9D%E5%85%B8/WPF%E7%BC%96%E7%A8%8B%E5%AE%9D%E5%85%B8.md) 
+- C Primer Plus
+- [精通C#](https://gitee.com/lihuadaiyu/csharp-study/blob/master/%E7%B2%BE%E9%80%9AC%23/%E7%B2%BE%E9%80%9AC%23.md)
+- Qt5.9C++开发指南
+- CPP-Primer
+
+#### 1.7 JavaScript基础/框架
+
+- [JavaScript高级程序设计](https://gitee.com/lihuadaiyu/front-end/blob/master/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
+- [Web前端精品开发课：HTML5Canvas开发详解](https://gitee.com/lihuadaiyu/front-end/blob/master/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3.md)
+
+-  [深入浅出Vue.js](https://gitee.com/lihuadaiyu/front-end/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js.md)
+-  [Vue企业开发实战]() 不推荐
+-  [Vue.js快跑：构建触手可及的高性能Web应用](https://gitee.com/lihuadaiyu/front-end/blob/master/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8.md)
+-  [WebGL编程指南](https://gitee.com/lihuadaiyu/front-end/blob/master/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97.md)
+-  [ES6、node 、webpackk、ts等基础](https://gitee.com/lihuadaiyu/front-end/tree/master/others)
+
 ### 2 技能提升
 
 - Java底层原理以及优化
@@ -80,7 +119,7 @@
 
 - [深入理解Java虚拟机](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E8%99%9A%E6%8B%9F%E6%9C%BA.md)
 
-#### 2.2 优化
+#### 2.2 Java优化
 
 - [Effective Java](https://gitee.com/lihuadaiyu/read/blob/master/Effective%20Java/Effective%20Java.md)
 
@@ -91,7 +130,18 @@
 - [UNIX环境高级编程](https://gitee.com/lihuadaiyu/read/blob/master/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 - [图解HTTP](https://gitee.com/lihuadaiyu/read/blob/master/%E5%9B%BE%E8%A7%A3HTTP/%E5%9B%BE%E8%A7%A3HTTP.md)
 
-### 3 杂项
+#### 2.4 机器学习
+
+- [Sklearn 与 TensorFlow 机器学习实用指南第二版](https://gitee.com/lihuadaiyu/read/blob/master/Sklearn%20%E4%B8%8E%20TensorFlow%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E7%AC%AC%E4%BA%8C%E7%89%88/Sklearn%20%E4%B8%8E%20TensorFlow%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E7%AC%AC%E4%BA%8C%E7%89%88.md)
+- [吴恩达深度学习](https://gitee.com/lihuadaiyu/read/blob/master/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.md)
+
+#### 2.5 图像处理
+
+- [学习OpenCV3](https://gitee.com/lihuadaiyu/read/blob/master/%E5%AD%A6%E4%B9%A0OpenCV3/%E5%AD%A6%E4%B9%A0OpenCV3.md)
+- [数字图像处理](https://gitee.com/lihuadaiyu/read/blob/master/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86.md)
+- [OpenCV 3计算机视觉 Python语言实现](https://gitee.com/lihuadaiyu/read/blob/master/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0.md)
+
+### 3 其他语言 
 
 - 工具使用 其他语言 
 
@@ -102,9 +152,9 @@
 - [跟老男孩学Linux运维：Shell编程实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/blob/master/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9AShell%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9AShell%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98.md)
 - [跟老男孩学Linux运维：核心系统命令实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/tree/master/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9A%E6%A0%B8%E5%BF%83%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E5%AE%9E%E6%88%98)
 
-#### 3.2 其他语言
+#### 3.2 Python
 
-- [HeadFirstPython](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirstPython/HeadFirstPython.md)
+- 
 
 #### 3.3 视频学习
 
