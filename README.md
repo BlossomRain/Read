@@ -94,22 +94,22 @@
 
 #### 1.6 C/C++/C#语言
 
-- [WPF编程宝典](https://gitee.com/lihuadaiyu/csharp-study/blob/master/WPF%E7%BC%96%E7%A8%8B%E5%AE%9D%E5%85%B8/WPF%E7%BC%96%E7%A8%8B%E5%AE%9D%E5%85%B8.md) 
-- C Primer Plus
-- [精通C#](https://gitee.com/lihuadaiyu/csharp-study/blob/master/%E7%B2%BE%E9%80%9AC%23/%E7%B2%BE%E9%80%9AC%23.md)
-- Qt5.9C++开发指南
-- CPP-Primer
+- [WPF编程宝典](https://gitee.com/lihuadaiyu/read/blob/master/WPF%E7%BC%96%E7%A8%8B%E5%AE%9D%E5%85%B8/WPF%E7%BC%96%E7%A8%8B%E5%AE%9D%E5%85%B8.md) 
+- [C Primer Plus](https://gitee.com/lihuadaiyu/read/blob/master/C-Primer-Plus/C%20Primer%20Plus.md)
+- [精通C#](https://gitee.com/lihuadaiyu/read/blob/master/%E7%B2%BE%E9%80%9AC%23/%E7%B2%BE%E9%80%9AC%23.md)
+- [Qt5.9C++开发指南](https://gitee.com/lihuadaiyu/read/blob/master/Qt5.9C++%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97/Qt5.9C++%E5%BC%80%E5%8F%91%E6%8C%87%E5%8D%97.md)
+- [CPP-Primer](https://gitee.com/lihuadaiyu/read/blob/master/CPP-Primer/C++%20Primer.md)
 
 #### 1.7 JavaScript基础/框架
 
-- [JavaScript高级程序设计](https://gitee.com/lihuadaiyu/front-end/blob/master/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
-- [Web前端精品开发课：HTML5Canvas开发详解](https://gitee.com/lihuadaiyu/front-end/blob/master/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3.md)
+- [JavaScript高级程序设计](https://gitee.com/lihuadaiyu/read/blob/master/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/JavaScript%E9%AB%98%E7%BA%A7%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1.md)
+- [Web前端精品开发课：HTML5Canvas开发详解](https://gitee.com/lihuadaiyu/read/blob/master/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3.md)
 
--  [深入浅出Vue.js](https://gitee.com/lihuadaiyu/front-end/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js.md)
+-  [深入浅出Vue.js](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js.md)
 -  [Vue企业开发实战]() 不推荐
--  [Vue.js快跑：构建触手可及的高性能Web应用](https://gitee.com/lihuadaiyu/front-end/blob/master/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8.md)
--  [WebGL编程指南](https://gitee.com/lihuadaiyu/front-end/blob/master/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97.md)
--  [ES6、node 、webpackk、ts等基础](https://gitee.com/lihuadaiyu/front-end/tree/master/others)
+-  [Vue.js快跑：构建触手可及的高性能Web应用](https://gitee.com/lihuadaiyu/read/blob/master/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8.md)
+-  [WebGL编程指南](https://gitee.com/lihuadaiyu/read/blob/master/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97.md)
+-  [ES6、node 、webpackk、ts等基础](https://gitee.com/lihuadaiyu/read/tree/master/others)
 
 ### 2 技能提升
 
