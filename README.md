@@ -1,11 +1,10 @@
-# Read 2020读书笔记
+# 读书笔记
 
-## 介绍
- 项目收集自己阅读的书籍笔记,以后后续查阅快速定位(在GitHub图片不能正常显示,应该是我网速原因,所以链接都是gitee,GitHub也会有一样的文件)
+介绍: 从2020年开始的读书笔记,本项目收集自己阅读的书籍笔记,以后后续查阅快速定位(在GitHub图片不能正常显示,应该是我网速原因,所以链接都是gitee,GitHub也会有一样的文件)
 
 环境: Typora + idea +  Java11 + CentOS7(虚拟机) + python3.9 + pycharm + Win10 
 
-主要语言有 Java / Python / C# / C++ / Javascript
+语言: Java / Python / C# / C++ / Javascript
 
 ## 目录
 
@@ -30,11 +29,6 @@
 ##### 1.1.2 设计模式
 
 - [HeadFirst设计模式](https://gitee.com/lihuadaiyu/read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
-
-##### 1.1.3 数学
-
-- 线性代数
-- 单变量微积分
 
 #### 1.2 Java框架
 
@@ -106,14 +100,14 @@
 - [Web前端精品开发课：HTML5Canvas开发详解](https://gitee.com/lihuadaiyu/read/blob/master/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3/Web%E5%89%8D%E7%AB%AF%E7%B2%BE%E5%93%81%E5%BC%80%E5%8F%91%E8%AF%BE%EF%BC%9AHTML5Canvas%E5%BC%80%E5%8F%91%E8%AF%A6%E8%A7%A3.md)
 
 -  [深入浅出Vue.js](https://gitee.com/lihuadaiyu/read/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAVue.js.md)
--  [Vue企业开发实战]() 不推荐
+-  [Vue企业开发实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/blob/master/Vue%E4%BC%81%E4%B8%9A%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/Vue%E4%BC%81%E4%B8%9A%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98.md) 
 -  [Vue.js快跑：构建触手可及的高性能Web应用](https://gitee.com/lihuadaiyu/read/blob/master/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8.md)
 -  [WebGL编程指南](https://gitee.com/lihuadaiyu/read/blob/master/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97.md)
 -  [ES6、node 、webpackk、ts等基础](https://gitee.com/lihuadaiyu/read/tree/master/others)
 
 ### 2 技能提升
 
-- Java底层原理以及优化
+- Java底层原理以及优化  操作系统原理  图像处理  深度学习
 
 #### 2.1 JVM
 
@@ -141,7 +135,7 @@
 - [数字图像处理](https://gitee.com/lihuadaiyu/read/blob/master/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86.md)
 - [OpenCV 3计算机视觉 Python语言实现](https://gitee.com/lihuadaiyu/read/blob/master/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0.md)
 
-### 3 其他语言 
+### 3 杂项
 
 - 工具使用 其他语言 
 
@@ -152,7 +146,7 @@
 - [跟老男孩学Linux运维：Shell编程实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/blob/master/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9AShell%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9AShell%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98.md)
 - [跟老男孩学Linux运维：核心系统命令实战 -- 不推荐](https://gitee.com/lihuadaiyu/read/tree/master/%E8%B7%9F%E8%80%81%E7%94%B7%E5%AD%A9%E5%AD%A6Linux%E8%BF%90%E7%BB%B4%EF%BC%9A%E6%A0%B8%E5%BF%83%E7%B3%BB%E7%BB%9F%E5%91%BD%E4%BB%A4%E5%AE%9E%E6%88%98)
 
-#### 3.2 Python
+#### 3.2 
 
 - 
 
