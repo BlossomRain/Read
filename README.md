@@ -105,7 +105,7 @@
 -  [~~Vue企业开发实战~~ -- 不推荐](https://github.com/BlossomRain/Read/blob/master/Vue%E4%BC%81%E4%B8%9A%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98/Vue%E4%BC%81%E4%B8%9A%E5%BC%80%E5%8F%91%E5%AE%9E%E6%88%98.md) 
 -  [Vue.js快跑：构建触手可及的高性能Web应用](https://github.com/BlossomRain/Read/blob/master/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8/Vue.js%E5%BF%AB%E8%B7%91%EF%BC%9A%E6%9E%84%E5%BB%BA%E8%A7%A6%E6%89%8B%E5%8F%AF%E5%8F%8A%E7%9A%84%E9%AB%98%E6%80%A7%E8%83%BDWeb%E5%BA%94%E7%94%A8.md)
 -  [WebGL编程指南](https://github.com/BlossomRain/Read/blob/master/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97/WebGL%E7%BC%96%E7%A8%8B%E6%8C%87%E5%8D%97.md)
--  [ES6、node 、webpackk、ts等基础](https://github.com/BlossomRain/Read/tree/master/others)
+-  [ES6 /node / webpack / ts / angular / less ](https://github.com/BlossomRain/Read/tree/master/front-end-others)
 
 ### 2 技能提升
 
@@ -171,3 +171,8 @@
   - [Docker启动容器](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Docker%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8.md)
   - [Java注意事项](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Java%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
   - [centos7操作](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/centos7.md)
+  - [C++开发注意事项](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/C%2B%2B%E5%BC%80%E5%8F%91%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
+  - [Java注意事项](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Java%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
+  - [搭建Opencv环境](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Ubuntu%E4%B8%8BOpencv%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
+  - [linux编辑操作](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/linux%E7%BC%96%E8%BE%91%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C.md)
+	- [WPF开发经验.md](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/WPF%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C.md)
