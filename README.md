@@ -6,35 +6,39 @@
 
 语言: Java / Python / C# / C++ / Javascript
 
-> 2022.5.19更新:由于gitee代码需要审核才能公开,所以之后连接不再使用gitee
+> 2022.5.19更新:由于gitee代码需要审核才能公开,链接不再使用gitee
 
 ## 目录
 
 ### 1 知识掌握
 
-- 基础知识 框架 
+#### 1.1 简介
 
-#### 1.1 必需知识
+- 涉及到基础代码知识,框架 ,由于最初是学习Java入门,此处便以Java开头
 
-- 基础的Java语法,设计模式,操作系统知识
+  Java学习了基本语法和Spring全家桶,同时也要学多线程和高并发的相关知识
 
-##### 1.1.1 Java基础知识
+  数据库方面主要学习SQL(MySQL,也用到了SQLite)和NoSQL(redis和mongoDB)
 
-- [Java8实战](https://github.com/BlossomRain/Read/blob/master/Java8%E5%AE%9E%E6%88%98/Java8%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
+  C/C++/Python学习了基本使用,并未深入目的是使用OpenCV相关API,C#只学习了WPF(工作用到)
 
-- [Java8并发编程实战](https://github.com/BlossomRain/Read/blob/master/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
+  JavaScript 学习了基本的语法和框架(vue/angular)
 
-- [Java核心技术 卷Ⅰ](https://github.com/BlossomRain/Read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71.md)
+  (待补充)数学方面主要是 微积分/线性代数/统计与概率
 
-- [Java核心技术 卷Ⅱ](https://github.com/BlossomRain/Read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72_%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
-
-##### 1.1.2 设计模式
-
-- [HeadFirst设计模式](https://github.com/BlossomRain/Read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
+  
 
 #### 1.2 Java框架
 
 - Spring家族 中间件
+
+##### 1.2.0 基础知识
+
+- [Java8实战](https://github.com/BlossomRain/Read/blob/master/Java8%E5%AE%9E%E6%88%98/Java8%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
+- [Java8并发编程实战](https://github.com/BlossomRain/Read/blob/master/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
+- [Java核心技术 卷Ⅰ](https://github.com/BlossomRain/Read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71.md)
+- [Java核心技术 卷Ⅱ](https://github.com/BlossomRain/Read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72_%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
+- [HeadFirst设计模式](https://github.com/BlossomRain/Read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
 
 ##### 1.2.1 Spring家族
 
@@ -56,8 +60,6 @@
 - [MyBatis技术内幕](https://github.com/BlossomRain/Read/blob/master/MyBatis%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/MyBatis%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95.md)
 
 #### 1.3 数据库
-
-- 关系型与非关系型数据库
 
 ##### 1.3.1 SQL
 
@@ -110,6 +112,7 @@
 ### 2 技能提升
 
 - Java底层原理以及优化  操作系统原理  图像处理  深度学习
+- TODO: 西瓜书/南瓜书/花书  龙书/虎书/鲸书
 
 #### 2.1 JVM
 
@@ -144,7 +147,7 @@
 
 ### 3 杂项
 
-- 工具使用 其他语言 
+- 记录一些 环境搭建/工具使用/问题 
 
 #### 3.1 工具
 
@@ -175,4 +178,4 @@
   - [Java注意事项](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Java%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
   - [搭建Opencv环境](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Ubuntu%E4%B8%8BOpencv%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA.md)
   - [linux编辑操作](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/linux%E7%BC%96%E8%BE%91%E9%AB%98%E7%BA%A7%E6%93%8D%E4%BD%9C.md)
-	- [WPF开发经验.md](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/WPF%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C.md)
+  - [WPF开发经验.md](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/WPF%E5%BC%80%E5%8F%91%E7%BB%8F%E9%AA%8C.md)
