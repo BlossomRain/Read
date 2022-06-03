@@ -143,7 +143,7 @@
 #### 2.6 操作系统与网络
 
 - 深入理解计算机系统
-- 计算机网络
+- [计算机网络](https://github.com/BlossomRain/Read/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95.md)
 
 ### 3 杂项
 
