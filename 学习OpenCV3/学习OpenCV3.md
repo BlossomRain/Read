@@ -1,7 +1,10 @@
 # 学习OpenCV3 笔记
 
 - 笔记时间：2022.1.11
+
 - 书籍作者：Adrian Kaehler 、Gary Bradski
+
+  > 一本工具书,不适合入门,没看完
 
 ## 第1章 概述
 

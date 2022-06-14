@@ -139,11 +139,13 @@
 - [学习OpenCV3](https://github.com/BlossomRain/Read/blob/master/%E5%AD%A6%E4%B9%A0OpenCV3/%E5%AD%A6%E4%B9%A0OpenCV3.md)
 - [数字图像处理](https://github.com/BlossomRain/Read/blob/master/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86.md)
 - [OpenCV 3计算机视觉 Python语言实现](https://github.com/BlossomRain/Read/blob/master/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0.md)
+- OpenCV计算机视觉编程攻略
 
 #### 2.6 操作系统与网络
 
 - 深入理解计算机系统
 - [计算机网络](https://github.com/BlossomRain/Read/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95.md)
+- [CUDAC编程权威指南](https://github.com/BlossomRain/Read/blob/master/CUDA_C%E7%BC%96%E7%A8%8B%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/CUDAC%E7%BC%96%E7%A8%8B%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.md)
 
 ### 3 杂项
 
