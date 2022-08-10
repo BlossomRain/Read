@@ -129,6 +129,7 @@
 - [UNIX环境高级编程](https://github.com/BlossomRain/Read/blob/master/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 - [图解HTTP](https://github.com/BlossomRain/Read/blob/master/%E5%9B%BE%E8%A7%A3HTTP/%E5%9B%BE%E8%A7%A3HTTP.md)
 - Vim-101-hacks
+- Linux-101-hacks
 
 #### 2.4 机器学习
 
