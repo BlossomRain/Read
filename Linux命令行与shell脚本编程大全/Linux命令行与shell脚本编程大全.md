@@ -100,7 +100,7 @@ Linux控制台,仿真了早期的硬接线控制台终端，而且是一种同Li
 通常使用Ctrl+Alt组合键配合F1或F7来进入图形界面
 
 ```shell
-# 改变文本和背景颜色 -help可以进行更多设置
+# 改变文本和背景颜色 --help可以进行更多设置
 setterm -inversescreen on
 ```
 
