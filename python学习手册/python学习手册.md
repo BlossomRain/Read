@@ -3,6 +3,10 @@
 - [ ] 书籍作者：Mark Lutz
 - [ ] 笔记时间：2021.9.22
 
+------
+
+> 很多都没有写,需要的时候再重读,第一次读目的是快速掌握python的基本用法
+
 ## 第一部分 基础
 
 ### 第一章 Python问答环节
@@ -345,9 +349,605 @@
 
 
 
+## 第六部分 OOP
+
+### 第二十六章 OOP:宏伟蓝图
+
+- ```python
+  class C1:
+      # 子类默认继承
+      def method(self,param):
+          print('this is C1')
+  
+  # 继承属性搜索顺序(从下往上,从左往右):当前类C -> 父类C1 -> 父类C2
+  # 模块对应的是一个文件,内存里只有一份,或者说一个实例
+  # 类对应的是class语句,内存里可以有多个实例
+  class C(C1,C2):
+      # 等同于构造函数,默认调用
+      def __init__(self):
+          # 属性设置/获取直接使用对象调用
+          self.name = 'tom'
+      
+      # 类的对象方法参数具有隐藏参数 self ,一般作为默认的第一个参数自动传入
+      def method(self):
+          print('this is C')
+  ```
+
+### 第二十七章 类代码编写基础
+
+- ```python
+  # 类一般是文件导入时自动执行
+  # 类是模块的属性
+  class A:
+      # 方法本质也是类对象的一个属性
+      def method(self):
+          pass
+      
+      # 运算符重载,双下划线包围的方法名,没有默认实现的运算符重载
+      def __init__(self,value=None):
+          self.age = value
+      
+      def __add__(self,other):
+          return A(self.age + other.age)
+      
+      def __str__(self):
+          return f'age:{self.age}'
+      
+         
+  ```
+
+- 命名空间
+
+  ```python
+  # 非常简单的空对象类,可以对该类增减属性,实现类似结构体的效果
+  # python一切皆对象,OOP只是对象属性操作而已
+  class rec:pass
+  # __dict__ 基于类对象的命名空间字典
+  list(rec.__dict__.keys())
+  
+  __class__ 	# 查看当前类
+  __bases__	# 查看父类
+  ```
+
+  
+
+### 第二十八章 一个更加实际的实例
+
+- 继承案例
+     ```python
+      class Person:
+          def __init__(self,name,job=None,pay=0):
+            self.name = name
+              self.job = job
+              self.pay = pay
+
+          def raiseMoney(self,percent):
+              self.pay *= (1+percent)
+
+          def __repr__(self):
+              return '[Person %s %s]' % (self.name,self.pay) 
+
+      class Manager(Person):
+          def __init__(self,name,job=None,pay=0):
+              Person.__init__(name,'mgr',pay)
+
+          def raiseMoney(self,percent,bonus):
+              # 不采用super关键字是可能引发未预料的效果
+              Person.raiseMoney(percent+0.1*bonus)
+             
+             
+      if __name__ == '__main__':
+           # 测试代码,作为模块导入时候不会调用
+           bob = Person('bob')
+           sue = Person('Sue Jones',job='dev',pay=10000)
+           print(bob.name,sue.name)
+     ```
 
 
+- 组合
+     ```python
+      # 非继承版本,使用组合方式实现
+      def Manager:
+          def __init__(self,name,pay):
+              self.person = Person(name,'mgr',pay)
 
+          # 调用方式还是点
+          def __getattr__(self,attr):
+              return getattr(self.person,attr)
 
+          # 打印对象所有属性(不包含继承来的属性)
+          # dir(self) 可以获取所有属性,包括基础
+          def gaterAttrs(self):
+              attrs = []
+              for key in sorted(self.__dict__):
+                  attrs.append('%s = %s'%(key,getattr(self,attr)))
+              return ','.join(attrs)
+     ```
 
+- 一些模块
 
+  ```python
+  # pickle 用于序列化
+  # shelve 将对象存在dbm文件的key里
+  # 限制在于类及模块必须是可导入的.导入文件后shelve会自动创建实例
+  mgr = Manager('tom',123)
+  import shelve
+  db = shelve.open('persondb')
+  for obj in (bob,sue,tom):
+      db[obj.name]=obj
+  db.close()
+  ```
+
+### 第二十九章 类代码细节
+
+- 类机制
+
+  ```python
+  # class 语句是对象创建,并且是隐含的赋值运算
+  # 有效的封装了名称空间
+  class A:
+      name='tom'		# 共享类属性
+      
+      def action(self):	# 子类必须实现
+          assert False,'must define action'
+          raise NotImplementedError('must define action')
+          
+          
+  # __doc__ 查看对象文档说明
+  # help(模块) 查看文档
+  ```
+
+  
+
+### 第三十章 运算符重载
+
+- ```python
+  # 虽然可以通过函数名调用,但是不推荐,速度会更慢
+  class Indexer:
+  	# 索引重载,容器类操作,也会被分片操作使用
+      # 迭代的备选项
+      def __getitem__(self,idx):
+          return idx ** 2
+      
+      # 更新值
+      def __setietm__(self,idx,value):
+          data[idx] = value
+          
+      # 将对象转为一个整数
+      def __index__(self):
+          return 255
+      
+      # 自定义迭代,返回迭代器对象
+      # 默认只能一次迭代,可以通过返回新的对象实现多次迭代
+      def __iter__(self):
+          return self
+      def __next__(self):
+          if self.value > 5:
+              raise StopIteration
+          self.value += 1
+          return self.value**2
+      
+      # 备选方案 自动转换成生成器函数,自带 next 函数
+      # 代码更简洁,省略了中间许多过程
+      # 自动实现了可多次迭代
+      def gen(self):
+          for value in range(10):
+              yield value**2
+      
+      # 作用于关键字 in
+      def __contains__(self,val):
+          return True
+      
+      # 拦截对象属性访问
+      def __getattr__(self,attr):
+          return 123
+      
+      # 不要直接对属性修改,会无限递归
+      def __setattr__(self,attr,value):
+          self.__dict__[attr]=value
+      
+      # 打印对象
+      def __repr__(self):
+          return 'abc'
+      
+  X = Indexer()
+  X[2]
+  ```
+
+### 第三十一章 类的设计
+
+- ```python
+  # 可以使用 __getattr__ 实现包装类
+  # _X 表示伪私有变量
+  # 类内部变量 __X 会自动重整为 _类名__X,防止冲突
+  ```
+
+### 第三十二章 类的高级主题
+
+- ```python
+  # 内嵌扩展类型  ==> 使用代理模式 或者 继承
+  # 新式类
+  ## 	__getattr__ 不再搜索内置上下文 __X__ 的重载方法名
+  ##	代理对象涉及到内置运算需重新定义 
+  ## object 派生自 type,type 派生自 object
+  
+  # 多继承搜索规则 MRO ,广度优先搜索,适用于钻石继承
+  # 最好不要依靠MRO,而是明确指定哪个类的方法
+  # __mro__ 可以查看类的MRO顺序
+  
+  # slot 慎用
+  # 不在 __slots__ 的属性会认为是拼写错误,会让 __dict__ 失效
+  # getattr() 会搜索两者
+  
+  # property 少用
+  
+  # staticmethod() / classmethod() 静态方法不会传入对象,类方法自动传入类对象 
+  ```
+
+- 装饰器
+
+  ```python
+  # 元函数,下一部分介绍
+  class Test:
+  	@staticmethod
+  	def meth():pass
+      
+  # super() 适合单继承使用,钻石协同不建议过多使用
+  ```
+
+## 第七部分 异常和工具
+
+### 第三十三章 异常和工具
+
+- ```python
+  # 作用 错误处理/时间通知/特殊情况处理/终止行为/非常规控制
+  
+  # 越界案例
+  try:
+  	x = '1234'
+  	x[5]
+      raise IndexError		# 手动引发异常
+      assert False,'error'	# 有条件的异常
+  except IndexError:
+      print('index error')
+      
+  # 自定义异常
+  class MyError(Exception):pass
+  ```
+
+### 第三十四章 异常编写细节
+
+- ```python
+  try:
+      do()
+  except (A,B) as e:		# 捕获AB错误
+  except :				# 捕获所有错误,最好捕获 Exception
+      doHandle()
+  else:
+      doNoException()		# 不发生异常执行的代码
+  finally:
+   	doSome()			# 离开try后一定执行
+        
+  ## 引发异常
+  raise Excetion
+  raise Excetion()		# 两种触发方式都会产生实例,传递给except
+  raise OtherException() from Exction		# 利用异常触发别的异常
+  
+  
+  ## Assert 断言
+  assert test,data
+  
+  ## with 上下文
+  with open('a') as a:	# 资源自动管理
+  	pass
+  class DemoWith:
+      def __enter__(self):
+          return self
+      def __exit__(self,exc_type,exc_value,exc_tb):
+          if exc_type is None:
+              print('ok')
+          else:
+              print('error')
+              return False
+  ```
+
+### 第三十五章 异常对象
+
+- ```python
+  
+  import excetions	# 查看所有异常
+  help(excetions)
+  					# 重新定义__str__,实现自定义输出
+  e.logerror()
+  sys.exc_info()		# 获取最近异常信息
+  ```
+
+### 第三十六章 异常的设计
+
+- ```python
+  # 异常不总是错误
+  # 键盘输入也可以触发异常 Ctrl-C  / sys.exit() 等也会触发异常
+  import tranceback		# 有大量方法可以查看异常信息
+  # 避免空异常和Exception
+  
+  ```
+
+- 可用工具
+
+  - PyDoc  PyChecker  Pylint PyUnit 动态语言规范化,简单单元测试
+  - doctest 标准库测试
+  - profile 性能测试
+  - 交付选项 py2exe PyInstaller
+  - 优化选项 JIT
+
+## 第八部分 高级主题
+
+### 第三十七章 Unicode和字节串
+
+- ```python
+  # 字符编码方案 ASCII 7位编码
+  ord('a')	#97
+  hex(97)		#'0x61'
+  chr(97)		#'a' ,
+  
+  # 编码 字符串根据编码格式转为字节序列
+  # 解码 字节序列根据编码格式转为字符串
+  'abc'.encode('utf8')
+  
+  # 实际上Python内存里字符串是编码独立的,也就是跟编码无关,只有输入/输出的时候才需要转换
+  # Python3.2之前是UTF-16格式,3.3以后是1/2/4变长版本
+  # 码点是字符个数,len()返回的就是码点个数
+  ```
+
+- ```python
+  # 字符串类型
+  # str表示8位文本和二进制  Unicode表示解码的Unicode文本  
+  # bytes表示不可变的二进制数据,几乎支持str的全部运算
+  # 由 open(file,mode) mode若含b则说明是二进制格式
+  type(b'spam'),type('spam')	#(bytes, str),需要注意的是b会跟文档注释起作用
+  type(u'spam')				# str
+  bytes('spam',encoding='ascii')	# 转换,不可以默认相互转,最好明确指定编码格式
+  
+  \xNN	#十六进制转义
+  \uNNNN	#unicode 4字节转义
+  \UNNNNNNNN	#8字节
+  
+  # 字符串可以嵌入特殊字符,使用转义方式
+  S = 'abc\xc4b'
+  
+  ```
+
+- ```python
+  # -*- coding: latin-1 -*-			#指明脚本编码格式,必须放在第一行,默认utf8
+  
+  set(dir('a')) - set(dir(b'a'))		#查看二进制操作少了哪些,bytes没有格式化
+  bytearray							#支持原地修改的序列,也区分文本/二进制
+  
+  ```
+- 文件操作
+
+  ```python
+  open('temp','w').write('abc\n')
+  open('temp','r').read()				# abc\n
+  open('temp','rb').read()			# abc\r\n
+  open('temp','w',encoding='utf-8').write('abc\n')	# 指定编码格式
+  # 文本保存时候可能会带有BOM(Byte Order Mark),需要指定对应的编码格式来跳过
+  # 比如utf-16总是会保存BOM,使用二进制读取可以看到
+  
+  sys.byteorder
+  sys.getdefaultencoding()
+  sys.getfilesystemencoding()
+  ```
+
+- 字符串工具
+
+  ```python
+  # 正则
+  import re
+  src = 'abcabc'
+  pat = 'abc'
+  re.match(pat,src).groups()			# 匹配
+  
+  # 从字符串提取二进制
+  from  struct import pack
+  pack('abc',7,b'spam',8)				# 输出二进制
+  
+  # pickle 序列化
+  
+  # xml 工具
+  # 正则 re
+  # 默认DOM xml.dom.minidom.parse
+  import xml.sax.handler
+  from xml.etree.ElementTree import parse 
+  ```
+
+### 第三十八章 被管理的属性
+
+- ```python
+  # 属性验证
+  # __getattr__ / __setattr__ / __getattribute___
+  property			# 内置函数,用于特定属性访问路由
+  描述符协议			 # 新类可用
+  
+  
+  # property
+  class demo{
+  	def __init__(self,name):
+      	self._name = name
+      
+      def getName(self):
+      	print('get name ',self._name)
+      	return self._name
+      
+      def setName(self,value):
+      	print('set name ',value)
+      	self._name = value
+      
+      def delName(self):
+      	print('del name')
+      	del self._name
+      
+      name = property(getName,setName,delName,'name property docs')
+      
+  }
+  
+  
+  # 装饰器
+  class demo{
+      def __init__(self,name):
+      	self._name = name
+      
+      @property
+      def name(self):
+      	"name property docs	"
+      	print('get name ',self._name)
+      	return self._name
+      
+      @name.setter
+      def name(self,value):
+      	print('set name ',value)
+      	self._name = value
+      
+      @name.deleter
+      def name(self):
+      	print('del name')
+      	del self._name
+  }
+  ```
+
+- 描述符
+
+  ```python
+  # 带有以下方法的类就是描述符类,赋值方式访问时候会自动触发对应函数
+  class Descriptor{
+      def __get__(self,instance,owner):pass
+      def __set__(self,instance,value):pass
+      def __delete__(self,instance):pass
+  }
+  
+  # 使用 slot/getattr工具和dir配合,可以向property一样访问属性
+  def __getattr__			# 未定义属性获取
+  def __getattribue__		# 全部属性获取,容易引起递归
+  						# object.__getattribute__(self,'other'),不可以通过 __dict__
+  def __setattr__			# 全部属性设置
+  def __delattr__			# 全部属性删除
+  
+  
+  
+  ```
+
+  
+
+### 第三十九章 装饰器
+
+- ```python
+  # 装饰器提供了在函数/类定义结束时候自动插入运行的代码
+  class demo{
+      @staticmethod				# method=staticmethod(method)
+      def method(self):pass
+  }
+  
+  # 自定义装饰器,函数装饰器,不可以作用在类上
+  class tracer():
+      def __init__(self,func):
+          self.calls = 0
+          self.func = func
+          
+      def __call__(self,*args,**kwargs):
+          self.calls+=1
+          print('call %s to %s' % (self.calls,self.func.__name__))
+          self.func(*args,**kwargs)
+          
+  # 闭包方式实现函数装饰器,可以作用在类上
+  # 写法很多,需要函数和方法都有效的最好使用嵌套函数的方式
+  def tracer(func):
+      def wrapper(*args,**kwargs):
+          global calls
+          calls += 1
+          print('call %s to %s' % (calls,func.__name))
+          return func(*args,**kwargs)
+      return wrapper
+          
+  @tracer							# spam = trancer(spam)
+  def spam(a,b,c):				# 
+      print(a+b+c)
+  @tracer  
+  def egg(x,y):
+      print(x**y)
+  ```
+
+- ```python
+  # 类装饰器
+  def sigleton(aClass):
+      instance = Node
+      def onCall(*args,**kwargs):
+          nonlocal instance
+          if instance == None:
+              instance = aClass(*args,**kwargs)
+          return instance       
+  	return onCall
+  # 自包含方案
+  def sigleton(aClass):
+      def onCall(*args,**kwargs):
+          if onCall.instance == None:
+               onCall.instance = aClass(*args,**kwargs)
+          return  onCall.instance       
+  	return onCall
+  
+  # 可以使用装饰器实现Private等访问控制,原理还是利用 __getattr__ 进行拦截
+  
+  ```
+
+### 第四十章 元类
+
+- ```python
+  # 元类是扩展了装饰器的代码插入模型
+  # 元类是type类的字类,类对象是type类实例或子类
+  # Python在class语句末尾运行
+  # class = type(classname,superclasses,attrbuteddict)
+  # type对象定义了__call__ 运算符重载,运行了 __new__ 和 __init__
+  
+  class Meta(type):
+      def __new__(meta,classname,supers,classdict):
+          return type.__new__(meta,classname,supers,classdict)
+      
+  class Spam(metaclass=Meta):			# 声明元类
+     
+  class M1(type):attr1=1
+  class M2(M1):attr2=2
+  class C1:attr3=3
+  class C2(C1,metaclass=M2):attr4=4
+  
+  C2().attr1							# 元类属性 实例不可以继承 
+  C2().__class__.attr1				# 可以访问
+  ```
+
+- python继承算法
+
+  > 1. 从实例I出发,搜索该实例 , 该类 以及父类 通过
+  >    1. 搜索实例I的 \_\_class\_\_ 中的 \_\_mro\_\_ 找到所有类的 \_\_dict\_\_
+  >    2. 如果上一步找到描述符,调用并退出
+  >    3. 否则,返回实例I的\_\_dict\_\_中的值
+  >    4. 否则,调用1的非数据描述符或1中的找到的值
+  > 2. 从一个类C出发,搜索该类,父类
+  >    1. 同1
+  > 3. 规则1和2,内置操作只用步骤1的版本
+
+- ```python
+  # 元类方法只能使用类调用
+  # 元类扩展
+  class Extender(type):
+      def __new__(meta,classname,supers,classdict):
+          classdict['eggs']=eggsfunc
+          classdict['ham']=hamfunc
+          return  type.__new__(meta,classname,supers,classdict)
+      
+  class Client1(metaclass=Extender):
+      def __init__(self,value):
+          self.value = value
+          
+      def spam(self):
+          return self.value *2
+  ```
+
+- 
