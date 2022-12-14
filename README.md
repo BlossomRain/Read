@@ -128,8 +128,9 @@
 - [cURL必知必会](https://github.com/BlossomRain/Read/blob/master/cURL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/cURL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
 - [UNIX环境高级编程](https://github.com/BlossomRain/Read/blob/master/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
 - [图解HTTP](https://github.com/BlossomRain/Read/blob/master/%E5%9B%BE%E8%A7%A3HTTP/%E5%9B%BE%E8%A7%A3HTTP.md)
-- Vim-101-hacks
-- Linux-101-hacks
+- [Vim-101-hacks](https://github.com/BlossomRain/Read/blob/master/Vim-101-hacks/Vim-101-hacks.md)
+- [Linux-101-hacks](https://github.com/BlossomRain/Read/blob/master/Linux-101-hacks/Linux-101-hacks.md)
+- [awk-and-sed 101 hacks](https://github.com/BlossomRain/Read/blob/master/sed-and-awk-101-hacks/sed-and-awk-101-hacks.md)
 
 #### 2.4 机器学习
 
