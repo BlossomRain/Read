@@ -19,11 +19,19 @@
   - [7 Linux  🐧](#7-linux--)
     - [7.1 基本技能](#71-基本技能)
     - [7.2 操作系统](#72-操作系统)
-  - [8 计算机视觉 🖼️](#8-计算机视觉-️)
+  - [8 机器学习 🖼️](#8-机器学习-️)
     - [8.1 机器学习](#81-机器学习)
     - [8.2 图像处理](#82-图像处理)
-  - [9 过程问题记录 📝](#9-过程问题记录-)
-    - [9.1 日常运行常用脚本](#91-日常运行常用脚本)
+  - [9 数学/物理🔢](#9-数学物理)
+    - [9.1 数学](#91-数学)
+    - [9.2 物理](#92-物理)
+    - [9.3 电子](#93-电子)
+  - [10 其他](#10-其他)
+    - [10.1 架构与设计](#101-架构与设计)
+    - [10.2 安卓](#102-安卓)
+    - [](#)
+  - [过程问题记录 📝](#过程问题记录-)
+    - [1 日常运行常用脚本](#1-日常运行常用脚本)
   - [联系我 ✉️](#联系我-️)
 
 
@@ -49,12 +57,16 @@
 <summary>基础知识</summary>
 
 - [Java8实战](https://github.com/BlossomRain/Read/blob/master/Java8%E5%AE%9E%E6%88%98/Java8%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
+
 - [Java8并发编程实战](https://github.com/BlossomRain/Read/blob/master/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98/Java%E5%B9%B6%E5%8F%91%E7%BC%96%E7%A8%8B%E5%AE%9E%E6%88%98%20%E7%AC%94%E8%AE%B0.md)
+
 - [Java核心技术 卷Ⅰ](https://github.com/BlossomRain/Read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B71.md)
+
 - [Java核心技术 卷Ⅱ](https://github.com/BlossomRain/Read/blob/master/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72/Java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF_%E5%8D%B72_%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7.md)
-- [HeadFirst设计模式](https://github.com/BlossomRain/Read/blob/master/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/HeadFirst%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F.md)
+
 - [maven实战](https://github.com/BlossomRain/Read/blob/master/maven%E5%AE%9E%E6%88%98/maven%E5%AE%9E%E6%88%98.md)
-- [深入浅出Docker](https://github.com/BlossomRain/Read/blob/master/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BADocker.md)
+
+
 </details>
 
 ### 1.2 Spring家族及其他框架
@@ -69,6 +81,7 @@
 - [Netty实战](https://github.com/BlossomRain/Read/blob/master/Netty%E5%AE%9E%E6%88%98/Netty%E5%AE%9E%E6%88%98.md)
 
 - [MyBatis技术内幕](https://github.com/BlossomRain/Read/blob/master/MyBatis%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95/MyBatis%E6%8A%80%E6%9C%AF%E5%86%85%E5%B9%95.md)
+-  [Hadoop权威指南]
 </details>
 
 ### 1.3 进阶学习
@@ -86,6 +99,7 @@
 ## 3 Python 🐍
 
 - [HeadFirstPython](https://github.com/BlossomRain/Read/blob/master/HeadFirstPython/HeadFirstPython.md)
+- [python学习手册]
 
 ## 4 C/C++ 📘
 
@@ -119,24 +133,32 @@
 
 - [Linux命令行与shell脚本编程大全/Linux命令行与shell脚本编程大全](https://github.com/BlossomRain/Read/blob/master/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8/Linux%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%B8%8Eshell%E8%84%9A%E6%9C%AC%E7%BC%96%E7%A8%8B%E5%A4%A7%E5%85%A8.md)
 - [cURL必知必会](https://github.com/BlossomRain/Read/blob/master/cURL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A/cURL%E5%BF%85%E7%9F%A5%E5%BF%85%E4%BC%9A.md)
-- [UNIX环境高级编程](https://github.com/BlossomRain/Read/blob/master/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
-- [图解HTTP](https://github.com/BlossomRain/Read/blob/master/%E5%9B%BE%E8%A7%A3HTTP/%E5%9B%BE%E8%A7%A3HTTP.md)
+
+- 
 - [Vim-101-hacks](https://github.com/BlossomRain/Read/blob/master/Vim-101-hacks/Vim-101-hacks.md)
 - [Linux-101-hacks](https://github.com/BlossomRain/Read/blob/master/Linux-101-hacks/Linux-101-hacks.md)
 - [awk-and-sed 101 hacks](https://github.com/BlossomRain/Read/blob/master/sed-and-awk-101-hacks/sed-and-awk-101-hacks.md)
+- [深入浅出Docker]
+- [跟老男孩学Linux运维：核心系统命令实战]
+- [跟老男孩学Linux运维：Shell编程实战]
 
 ### 7.2 操作系统
 
 - 深入理解计算机系统
 - [计算机网络](https://github.com/BlossomRain/Read/blob/master/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%96%B9%E6%B3%95.md)
-- [CUDAC编程权威指南](https://github.com/BlossomRain/Read/blob/master/CUDA_C%E7%BC%96%E7%A8%8B%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/CUDAC%E7%BC%96%E7%A8%8B%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.md)
+- 
+- [图解HTTP](https://github.com/BlossomRain/Read/blob/master/%E5%9B%BE%E8%A7%A3HTTP/%E5%9B%BE%E8%A7%A3HTTP.md)
+- [UNIX环境高级编程](https://github.com/BlossomRain/Read/blob/master/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B/Unix%E7%8E%AF%E5%A2%83%E9%AB%98%E7%BA%A7%E7%BC%96%E7%A8%8B.md)
+- web网络安全
+- Linux内核设计的艺术：图解Linux操作系统架构设计与实现原理
 
-## 8 计算机视觉 🖼️
+## 8 机器学习 🖼️
 
 ### 8.1 机器学习
 
 - [Sklearn 与 TensorFlow 机器学习实用指南第二版](https://github.com/BlossomRain/Read/blob/master/Sklearn%20%E4%B8%8E%20TensorFlow%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E7%AC%AC%E4%BA%8C%E7%89%88/Sklearn%20%E4%B8%8E%20TensorFlow%20%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97%E7%AC%AC%E4%BA%8C%E7%89%88.md)
 - [吴恩达深度学习](https://github.com/BlossomRain/Read/blob/master/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/%E5%90%B4%E6%81%A9%E8%BE%BE%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0.md)
+- [CUDAC编程权威指南](https://github.com/BlossomRain/Read/blob/master/CUDA_C%E7%BC%96%E7%A8%8B%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/CUDAC%E7%BC%96%E7%A8%8B%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97.md)
 
 ### 8.2 图像处理
 
@@ -144,10 +166,35 @@
 - [数字图像处理](https://github.com/BlossomRain/Read/blob/master/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/%E6%95%B0%E5%AD%97%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86.md)
 - [OpenCV 3计算机视觉 Python语言实现](https://github.com/BlossomRain/Read/blob/master/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0/OpenCV%203%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89%20Python%E8%AF%AD%E8%A8%80%E5%AE%9E%E7%8E%B0.md)
 - OpenCV计算机视觉编程攻略
+- OpenGL编程指南
+- 图像处理的数学修炼
 
-## 9 过程问题记录 📝
+## 9 数学/物理🔢
 
-### 9.1 日常运行常用脚本
+### 9.1 数学
+- [Matlab学习]
+- 程序员的数学
+- 概率论与数理统计
+- 微积分
+- 线性代数
+### 9.2 物理
+
+
+### 9.3 电子
+
+
+## 10 其他
+
+### 10.1 架构与设计
+
+### 10.2 安卓
+
+### 
+
+
+##  过程问题记录 📝
+
+### 1 日常运行常用脚本
 
 - [Docker启动容器](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Docker%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8.md)
 - [Java注意事项](https://github.com/BlossomRain/Read/blob/master/%E5%85%B6%E4%BB%96%E8%AE%B0%E5%BD%95/Java%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9.md)
