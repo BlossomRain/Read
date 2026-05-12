@@ -1,0 +1,19 @@
+\documentclass[border=6pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american]
+  \draw
+    (0,0) node[ground] {}
+    to[V, l_=$V_{CC}$] (0,4)
+    to[R, l=$R_1$] (4,4)
+    to[short, -*] (6,4)
+    to[short, -o] (8.2,4);
+
+  \draw
+    (6,4) to[R, l=$R_L$] (6,0)
+    -- (0,0);
+
+  \node[above] at (8.2,4) {$v_{out}$};
+\end{circuitikz}
+\end{document}

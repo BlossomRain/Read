@@ -1,6 +1,7 @@
 # Compiled class file
 *.class
 *resize.py
+*svg2png.py
 
 # Log file
 *.log
@@ -35,6 +36,7 @@ gen
 hs_err_pid*
 HELP.md
 target/
+ignore/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -72,3 +74,15 @@ build/
 *.docx
 *.xmind
 *.pdf
+
+# Local workspace helper layer (keep local, do not publish)
+AGENTS.md
+workspace.yaml
+memory/
+notes/
+output/
+tmp/
+
+# Editor temporary files
+*.swp
+*.swo

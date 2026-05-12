@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <defs>
+    <style>
+      .title { font: 700 34px "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #111827; }
+      .label { font: 400 28px "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; fill: #111827; }
+      .label-en { font: 400 28px "Times New Roman", serif; fill: #111827; }
+      .accent { fill: #ec4899; font: 600 30px "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+      .accent-en { fill: #ec4899; font: 600 30px "Times New Roman", serif; }
+      .water-text { fill: #059669; font: 600 30px "Microsoft YaHei UI", "PingFang SC", "Noto Sans CJK SC", sans-serif; }
+      .water-en { fill: #059669; font: 600 30px "Times New Roman", serif; }
+      .tank { fill: none; stroke: #404040; stroke-width: 6; }
+      .pipe { fill: #4c78a8; stroke: #404040; stroke-width: 6; }
+      .water { fill: #87b9e6; }
+      .guide { stroke: #7b8794; stroke-width: 2; stroke-dasharray: 10 10; }
+      .voltage-mark { stroke: #ec4899; stroke-width: 4; }
+      .valve { fill: #c7ced8; stroke: #404040; stroke-width: 2; }
+      .current-line { stroke: #10b981; stroke-width: 4; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="600" y="74" text-anchor="middle" class="title">电压、电流、电阻 - 水流类比</text>
+  <text x="955" y="74" text-anchor="middle" class="title" font-family="Times New Roman, serif">(Water Analogy)</text>
+
+  <rect x="100" y="160" width="240" height="500" class="tank"/>
+  <rect x="860" y="160" width="240" height="500" class="tank"/>
+
+  <rect x="110" y="260" width="220" height="390" class="water"/>
+  <rect x="870" y="460" width="220" height="190" class="water"/>
+
+  <line x1="40" y1="260" x2="1150" y2="260" class="guide"/>
+  <line x1="40" y1="460" x2="1150" y2="460" class="guide"/>
+
+  <text x="140" y="138" class="accent">高电势（+）</text>
+  <text x="900" y="138" class="accent">低电势（-）</text>
+
+  <text x="88" y="238" class="label">高水位</text>
+  <text x="190" y="238" class="label-en">(High Level)</text>
+
+  <text x="855" y="438" class="label">低水位</text>
+  <text x="960" y="438" class="label-en">(Low Level)</text>
+
+  <rect x="340" y="582" width="160" height="34" class="pipe"/>
+  <rect x="700" y="582" width="160" height="34" class="pipe"/>
+  <rect x="500" y="560" width="200" height="78" rx="12" class="valve"/>
+
+  <line x1="400" y1="599" x2="455" y2="599" class="current-line"/>
+  <line x1="720" y1="599" x2="775" y2="599" class="current-line"/>
+
+  <text x="600" y="611" text-anchor="middle" class="label">细管 / 阀门</text>
+
+  <text x="600" y="680" text-anchor="middle" class="label">阻力</text>
+  <text x="664" y="680" text-anchor="middle" class="label-en">(Resistance)</text>
+
+  <text x="600" y="708" text-anchor="middle" class="water-text">水流</text>
+  <text x="680" y="708" text-anchor="middle" class="water-en">(Current)</text>
+
+  <line x1="640" y1="260" x2="640" y2="460" class="voltage-mark"/>
+  <text x="600" y="368" text-anchor="middle" class="accent">水压差</text>
+  <text x="715" y="368" text-anchor="middle" class="accent-en">(Voltage)</text>
+</svg>
