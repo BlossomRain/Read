@@ -1,0 +1,44 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \def\ytop{2.6}
+  \def\ybot{0}
+
+  \node[font=\small] at (1.55, 3.55) {Original network};
+  \draw (0.0, \ytop) node[left, font=\scriptsize]{a} -- (0.2, \ytop);
+  \draw (0.0, \ybot) node[left, font=\scriptsize]{b} -- (0.2, \ybot);
+
+  \draw (0.2, \ytop) to[R] (1.5, \ytop)
+        to[R] (2.7, \ytop);
+  \draw (2.7, \ytop) to[V, l_=\scriptsize$V_s$] (2.7, \ybot);
+  \draw (2.7, \ybot) to[short] (0.2, \ybot);
+  \draw (0.2, \ybot) to[short] (0.2, \ytop);
+
+  \draw (3.1, \ytop) -- (3.8, \ytop) node[ocirc, label={[font=\scriptsize]above:a}]{};
+  \draw (3.1, \ybot) -- (3.8, \ybot) node[ocirc, label={[font=\scriptsize]below:b}]{};
+
+  \node[font=\small] at (6.7, 3.55) {Thevenin};
+  \node[font=\small] at (4.45, 1.35) {$\Longrightarrow$};
+
+  \draw (5.2, \ytop) node[ocirc, label={[font=\scriptsize]above:a}]{}
+        to[R, l_=\scriptsize$R_{th}$] (7.1, \ytop)
+        to[short] (7.1, \ybot)
+        to[V, l_=\scriptsize$V_{th}$, invert] (5.2, \ybot)
+        node[ocirc, label={[font=\scriptsize]below:b}]{};
+
+  \node[font=\small] at (11.2, 3.55) {Norton};
+  \node[font=\small] at (8.85, 1.35) {$\Longrightarrow$};
+
+  \draw (9.2, \ytop) node[ocirc, label={[font=\scriptsize]above:a}]{};
+  \draw (9.2, \ybot) node[ocirc, label={[font=\scriptsize]below:b}]{};
+
+  \draw (9.2, \ytop) to[short] (10.0, \ytop);
+  \draw (10.0, \ytop) to[R, l_=\scriptsize$R_{th}$] (10.0, \ybot);
+  \draw (9.2, \ytop) to[short] (12.6, \ytop);
+  \draw (12.6, \ytop) to[I, l_=\scriptsize$I_N$] (12.6, \ybot);
+  \draw (10.0, \ybot) to[short] (12.6, \ybot);
+  \draw (9.2, \ybot) to[short] (10.0, \ybot);
+\end{circuitikz}
+\end{document}

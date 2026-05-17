@@ -1,19 +1,18 @@
-\documentclass[border=6pt,crop=true]{standalone}
+\documentclass[border=4pt,crop=true]{standalone}
 \usepackage{circuitikz}
-\usepackage{amsmath}
 
 \begin{document}
 \begin{circuitikz}[american]
   \draw
-    (0,0) to[battery1, l_=$V$] (0,3)
-          to[R, l=$R$] (3,3)
-          to[short, *-o] (5,3)
-          to[R, l=$R_L$] (5,0)
-          to[short, o-*] (0,0);
+    (0,0) node[ground] {}
+    to[V, l_={$V$}] (0,3)
+    to[R, l={$R$}] (3,3)
+    to[short, -*] (5,3)
+    to[R, l={$R_L$}] (5,0)
+    -- (0,0);
 
-  \draw[->] (5.7,2.4) -- (5.7,0.8) node[midway,right] {$I_L$};
+  \draw[->] (5.8,2.4) -- (5.8,0.9) node[midway,right] {$I_L$};
 
-  \node[above] at (5,3) {$+$};
-  \node[below] at (5,0) {$-$};
+  \node[above] at (5,3) {$v_L$};
 \end{circuitikz}
 \end{document}

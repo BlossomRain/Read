@@ -1,19 +1,21 @@
-\documentclass[border=6pt,crop=true]{standalone}
+\documentclass[border=4pt,crop=true]{standalone}
 \usepackage{circuitikz}
 
 \begin{document}
 \begin{circuitikz}[american]
   \draw
     (0,0) node[ground] {}
-    to[V, l_=$V_{CC}$] (0,4)
-    to[R, l=$R_1$] (4,4)
-    to[short, -*] (6,4)
-    to[short, -o] (8.2,4);
+    to[V, l_=$10\,\mathrm{V}$] (0,3.2)
+    to[R, l=$5\,\Omega$] (3.2,3.2)
+    to[short, -*] (5.1,3.2)
+    to[short] (8.8,3.2);
 
   \draw
-    (6,4) to[R, l=$R_L$] (6,0)
+    (5.1,3.2) to[R, l={$10\,\Omega$}] (5.1,0)
+    (6.9,3.2) to[R, l={$10\,\Omega$}] (6.9,0)
+    (8.8,3.2) to[R, l={$R_L$}] (8.8,0)
     -- (0,0);
 
-  \node[above] at (8.2,4) {$v_{out}$};
+  \node[above] at (8.8,3.2) {$v_{out}$};
 \end{circuitikz}
 \end{document}
