@@ -1,0 +1,17 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american]
+  \draw
+    (0,0) node[ground] {}
+    to[V, l_={$V$}] (0,3)
+    to[R, l={$R_1$}] (2.4,3)
+    to[C, l={$C$}, v^>={$v_C(t)$}] (5.0,3)
+    to[short, -*] (6.8,3)
+    to[R, l={$R_2$}] (6.8,0)
+    -- (0,0);
+
+  \node[above] at (6.8,3) {$v_x$};
+\end{circuitikz}
+\end{document}

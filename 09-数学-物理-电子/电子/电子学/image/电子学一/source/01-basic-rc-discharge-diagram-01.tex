@@ -1,0 +1,15 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american]
+  \draw
+    (0,0) node[ground] {}
+    to[C, l_={$C$}, v={$v_C(0)$}] (0,3)
+    to[short, -*] (2.6,3)
+    to[R, l={$R_{eq}$}] (2.6,0)
+    -- (0,0);
+
+  \draw[->] (1.4,3.45) -- (2.25,3.45) node[midway,above] {$i(t)$};
+\end{circuitikz}
+\end{document}

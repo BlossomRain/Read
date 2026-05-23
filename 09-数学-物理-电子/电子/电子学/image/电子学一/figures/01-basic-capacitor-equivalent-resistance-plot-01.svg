@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
+  <defs>
+    <style>
+      .axis{stroke:#111;stroke-width:2;fill:none}
+      .grid{stroke:#d7d7d7;stroke-width:1;fill:none}
+      .dash{stroke:#888;stroke-width:1.5;stroke-dasharray:6 6;fill:none}
+      .curve{stroke:#1f1f1f;stroke-width:3;fill:none}
+      .label{font-family:"Times New Roman",serif;font-size:20px;fill:#111}
+      .small{font-family:"Times New Roman",serif;font-size:18px;fill:#111}
+    </style>
+  </defs>
+
+  <rect width="100%" height="100%" fill="#fff"/>
+
+  <g>
+    <line class="grid" x1="90" y1="70" x2="90" y2="340"/>
+    <line class="grid" x1="260" y1="70" x2="260" y2="340"/>
+    <line class="grid" x1="430" y1="70" x2="430" y2="340"/>
+    <line class="grid" x1="600" y1="70" x2="600" y2="340"/>
+    <line class="grid" x1="90" y1="70" x2="660" y2="70"/>
+    <line class="grid" x1="90" y1="160" x2="660" y2="160"/>
+    <line class="grid" x1="90" y1="250" x2="660" y2="250"/>
+    <line class="grid" x1="90" y1="340" x2="660" y2="340"/>
+  </g>
+
+  <g>
+    <line class="axis" x1="90" y1="340" x2="680" y2="340"/>
+    <line class="axis" x1="90" y1="360" x2="90" y2="50"/>
+    <polygon points="680,340 666,334 666,346" fill="#111"/>
+    <polygon points="90,50 84,64 96,64" fill="#111"/>
+  </g>
+
+  <path class="curve" d="M 110 95 C 170 120, 220 150, 260 190 C 320 245, 390 285, 470 312 C 535 330, 590 338, 645 340"/>
+  <line class="dash" x1="260" y1="70" x2="260" y2="340"/>
+  <line class="dash" x1="90" y1="250" x2="660" y2="250"/>
+
+  <g class="label">
+    <text x="686" y="347">ω / ω<tspan baseline-shift="sub" font-size="15">c</tspan></text>
+    <text x="40" y="48">R<tspan baseline-shift="sub" font-size="15">C</tspan> / R</text>
+  </g>
+
+  <g class="small">
+    <text x="78" y="365">0.1</text>
+    <text x="252" y="365">1</text>
+    <text x="416" y="365">10</text>
+    <text x="586" y="365">100</text>
+
+    <text x="54" y="346">0.01</text>
+    <text x="62" y="256">1</text>
+    <text x="46" y="166">10</text>
+    <text x="38" y="76">100</text>
+
+    <text x="274" y="155">ω<tspan baseline-shift="sub" font-size="14">c</tspan> = 1/RC</text>
+    <text x="118" y="115">R<tspan baseline-shift="sub" font-size="14">C</tspan> &gt;&gt; R</text>
+    <text x="520" y="322">R<tspan baseline-shift="sub" font-size="14">C</tspan> &lt;&lt; R</text>
+  </g>
+</svg>

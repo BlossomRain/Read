@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="320" viewBox="0 0 900 320">
+  <defs>
+    <style>
+      .w{stroke:#111;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .r{stroke:#b3261e;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .t{font-family:"Times New Roman",serif;font-size:16px;fill:#111}
+      .s{font-family:"Times New Roman",serif;font-size:14px;fill:#111}
+      .v{font-family:"Times New Roman",serif;font-size:18px;font-style:italic;fill:#111}
+    </style>
+  </defs>
+  <text class="t" x="18" y="24">Bypass capacitor example</text>
+
+  <g transform="translate(28,28)">
+    <line class="w" x1="40" y1="50" x2="40" y2="188"/>
+    <circle class="w" cx="40" cy="100" r="27"/>
+    <path class="w" d="M40 118 L40 82 M28 100 L52 100"/>
+    <line class="w" x1="40" y1="50" x2="360" y2="50"/>
+    <line class="w" x1="40" y1="188" x2="360" y2="188"/>
+
+    <line class="w" x1="208" y1="50" x2="208" y2="82"/>
+    <path class="w" d="M208 82 L222 98 L194 114 L222 130 L194 146 L222 162 L208 178"/>
+    <line class="w" x1="208" y1="178" x2="208" y2="188"/>
+
+    <line class="w" x1="304" y1="50" x2="304" y2="92"/>
+    <line class="w" x1="282" y1="92" x2="326" y2="92"/>
+    <line class="w" x1="282" y1="110" x2="326" y2="110"/>
+    <line class="w" x1="304" y1="110" x2="304" y2="188"/>
+
+    <line class="r" x1="356" y1="72" x2="318" y2="104"/>
+    <path class="r" d="M318 104 l6 -12 l8 9 z"/>
+
+    <text class="v" x="-6" y="22">Idc ≈ 20 mA</text>
+    <text class="v" x="186" y="216">R<tspan dy="4" font-size="12">L</tspan></text>
+    <text class="t" x="201" y="216">= 0.1 kΩ</text>
+    <text class="v" x="292" y="216">C</text>
+    <text class="s" x="128" y="22">laser pointer load</text>
+    <text class="s" x="366" y="72">noise current</text>
+    <text class="s" x="366" y="96">to capacitor</text>
+    <text class="s" x="382" y="122">f<tspan dy="4" font-size="11">n</tspan> = 60 Hz</text>
+
+    <text class="s" x="478" y="48">1/(ωC) &lt;= 0.1R<tspan dy="4" font-size="11">L</tspan></text>
+    <text class="s" x="478" y="74">R<tspan dy="4" font-size="11">L</tspan> = 100 Ω</text>
+    <text class="s" x="478" y="100">ω = 2π × 60 ≈ 400 rad/s</text>
+    <text class="s" x="478" y="126">C &gt;= 1/4000 F</text>
+    <text class="s" x="478" y="152">≈ 250 μF</text>
+    <text class="s" x="0" y="260">idea: let unwanted AC ripple flow through C instead of the load</text>
+  </g>
+</svg>

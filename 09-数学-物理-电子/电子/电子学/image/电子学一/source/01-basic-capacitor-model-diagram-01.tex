@@ -1,0 +1,42 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{circuitikz}[american]
+  % bucket analogy
+  \draw[thick] (0,0) -- (0,3.6);
+  \draw[thick] (2.2,0) -- (2.2,3.6);
+  \draw[thick] (0,0) -- (2.2,0);
+  \draw[blue!60] (0.15,2.1) -- (2.05,2.1);
+  \draw[<->] (2.55,0.05) -- (2.55,2.05);
+  \node[right] at (2.55,1.05) {$V$};
+  \node at (1.1,1.05) {$Q$};
+  \node[below] at (1.1,-0.15) {bucket model};
+
+  % arrow
+  \node at (3.3,1.8) {$\Longrightarrow$};
+
+  % capacitor model
+  \draw[thick] (4.4,3.0) -- (7.1,3.0);
+  \draw[thick] (4.4,0.6) -- (7.1,0.6);
+  \draw[->] (4.9,2.7) -- (4.9,0.9);
+  \draw[->] (5.75,2.7) -- (5.75,0.9);
+  \draw[->] (6.6,2.7) -- (6.6,0.9);
+  \node[right] at (6.75,1.8) {$E$};
+  \draw[<->] (7.55,2.95) -- (7.55,0.65);
+  \node[right] at (7.55,1.8) {$d$};
+  \node[above] at (5.75,3.25) {$+Q$};
+  \node[below] at (5.75,0.35) {$-Q$};
+  \node at (8.95,2.45) {$C=\dfrac{Q}{V}$};
+  \node at (9.3,1.75) {$C=\dfrac{\varepsilon A}{d}$};
+  \node[below] at (5.75,0.2) {parallel-plate model};
+
+  % equivalent symbol
+  \node at (10.7,1.8) {$\Longrightarrow$};
+  \draw (11.7,1.8) to[C, l={$C$}] (14.0,1.8);
+  \draw (11.7,1.8) -- (10.9,1.8);
+  \draw (14.0,1.8) -- (14.8,1.8);
+  \node[below] at (12.85,1.1) {lumped model};
+\end{circuitikz}
+\end{document}

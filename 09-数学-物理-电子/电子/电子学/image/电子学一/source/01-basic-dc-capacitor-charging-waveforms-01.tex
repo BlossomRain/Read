@@ -1,0 +1,48 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{CJKutf8}
+\usetikzlibrary{arrows.meta}
+
+\begin{document}
+\begin{CJK*}{UTF8}{gbsn}
+\begin{tikzpicture}[>=Stealth]
+  % input voltage
+  \draw[->] (0,0) -- (3.9,0) node[right] {$t$};
+  \draw[->] (0,0) -- (0,1.9);
+  \node[left] at (0,1.6) {$v_{in}$};
+  \draw[thick] (0,0) -- (0.5,0) -- (0.5,1.35) -- (3.5,1.35);
+  \draw[dashed] (0,1.35) -- (0.6,1.35);
+  \node[left] at (0,1.35) {$V$};
+  \node at (1.9,-0.6) {input voltage--time};
+  \node at (1.9,-1.0) {输入电压-时间};
+
+  % current
+  \begin{scope}[xshift=4.8cm]
+    \draw[->] (0,0) -- (3.9,0) node[right] {$t$};
+    \draw[->] (0,0) -- (0,1.9);
+    \node[left] at (0,1.6) {$i$};
+    \draw[dashed] (0,1.35) -- (0.5,1.35);
+    \node[left] at (0,1.35) {$V/R$};
+    \draw[thick, domain=0.5:3.5, smooth, variable=\x] plot ({\x},{1.35*exp(-(\x-0.5)/0.85)});
+    \draw[thick] (0,0) -- (0.5,0);
+    \fill (0.5,1.35) circle (1.3pt);
+    \node at (1.9,-0.6) {current--time};
+    \node at (1.9,-1.0) {电流-时间};
+  \end{scope}
+
+  % capacitor voltage
+  \begin{scope}[xshift=9.6cm]
+    \draw[->] (0,0) -- (3.9,0) node[right] {$t$};
+    \draw[->] (0,0) -- (0,1.9);
+    \node[left] at (0,1.6) {$v_C$};
+    \draw[dashed] (0,1.35) -- (3.5,1.35);
+    \node[left] at (0,1.35) {$V$};
+    \draw[thick, domain=0.5:3.5, smooth, variable=\x] plot ({\x},{1.35*(1-exp(-(\x-0.5)/0.85))});
+    \draw[thick] (0,0) -- (0.5,0);
+    \node at (1.9,-0.6) {capacitor voltage--time};
+    \node at (1.9,-1.0) {电容电压-时间};
+\end{scope}
+\end{tikzpicture}
+\end{CJK*}
+\end{document}

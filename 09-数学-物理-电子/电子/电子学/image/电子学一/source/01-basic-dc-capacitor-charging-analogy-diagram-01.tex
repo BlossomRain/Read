@@ -1,0 +1,43 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+
+\begin{document}
+\begin{circuitikz}[american]
+  % water analogy
+  \draw[thick] (0,0) -- (0,3.2);
+  \draw[thick] (2.4,0) -- (2.4,3.2);
+  \draw[thick] (0,0) -- (2.4,0);
+  \draw[blue!60] (0.15,2.6) -- (2.25,2.6);
+  \node[left] at (0,1.6) {$V$};
+  \node at (1.2,-0.35) {large reservoir};
+
+  \draw[thick] (2.4,2.6) -- (4.2,2.6);
+  \draw (3.0,2.6) to[R, l={$R$}] (4.2,2.6);
+  \draw[->] (2.8,2.95) -- (3.9,2.95);
+  \node[above] at (3.35,2.95) {$i$};
+
+  \draw[thick] (4.2,0) -- (4.2,2.6);
+  \draw[thick] (6.0,0) -- (6.0,2.6);
+  \draw[thick] (4.2,0) -- (6.0,0);
+  \draw[blue!60] (4.35,0.9) -- (5.85,0.9);
+  \draw[<->] (6.35,0.05) -- (6.35,0.85);
+  \node[right] at (6.35,0.45) {$v_C$};
+  \node at (5.1,0.45) {$Q$};
+  \node at (5.1,-0.35) {bucket $C$};
+
+  % arrow to circuit
+  \node at (7.4,1.35) {$\Longrightarrow$};
+
+  % RC circuit
+  \draw
+    (8.7,0) node[ground] {}
+    to[battery1, invert, l_={$V$}] (8.7,3.0)
+    to[R, l={$R$}] (11.3,3.0)
+    to[short, i>^={$i$}] (12.5,3.0)
+    to[C, l={$C$}, v^>={$v_C$}] (12.5,0)
+    -- (8.7,0);
+
+  \node[below] at (10.6,-0.35) {RC charging circuit};
+\end{circuitikz}
+\end{document}

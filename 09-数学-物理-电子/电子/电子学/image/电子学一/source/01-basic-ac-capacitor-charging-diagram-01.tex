@@ -1,0 +1,14 @@
+\documentclass[border=4pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american]
+  \draw
+    (0,0) node[ground] {}
+    to[sV, l_={$v_s(t)=V_s\sin\omega t$}] (0,3)
+    to[R, l={$R$}] (3,3)
+    to[short, -*] (5,3)
+    to[C, l={$C$}, v^>={$v_o(t)$}] (5,0)
+    -- (0,0);
+\end{circuitikz}
+\end{document}

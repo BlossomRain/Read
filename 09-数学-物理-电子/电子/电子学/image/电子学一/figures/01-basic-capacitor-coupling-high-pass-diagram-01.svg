@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390">
+  <defs>
+    <style>
+      .w{stroke:#111;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .t{font-family:"Times New Roman",serif;font-size:16px;fill:#111}
+      .s{font-family:"Times New Roman",serif;font-size:14px;fill:#111}
+      .v{font-family:"Times New Roman",serif;font-size:18px;font-style:italic;fill:#111}
+      .n{fill:#111}
+      .d{stroke:#888;stroke-width:1.6;stroke-dasharray:6 6;fill:none}
+      .water{fill:#e5edff;stroke:#7ea2ff;stroke-width:1.5}
+    </style>
+  </defs>
+  <text class="t" x="18" y="24">Coupling capacitor example</text>
+
+  <g transform="translate(22,26)">
+    <line class="w" x1="40" y1="150" x2="40" y2="60"/>
+    <circle class="w" cx="40" cy="92" r="27"/>
+    <path class="w" d="M24 92 q8 -10 16 0 q8 10 16 0 q8 -10 16 0"/>
+    <line class="w" x1="40" y1="150" x2="470" y2="150"/>
+    <line class="w" x1="40" y1="60" x2="175" y2="60"/>
+    <line class="w" x1="175" y1="38" x2="175" y2="82"/>
+    <line class="w" x1="195" y1="38" x2="195" y2="82"/>
+    <line class="w" x1="195" y1="60" x2="305" y2="60"/>
+    <circle class="n" cx="305" cy="60" r="4.5"/>
+    <line class="w" x1="305" y1="60" x2="305" y2="150"/>
+    <path class="w" d="M305 60 L332 60 L344 46 L365 74 L386 46 L407 74 L428 46 L440 60 L440 150"/>
+    <line class="w" x1="305" y1="60" x2="520" y2="60"/>
+    <polygon class="w" points="556,30 556,90 622,60"/>
+    <line class="w" x1="520" y1="60" x2="556" y2="60"/>
+
+    <text class="v" x="-2" y="28">Vdc + v<tspan dy="4" font-size="12">s</tspan></text>
+    <text class="v" x="177" y="28">C</text>
+    <text class="v" x="382" y="110">R</text>
+    <text class="v" x="500" y="66">v<tspan dy="4" font-size="12">o</tspan></text>
+    <text class="t" x="570" y="115">Amp</text>
+    <text class="s" x="462" y="92">after transient: 0 + vs</text>
+    <text class="s" x="40" y="186">Rc = 1/(ωC),  Rc -&gt; ∞ as ω -&gt; 0</text>
+    <text class="s" x="40" y="208">AC passes well when  1/(ωC) &lt;= 0.1R  ⇔  ω &gt;= 10ω0</text>
+  </g>
+
+  <g transform="translate(70,282)">
+    <path class="w" d="M0 0 L0 68 L114 68 L114 0"/>
+    <path class="water" d="M6 22 L108 22 L108 62 L6 62 Z"/>
+    <line class="d" x1="114" y1="22" x2="214" y2="22"/>
+    <text class="s" x="0" y="-10">slow change</text>
+    <text class="s" x="0" y="94">bucket level follows</text>
+    <text class="s" x="136" y="28">small output on R</text>
+  </g>
+
+  <g transform="translate(490,282)">
+    <path class="w" d="M0 0 L0 68 L114 68 L114 0"/>
+    <path class="water" d="M6 40 L108 40 L108 62 L6 62 Z"/>
+    <line class="d" x1="114" y1="40" x2="214" y2="40"/>
+    <text class="s" x="0" y="-10">fast change</text>
+    <text class="s" x="0" y="94">bucket level nearly fixed</text>
+    <text class="s" x="130" y="46">more signal on R</text>
+  </g>
+</svg>

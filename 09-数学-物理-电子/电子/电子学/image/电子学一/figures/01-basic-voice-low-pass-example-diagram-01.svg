@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="280" viewBox="0 0 820 280">
+  <defs>
+    <style>
+      .w{stroke:#111;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .t{font-family:"Times New Roman",serif;font-size:16px;fill:#111}
+      .v{font-family:"Times New Roman",serif;font-size:18px;font-style:italic;fill:#111}
+      .s{font-family:"Times New Roman",serif;font-size:15px;fill:#111}
+      .n{fill:#111}
+    </style>
+  </defs>
+  <text class="t" x="18" y="26">RC low-pass example</text>
+
+  <g transform="translate(18,20)">
+    <line class="w" x1="40" y1="190" x2="40" y2="86"/>
+    <circle class="w" cx="40" cy="120" r="27"/>
+    <path class="w" d="M24 120 q8 -10 16 0 q8 10 16 0 q8 -10 16 0"/>
+    <line class="w" x1="40" y1="86" x2="115" y2="86"/>
+    <path class="w" d="M115 86 l14 -16 l24 32 l24 -32 l24 32 l24 -32 l14 16"/>
+    <line class="w" x1="239" y1="86" x2="390" y2="86"/>
+    <circle class="n" cx="390" cy="86" r="4.5"/>
+    <line class="w" x1="390" y1="86" x2="485" y2="86"/>
+    <line class="w" x1="40" y1="190" x2="485" y2="190"/>
+
+    <line class="w" x1="390" y1="86" x2="390" y2="126"/>
+    <line class="w" x1="362" y1="126" x2="418" y2="126"/>
+    <line class="w" x1="362" y1="143" x2="418" y2="143"/>
+    <line class="w" x1="390" y1="143" x2="390" y2="190"/>
+
+    <text class="v" x="168" y="58">R</text>
+    <text class="t" x="181" y="58">= 10 kΩ</text>
+    <text class="v" x="397" y="158">C</text>
+    <text class="t" x="412" y="158">= ?</text>
+    <text class="v" x="508" y="92">v<tspan dy="4" font-size="12">o</tspan></text>
+    <text class="v" x="0" y="126">v<tspan dy="4" font-size="12">s</tspan></text>
+    <text class="t" x="0" y="222">ground</text>
+
+    <text class="s" x="560" y="78">input: voice</text>
+    <text class="s" x="560" y="106">20 Hz to 20 kHz</text>
+    <text class="s" x="560" y="148">goal: pass voice</text>
+    <text class="s" x="560" y="176">design rule:</text>
+    <text class="s" x="560" y="204">ωvoice,max &lt;&lt; ωc</text>
+  </g>
+</svg>
