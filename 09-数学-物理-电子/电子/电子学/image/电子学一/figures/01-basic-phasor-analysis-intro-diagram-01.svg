@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="390" viewBox="0 0 1040 390">
+  <defs>
+    <style>
+      .w{stroke:#111;stroke-width:2.2;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .d{stroke:#777;stroke-width:1.4;stroke-dasharray:6 6;fill:none}
+      .t{font-family:"Times New Roman",serif;font-size:18px;fill:#111}
+      .s{font-family:"Times New Roman",serif;font-size:15px;fill:#111}
+      .v{font-family:"Times New Roman",serif;font-size:20px;font-style:italic;fill:#111}
+      .n{fill:#111}
+    </style>
+  </defs>
+
+  <text class="t" x="18" y="24">Phasor analysis introduction</text>
+
+  <g transform="translate(34,54)">
+    <line class="w" x1="0" y1="120" x2="170" y2="120"/>
+    <line class="w" x1="70" y1="220" x2="70" y2="20"/>
+    <path class="w" d="M70 120 L146 64"/>
+    <path class="d" d="M146 64 L146 120"/>
+    <path class="d" d="M146 64 L70 64"/>
+    <path class="w" d="M102 120 A32 32 0 0 0 121 94"/>
+
+    <text class="t" x="176" y="126">Re</text>
+    <text class="t" x="62" y="14">j Im</text>
+    <text class="t" x="128" y="138">a</text>
+    <text class="t" x="52" y="70">jb</text>
+    <text class="t" x="114" y="106">θ</text>
+    <text class="v" x="95" y="52">a + jb</text>
+
+    <text class="s" x="0" y="258">magnitude = √(a² + b²)</text>
+    <text class="s" x="0" y="282">angle θ = tan⁻¹(b/a)</text>
+  </g>
+
+  <g transform="translate(320,78)">
+    <circle class="w" cx="28" cy="66" r="22"/>
+    <text class="t" x="18" y="72">~</text>
+    <text class="v" x="64" y="72">V<tspan dy="4" font-size="12">s</tspan>(ω)</text>
+
+    <line class="w" x1="110" y1="66" x2="178" y2="66"/>
+    <polygon points="178,66 168,60 168,72" fill="#111"/>
+
+    <rect class="w" x="190" y="30" width="148" height="72"/>
+    <text class="v" x="242" y="63">T(ω)</text>
+    <text class="s" x="210" y="88">transfer function</text>
+
+    <line class="w" x1="338" y1="66" x2="406" y2="66"/>
+    <polygon points="406,66 396,60 396,72" fill="#111"/>
+
+    <circle class="n" cx="448" cy="66" r="4"/>
+    <text class="v" x="424" y="44">V<tspan dy="4" font-size="12">o</tspan>(ω)</text>
+
+    <text class="s" x="72" y="132">vector input</text>
+    <text class="s" x="420" y="132">vector output</text>
+    <text class="t" x="84" y="170">V<tspan dy="4" font-size="12">o</tspan>(ω) = V<tspan dy="4" font-size="12">s</tspan>(ω) · T(ω)</text>
+  </g>
+
+  <g transform="translate(318,286)">
+    <text class="t" x="0" y="0">Euler form:</text>
+    <text class="t" x="116" y="0">cos θ + j sin θ = e^(jθ)</text>
+
+    <text class="t" x="0" y="42">phasor form:</text>
+    <text class="t" x="116" y="42">a + jb = √(a² + b²) e^(jθ)</text>
+
+    <text class="t" x="0" y="84">multiplication:</text>
+    <text class="t" x="116" y="84">e^(jθ₁) · e^(jθ₂) = e^(j(θ₁ + θ₂))</text>
+  </g>
+</svg>

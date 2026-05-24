@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="360" viewBox="0 0 680 360">
+  <defs>
+    <style>
+      .axis{stroke:#111;stroke-width:2;fill:none;stroke-linecap:round}
+      .grid{stroke:#d0d0d0;stroke-width:1;fill:none}
+      .dash{stroke:#777;stroke-width:1.4;fill:none;stroke-dasharray:6 6}
+      .curve{stroke:#111;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .txt{font-family:"Times New Roman",serif;font-size:18px;fill:#111}
+      .small{font-family:"Times New Roman",serif;font-size:16px;fill:#111}
+    </style>
+  </defs>
+
+  <rect x="0" y="0" width="680" height="360" fill="#fff"/>
+
+  <g transform="translate(72,28)">
+    <line class="grid" x1="0" y1="42" x2="540" y2="42"/>
+    <line class="grid" x1="0" y1="122" x2="540" y2="122"/>
+    <line class="grid" x1="0" y1="202" x2="540" y2="202"/>
+    <line class="grid" x1="90" y1="0" x2="90" y2="280"/>
+    <line class="grid" x1="270" y1="0" x2="270" y2="280"/>
+    <line class="grid" x1="450" y1="0" x2="450" y2="280"/>
+
+    <line class="axis" x1="0" y1="282" x2="540" y2="282"/>
+    <line class="axis" x1="0" y1="282" x2="0" y2="0"/>
+
+    <path class="curve" d="M0 5
+      C70 6, 120 10, 170 26
+      C215 40, 245 62, 270 82
+      C300 108, 340 145, 385 182
+      C435 221, 490 252, 540 270"/>
+
+    <line class="dash" x1="270" y1="0" x2="270" y2="282"/>
+    <line class="dash" x1="0" y1="82" x2="270" y2="82"/>
+
+    <text class="txt" x="-46" y="10">0°</text>
+    <text class="txt" x="-58" y="90">-45°</text>
+    <text class="txt" x="-58" y="170">-90°</text>
+    <text class="txt" x="-72" y="292">phase</text>
+
+    <text class="txt" x="-10" y="320">0.1ω₀</text>
+    <text class="txt" x="252" y="320">ω₀</text>
+    <text class="txt" x="432" y="320">10ω₀</text>
+    <text class="txt" x="506" y="344">ω (log scale)</text>
+
+    <text class="small" x="287" y="74">ω = ω₀</text>
+    <text class="small" x="287" y="94">phase = -45°</text>
+    <text class="small" x="302" y="18">∠T(ω) = -tan⁻¹(ω/ω₀)</text>
+  </g>
+</svg>
