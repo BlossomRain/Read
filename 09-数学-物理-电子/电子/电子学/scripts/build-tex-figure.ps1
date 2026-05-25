@@ -28,6 +28,11 @@ if ($LASTEXITCODE -ne 0) {
     throw "dvisvgm failed for $pdfPath"
 }
 
+# Normalize generated SVG line endings to LF so Git won't warn on Windows
+$svgContent = [System.IO.File]::ReadAllText($svgPath)
+$svgContent = $svgContent -replace "`r`n", "`n"
+[System.IO.File]::WriteAllText($svgPath, $svgContent, (New-Object System.Text.UTF8Encoding($false)))
+
 $cleanupExts = @(".aux", ".log", ".pdf")
 foreach ($ext in $cleanupExts) {
     $artifactPath = Join-Path $sourceDir ($baseName + $ext)

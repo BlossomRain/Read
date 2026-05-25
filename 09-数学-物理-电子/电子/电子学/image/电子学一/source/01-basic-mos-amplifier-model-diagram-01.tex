@@ -1,0 +1,32 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+
+\begin{document}
+\ctikzset{
+  bipoles/length=1.0cm,
+  tripoles/nmos/width=0.65,
+  tripoles/nmos/height=0.85,
+}
+\begin{circuitikz}[american, scale=1.2, transform shape]
+  \draw (0,0) node[ground]{};
+  \draw (3.2,0) node[anchor=S, nmos] (M){};
+  \draw (0,0) -- (M.S);
+
+  \draw (M.D) to[short] ++(0,0.15)
+        to[R, l_=$R_L$] ++(0,1.6)
+        to[short] ++(0,0.15)
+        node[vcc, above=1pt]{$V_{DD}$};
+
+  \draw (M.D) to[short, *-o] ++(0.85,0)
+        node[right, font=\small]{$v_o$};
+
+  \draw (M.G) to[short, -o] ++(-1.1,0)
+        node[left, font=\small]{$v_i$};
+  \node[font=\scriptsize, anchor=north] at ($(M.G)+(-0.55,0.02)$) {$R_i\to\infty$};
+
+  \node[font=\scriptsize, align=center] at (2.0,-0.95)
+    {$i_o=\tfrac12 k(v_i-V_T)^2,\qquad v_o=V_{DD}-i_o R_L$};
+\end{circuitikz}
+\end{document}

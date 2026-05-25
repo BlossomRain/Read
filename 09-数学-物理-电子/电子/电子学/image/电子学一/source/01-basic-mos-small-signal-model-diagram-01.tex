@@ -1,0 +1,33 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usepackage{amsmath}
+\usetikzlibrary{calc}
+
+\begin{document}
+\ctikzset{bipoles/length=1.0cm}
+\begin{circuitikz}[american, scale=1.2, transform shape]
+  % Common ground rail (input reference = source reference)
+  \coordinate (gndL) at (0, 0);
+  \coordinate (gndR) at (4.0, 0);
+  \draw (gndL) -- (gndR);
+  \draw (gndR) node[ground]{};
+
+  % Drain branch
+  \coordinate (d) at (4.0, 1.85);
+  \draw (d) to[R, l_=$R_L$] ++(0, 1.1)
+        node[vcc, font=\scriptsize, above=1pt]{AC gnd ($V_{DD}$)};
+  \draw (d) to[short, *-o] ++(0.85, 0)
+        node[right, font=\small]{$v_o'$};
+  \draw (d) to[cisource, l_=$g_m v_i'$] (gndR);
+
+  % Input: open terminal, $v_i'$ vs common ground, $R_i\to\infty$
+  \coordinate (G) at (0, 1.25);
+  \draw (G) to[short, -o] ++(-0.7, 0);
+  \node[font=\scriptsize, anchor=south] at (-0.7, 1.42) {$R_i\to\infty$};
+  \draw (G) to[open, v^=$v_i'$] (gndL);
+  \draw (G) -- (2.55, 1.25);
+
+  \node[font=\scriptsize, align=center] at (2.3, -0.95)
+    {$i_o'=g_m v_i',\qquad v_o'=-g_m R_L v_i'$};
+\end{circuitikz}
+\end{document}
