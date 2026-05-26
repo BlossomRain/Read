@@ -1,0 +1,24 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{tikz}
+
+\begin{document}
+\begin{tikzpicture}[scale=1.05, >=stealth, font=\small]
+  \draw[->] (-1.8, 0) -- (3.4, 0) node[below] {$v_+-v_-$};
+  \draw[->] (0, -2.0) -- (0, 2.0) node[above left] {$v_o$};
+
+  \def\sat{1.45}
+  \def\knee{0.18}
+
+  \draw[very thick] (-\knee, -\sat) -- (\knee, \sat);
+  \node[font=\scriptsize, rotate=75, anchor=west] at (0.42, 0.35) {slope $A_d$};
+
+  \draw[very thick] (-\knee, -\sat) -- (-1.6, -\sat);
+  \draw[very thick] (\knee, \sat) -- (3.0, \sat);
+
+  \draw[densely dashed] (-1.6, \sat) -- (3.0, \sat);
+  \draw[densely dashed] (-1.6, -\sat) -- (3.0, -\sat);
+
+  \node[font=\scriptsize, anchor=west] at (3.05, \sat) {$+V_{\mathrm{sat}}$};
+  \node[font=\scriptsize, anchor=west] at (3.05, -\sat) {$-V_{\mathrm{sat}}$};
+\end{tikzpicture}
+\end{document}

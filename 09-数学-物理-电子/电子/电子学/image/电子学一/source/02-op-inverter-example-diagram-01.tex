@@ -1,0 +1,58 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\input{02-op-circuit-style.tex}
+
+% 绝对坐标布局（cm，原点在运放几何中心附近）
+\def\OpExOAx{1.05}          % 运放锚点 x（使 VM 落在 Xfb、O 落在 Xo）
+\def\OpExXo{-0.65}          % 结点 O（须在 Xfb 右侧，避开 R_2 竖通道）
+\def\OpExXfb{-1.50}         % 反馈节点
+\def\OpExYbus{-2.50}        % R_4 水平母线（全图最低）
+\def\OpExXoutR{2.00}       % 反馈上折返竖线 x
+\def\OpExRhor{1.45}        % O/VM → R → 端子
+\def\OpExRtwoDrop{1.55}     % O ↓ R_2 ↓ 地（止于 Ybus 之上）
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \coordinate (OAC) at (\OpExOAx, 0);
+  \node[op amp, noinv input up](OA) at (OAC) {};
+
+  % 结点 O、反馈节点：与 +/- 引脚 y 对齐，x 取规定值
+  \path let \p1=(OA.+), \p2=(OA.-) in
+    coordinate (O) at (\OpExXo, \y1)
+    coordinate (VM) at (\OpExXfb, \y2);
+
+  % ===== 同相端（+）：+ ← O ← R_1 ← v_1；O ↓ R_2 ↓ 地 =====
+  \draw (OA.+) -- (O);
+  \node[circ, fill=black, inner sep=0.9pt] at (O) {};
+  \node[opfigThin, above=0.55mm] at (O) {$O$};
+
+  \coordinate (V1j) at ($(O)+(-\OpExRhor, 0)$);
+  \draw (O) -- (V1j);
+  \draw (V1j) to[R, l=$R_1$, l^=] ++(-0.82, 0)
+    to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_1$};
+
+  \draw (O) to[R, l_=$R_2$] ++(0, -\OpExRtwoDrop)
+    node[ground, scale=0.85]{};
+
+  % ===== 反相端（-）：- ← VM ← R_3 ← v_2（与上路平行）=====
+  \draw (OA.-) -- (VM);
+  \node[circ, fill=black, inner sep=0.9pt] at (VM) {};
+
+  \coordinate (V2j) at ($(VM)+(-\OpExRhor, 0)$);
+  \draw (VM) -- (V2j);
+  \draw (V2j) to[R, l=$R_3$, l^=] ++(-0.82, 0)
+    to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_2$};
+
+  % ===== R_4：VM ↓(Xfb) → Ybus 右行 → XoutR ↑ → Output =====
+  \coordinate (FBL) at (\OpExXfb, \OpExYbus);
+  \coordinate (FBR) at (\OpExXoutR, \OpExYbus);
+  \coordinate (OutRise) at (\OpExXoutR, 0);
+  \draw (VM) -- (FBL);
+  \draw (FBL) to[R, l_=$R_4$] (FBR);
+  \draw (FBR) -- (OutRise |- OA.out) -- (OA.out);
+
+  % ===== v_o =====
+  \draw (OA.out) to[short, -o] ++(\OpOutLen, 0)
+    node[right, opfig]{$v_o$};
+\end{circuitikz}
+\end{document}

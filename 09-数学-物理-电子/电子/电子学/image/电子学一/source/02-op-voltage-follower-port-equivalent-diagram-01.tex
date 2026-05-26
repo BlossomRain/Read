@@ -1,0 +1,35 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\input{02-op-circuit-style.tex}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  % Shared ground rail
+  \draw (0, 0) -- (7.2, 0);
+  \node[ground, scale=0.85] at (3.6, 0) {};
+
+  % -------- Input port --------
+  \node[opfig, anchor=south] at (1.55, 2.35) {input port};
+
+  \coordinate (bus) at (1.75, 1.95);
+  \draw (bus) to[short, -o] ++(-0.80, 0) node[left, opfig]{$v_+$};
+
+  \draw (0.70, 0) to[V, l_=$v_i$] (0.70, 1.95) -- (bus);
+  \draw (2.35, 0) to[R, l_=$R_{in}$] (2.35, 1.95) -- (bus);
+  \draw (0.70, 0) -- (2.35, 0);
+  \node[opfigThin, anchor=south] at (2.35, 2.07) {$\to\infty$};
+
+  % -------- Output port --------
+  \node[opfig, anchor=south] at (5.45, 2.35) {output port};
+
+  \coordinate (vo) at (6.50, 1.95);
+  \draw (4.20, 0) to[V, l_=$V_{th}$] (4.20, 1.95);
+  \node[opfigThin, anchor=east] at (4.05, 0.98) {$v_i$};
+
+  \draw (4.20, 1.95) to[R, l_=$R_{out}$] (vo);
+  \node[opfigThin, anchor=south] at (5.35, 2.07) {$\approx 0$};
+
+  \draw (vo) to[short, -o] ++(0.60, 0) node[right, opfig]{$v_o$};
+  \draw (6.50, 1.95) to[R, l_=$R_L$] (6.50, 0);
+\end{circuitikz}
+\end{document}

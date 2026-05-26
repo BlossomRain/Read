@@ -1,0 +1,26 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\input{02-op-circuit-style.tex}
+
+\def\OpBusX{-0.90}  % vertical bus: R_3 / R_4 meet here → v_+
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \coordinate (VP) at (\OpBusX, 0);
+
+  \draw (-\OpInLen, \OpInSep) node[left, opfig]{$v_1$} to[short, o-] ++(\OpInGap, 0)
+    to[R, l=$R_3$] (\OpBusX, \OpInSep);
+  \draw (-\OpInLen, -\OpInSep) node[left, opfig]{$v_2$} to[short, o-] ++(\OpInGap, 0)
+    to[R, l=$R_4$] (\OpBusX, -\OpInSep);
+  \draw (\OpBusX, \OpInSep) -- (\OpBusX, -\OpInSep);
+
+  \node[opfigThin, anchor=south] at ($(VP)+(0, 0.10)$) {$v_+$};
+
+  \draw (VP) -- ++(\OpAmpWire, 0)
+    node[op amp, noinv input up, anchor=+](OA){}
+    (OA.-) -- ++(0, -\OpFbDown) coordinate(FB)
+    (FB) to[R, l_=$R_1$] ++(0, -\OpRvert) node[ground, scale=0.85]{}
+    (FB) to[R, l_=$R_2$] (FB -| OA.out) -- (OA.out)
+    to[short, -o] ++(\OpOutLen, 0) node[right, opfig]{$v_o$};
+\end{circuitikz}
+\end{document}

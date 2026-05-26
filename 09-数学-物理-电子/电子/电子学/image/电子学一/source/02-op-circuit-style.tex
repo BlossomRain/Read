@@ -1,0 +1,27 @@
+% Shared style for 电子学一 Chapter 2 op-amp circuit figures (CircuiTikZ).
+\usetikzlibrary{calc}
+
+\ctikzset{
+  bipoles/length=0.95cm,
+  bipoles/thickness=1,
+  resistors/scale=1,
+  capacitors/scale=1,
+  label distance=2.5mm,
+}
+
+\tikzset{
+  opfig/.style={font=\small},
+  opfigThin/.style={font=\scriptsize},
+}
+
+% Geometry (cm) — keep identical across all op-amp schematics
+\def\OpInLen{1.55}    % label → input terminal
+\def\OpInGap{0.08}    % terminal → wire to op amp +
+\def\OpAmpWire{1.00}  % terminal side → op amp + anchor
+\def\OpOutLen{1.05}   % op amp out → output terminal
+\def\OpJuncL{0.50}    % v_- → feedback junction (left)
+\def\OpFbDown{0.55}   % v_- straight down before R_1
+\def\OpRvert{1.20}    % R_1 vertical span to ground
+\def\OpInSep{0.55}    % dual-input spacing (v_1 / v_2)
+\def\OpFbStub{0.40}   % follower: stub right of output before dropping
+\def\OpFbClear{0.22}  % follower: below op-amp south for horizontal feedback

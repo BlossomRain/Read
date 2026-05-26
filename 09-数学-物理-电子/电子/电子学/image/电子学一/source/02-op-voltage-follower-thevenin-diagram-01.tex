@@ -1,0 +1,22 @@
+\documentclass[border=12pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\ctikzset{bipoles/length=1.05cm, label distance=2mm}
+\begin{circuitikz}[american, scale=1.05, transform shape]
+  \coordinate (gndL) at (0, 0);
+  \coordinate (gndR) at (3.6, 0);
+  \coordinate (topL) at (0, 2.4);
+  \coordinate (vo) at (3.6, 2.4);
+
+  \draw (gndL) node[ground]{};
+  \draw (gndL) -- (gndR);
+
+  \draw (gndL) to[V, l_=$v_i$] (topL);
+  \node[font=\scriptsize, anchor=east] at (-0.1, 1.2) {$V_{th}$};
+
+  \draw (topL) to[R, l_=$R_{th}$] (vo);
+  \draw (vo) to[short, -o] ++(0.75, 0) node[right, font=\small]{$v_o$};
+  \draw (vo) to[R, l_=$R_L$] (gndR);
+\end{circuitikz}
+\end{document}

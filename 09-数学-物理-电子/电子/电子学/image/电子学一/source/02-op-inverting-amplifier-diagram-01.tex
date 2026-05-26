@@ -1,0 +1,44 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\input{02-op-circuit-style.tex}
+
+% 反相放大器：绝对坐标（cm）；运放在 (0,0)
+\def\OpInvVmX{-1.0}
+\def\OpInvVmY{-0.5}
+\def\OpInvViX{-3.0}
+\def\OpInvFbY{-2.0}
+\def\OpInvFbRx{1.5}
+\def\OpInvVoX{2.5}
+\def\OpInvPlusGnd{1.15}   % + 引脚垂直接地跨度
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \coordinate (OAC) at (0, 0);
+  % + 在上：noinv input down + yscale=-1
+  \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
+
+  \coordinate (VM) at (\OpInvVmX, \OpInvVmY);
+  \coordinate (Vi) at (\OpInvViX, \OpInvVmY);
+  \coordinate (FBL) at (\OpInvVmX, \OpInvFbY);
+  \coordinate (FBR) at (\OpInvFbRx, \OpInvFbY);
+  \coordinate (OutRise) at (\OpInvFbRx, 0);
+  \coordinate (Vo) at (\OpInvVoX, 0);
+
+  % v_+ 垂直接地（无电阻）
+  \draw (OA.+) -- ++(0, -\OpInvPlusGnd) node[ground, scale=0.85]{};
+
+  % v_- → 分支节点 → R_1 → v_i
+  \draw (OA.-) -| (VM);
+  \node[circ, fill=black, inner sep=0.9pt] at (VM) {};
+  \draw (VM) to[R, l=$R_1$, l^=] (Vi);
+  \draw (Vi) to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_i$};
+
+  % R_2：VM ↓ → 底母线 → 右 → ↑ → Output
+  \draw (VM) -- (FBL);
+  \draw (FBL) to[R, l_=$R_2$] (FBR);
+  \draw (FBR) -- (OutRise) -- (OA.out);
+
+  % v_o
+  \draw (OA.out) to[short, -o] (Vo) node[right, opfig]{$v_o$};
+\end{circuitikz}
+\end{document}

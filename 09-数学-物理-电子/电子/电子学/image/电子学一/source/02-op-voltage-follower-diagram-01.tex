@@ -1,0 +1,22 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\input{02-op-circuit-style.tex}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \draw (-\OpInLen, 0) node[left, opfig]{$v_i$} to[short, o-] ++(\OpInGap, 0)
+    -- ++(\OpAmpWire, 0)
+    node[op amp, noinv input up, anchor=+](OA){};
+
+  % v_- 左侧结点 VM（反馈与反相端相连）
+  \draw (OA.-) -- ++(-\OpJuncL, 0) coordinate(VM);
+
+  % 输出端
+  \draw (OA.out) to[short, -o] ++(\OpOutLen, 0) node[right, opfig]{$v_o$};
+
+  % 反馈：先右 → 下至三角形下方 → 水平至 VM → 已在 OA.- 处汇合
+  \coordinate (FBLOW) at ($(OA.south) + (0, -\OpFbClear)$);
+  \draw (OA.out) -- ++(\OpFbStub, 0) coordinate(STUB);
+  \draw (STUB) |- (FBLOW) -| (VM);
+\end{circuitikz}
+\end{document}
