@@ -1,5 +1,7 @@
 # 第二章运放电路图（LaTeX / CircuiTikZ）
 
+Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.mdc`（含用户 prompt 模板与验收清单）。
+
 全部电路原理图由 **CircuiTikZ** 统一生成，共享样式见：
 
 `image/电子学一/source/02-op-circuit-style.tex`
@@ -18,11 +20,20 @@ $figs = @(
   "02-op-non-inverting-amplifier-diagram-01",
   "02-op-adder-diagram-01",
   "02-op-inverting-amplifier-diagram-01",
-  "02-op-inverter-example-diagram-01"
+  "02-op-inverter-example-diagram-01",
+  "02-op-instrumentation-amplifier-diagram-01",
+  "02-op-closed-loop-transfer-saturation-plot-01",
+  "02-op-ekg-right-leg-drive-block-diagram-01"
 )
 foreach ($f in $figs) {
   .\build-tex-figure.ps1 -TexFile "..\image\电子学一\source\$f.tex"
 }
 ```
+
+**位图（参考扫描，非构建链）**
+
+| 文件 | 说明 |
+|------|------|
+| `02-op-ekg-right-leg-drive-diagram-01.png` | EKG 完整原理图（AD620/AD705）；笔记中与 `02-op-ekg-right-leg-drive-block-diagram-01.svg` 对照 |
 
 波形图（转移特性、正弦→方波）仍为独立 TikZ 源文件，不在此列。

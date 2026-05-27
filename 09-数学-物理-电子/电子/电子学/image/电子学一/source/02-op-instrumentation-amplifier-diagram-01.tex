@@ -1,0 +1,85 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+\input{02-op-circuit-style.tex}
+
+\ctikzset{resistors/scale=0.8, label distance=3mm}
+
+% 布局参数（cm）
+\def\OpIaXa{2.45}
+\def\OpIaYpair{1.25}
+\def\OpIaXin{-1.22}
+\def\OpIaXinv{1.50}
+\def\OpIaRtwoSpan{0.68}
+\def\OpIaXaThree{7.05}
+\def\OpIaRthreeLen{2.05}
+\def\OpIaRfourDrop{1.25}
+\def\OpIaYbus{-2.40}
+\def\OpIaXfbR{8.05}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+
+  % ==================== 1. 三个运算放大器 ====================
+  \node[op amp, noinv input up](OA1) at (\OpIaXa, \OpIaYpair) {};
+  \node[op amp, noinv input down](OA2) at (\OpIaXa, -\OpIaYpair) {};
+  \node[op amp, noinv input up](OA3) at (\OpIaXaThree, 0) {};
+
+  % ==================== 2. 左上 OA1 ====================
+  \path let \p1=(OA1.+), \p2=(OA1.-), \p3=(OA1.out) in
+    coordinate (V1t) at (\OpIaXin, \y1)
+    coordinate (N1) at (\OpIaXinv, \y2)
+    coordinate (Out1) at (\x3, \y3);
+
+  \draw (OA1.+) -- (V1t) to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_1$};
+  \draw (OA1.-) -| (N1);
+  \node[circ, fill=black, inner sep=0.9pt] at (N1) {};
+
+  \coordinate (R2h1) at (\OpIaXinv, \OpIaYpair-\OpIaRtwoSpan);
+  \draw (N1) |- (R2h1)
+    to[R, l^=$R_2$] (R2h1 -| Out1) |- (Out1);
+
+  % ==================== 3. 左下 OA2 ====================
+  \path let \p1=(OA2.+), \p2=(OA2.-), \p3=(OA2.out) in
+    coordinate (V2t) at (\OpIaXin, \y1)
+    coordinate (N2) at (\OpIaXinv, \y2)
+    coordinate (Out2) at (\x3, \y3);
+
+  \draw (OA2.+) -- (V2t) to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_2$};
+  \draw (OA2.-) -| (N2);
+  \node[circ, fill=black, inner sep=0.9pt] at (N2) {};
+
+  \coordinate (R2h2) at (\OpIaXinv, -\OpIaYpair+\OpIaRtwoSpan);
+  \draw (N2) |- (R2h2)
+    to[R, l_=$R_2$] (R2h2 -| Out2) |- (Out2);
+
+  % ==================== 4. 输入级 R_1（竖向，标签在左侧）====================
+  \draw (N1) to[R, l_=$R_1$] (N2);
+
+  % ==================== 5. 末级差动放大器 ====================
+  \path let \p1=(OA3.+), \p2=(OA3.-), \p3=(OA3.out) in
+    coordinate (PlusJ) at ($(\x1, \y1)+(-\OpIaRthreeLen, 0)$)
+    coordinate (MinusJ) at ($(\x2, \y2)+(-\OpIaRthreeLen, 0)$)
+    coordinate (FbL) at (\x2, \OpIaYbus)
+    coordinate (FbR) at (\OpIaXfbR, \OpIaYbus);
+
+  % --- 上路：Out1 → R_3 → OA3.+ ；从 (+) 垂直接 R_4 → 地（无中间叠层）---
+  \draw (Out1) -| (PlusJ);
+  \draw (PlusJ) to[R, l=$R_3$] (OA3.+);
+  \draw (OA3.+) to[R, l_=$R_4$] ++(0, -\OpIaRfourDrop)
+    node[ground, scale=0.85]{};
+
+  % --- 下路：Out2 → R_3 → OA3.-（标签在电阻下方）---
+  \draw (Out2) -| (MinusJ);
+  \draw (MinusJ) to[R, l_=$R_3$] (OA3.-);
+
+  % --- 负反馈：(-) 直下母线 → 水平 R_4（标签在上）→ 升至输出 ---
+  \draw (OA3.-) -- (FbL);
+  \draw (FbL) to[R, l^=$R_4$] (FbR);
+  \draw (FbR) |- (OA3.out);
+
+  % ==================== 6. 输出 v_o ====================
+  \draw (OA3.out) to[short, -o] ++(\OpOutLen, 0) node[right, opfig]{$v_o$};
+
+\end{circuitikz}
+\end{document}
