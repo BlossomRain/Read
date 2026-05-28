@@ -86,3 +86,10 @@ tmp/
 # Editor temporary files
 *.swp
 *.swo
+
+# LaTeX (figure build in image/**/source/)
+*.aux
+*.log
+*.fdb_latexmk
+*.fls
+*.synctex.gz

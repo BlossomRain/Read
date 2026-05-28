@@ -20,6 +20,8 @@ $figs = @(
   "02-op-non-inverting-amplifier-diagram-01",
   "02-op-adder-diagram-01",
   "02-op-inverting-amplifier-diagram-01",
+  "02-op-integrator-diagram-01",
+  "02-op-integrator-step-saturation-waveforms-01",
   "02-op-inverter-example-diagram-01",
   "02-op-instrumentation-amplifier-diagram-01",
   "02-op-closed-loop-transfer-saturation-plot-01",
