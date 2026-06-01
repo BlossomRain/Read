@@ -1,0 +1,31 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.2, transform shape, font=\small]
+  \coordinate (P) at (0, 0);
+  \coordinate (N) at (0, -2.6);
+
+  % terminals
+  \draw (P) node[left] {p} to[short, o-] ++(0.4, 0) coordinate (Ptop);
+  \draw (N) node[left] {n} to[short, o-] ++(0.4, 0) coordinate (Nbot);
+
+  % diode branch (left)
+  \draw (Ptop) to[D, l=$D$, *-] (Nbot);
+
+  % photocurrent source branch (right, parallel)
+  \draw (Ptop) -- ++(1.6, 0) coordinate (Pbr)
+    to[I, l=$I_{\mathrm{ph}}$, v=$I_{\mathrm{ph}}$] ++(0, -2.6)
+    -- (Nbot);
+
+  % terminal voltage v
+  \draw[<-, thick] ($(P)+(-0.15,-0.55)$) -- node[left] {$+$} ($(P)+(-0.15,-1.05)$);
+  \draw[->, thick] ($(N)+(-0.15,0.55)$) -- node[left] {$-$} ($(N)+(-0.15,1.05)$);
+  \node at (-0.15, -0.05) {$v$};
+
+  % total terminal current i (p to n)
+  \draw[->, thick] (2.35, -3.15) -- node[above, font=\scriptsize] {$i$} (3.55, -3.15);
+
+\end{circuitikz}
+\end{document}

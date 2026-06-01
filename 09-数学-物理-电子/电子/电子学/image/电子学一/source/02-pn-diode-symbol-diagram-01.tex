@@ -1,0 +1,23 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{positioning}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.15, transform shape, font=\small]
+  \coordinate (P) at (0, 0);
+  \coordinate (N) at (3.2, 0);
+
+  \draw (P) node[left] {p} to[short, o-] ++(0.35, 0)
+    to[D] ($(N)+(-0.35,0)$)
+    to[short, o-] (N) node[right] {n};
+
+  % voltage v: + at p, - at n
+  \draw[<-, thick] ($(P)+(0,-0.85)$) -- node[left] {$+$} ($(P)+(0,-1.35)$);
+  \draw[->, thick] ($(N)+(0,-0.85)$) -- node[right] {$-$} ($(N)+(0,-1.35)$);
+  \node at (1.6, -1.35) {$v$};
+
+  % current i: p to n
+  \draw[->, thick] (0.55, -1.85) -- node[above, font=\scriptsize] {$i$} (2.65, -1.85);
+  \node[font=\scriptsize] at (1.6, -2.35) {(diode)};
+\end{circuitikz}
+\end{document}

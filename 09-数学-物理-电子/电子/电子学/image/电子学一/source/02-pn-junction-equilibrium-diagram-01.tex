@@ -1,0 +1,63 @@
+\documentclass[border=14pt,crop=true]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\tikzset{
+  pnfont/.style={font=\small},
+  pnthin/.style={font=\scriptsize},
+  ion/.style={circle, draw, thick, inner sep=1.2pt, minimum size=5pt},
+  carrier/.style={circle, fill, inner sep=0.8pt, minimum size=3.5pt},
+}
+
+\begin{document}
+\begin{tikzpicture}[pnfont, x=0.95cm, y=0.55cm]
+
+  \def\boxTop{1.25}
+  \def\boxBot{-1.25}
+  \def\depL{-1.05}
+  \def\depR{1.05}
+
+  % slab outline
+  \draw[thick] (-4.2,\boxBot) rectangle (4.2,\boxTop);
+  \draw[thick, dashed] (0,\boxBot) -- (0,\boxTop);
+
+  % depletion shading
+  \fill[gray!12] (\depL,\boxBot) rectangle (\depR,\boxTop);
+
+  % top labels (outside box, aligned)
+  \node[pnfont, anchor=south] at (-2.55,\boxTop+0.12)
+    {\textbf{P-type} (acceptors $N_A$)};
+  \node[pnthin, anchor=south] at (0,\boxTop+0.12) {depletion layer};
+  \node[pnfont, anchor=south] at (2.55,\boxTop+0.12)
+    {\textbf{N-type} (donors $N_D$)};
+
+  % bottom labels (outside box)
+  \node[pnthin, anchor=north] at (-2.55,\boxBot-0.12) {majority: holes $h^+$};
+  \node[pnthin, anchor=north] at (0,\boxBot-0.12) {fixed ions only};
+  \node[pnthin, anchor=north] at (2.55,\boxBot-0.12) {majority: electrons $e^-$};
+
+  % fixed ions in depletion (4 rows, clear of labels)
+  \foreach \y in {-0.65,-0.15,0.35,0.85} {
+    \node[ion, fill=red!15] at (-0.58,\y) {$-$};
+    \node[ion, fill=blue!12] at (0.58,\y) {$+$};
+  }
+  \node[pnthin, anchor=east] at (-0.92,0.1) {$N_A^-$};
+  \node[pnthin, anchor=west] at (0.92,0.1) {$N_D^+$};
+
+  % majority carriers outside depletion
+  \foreach \x/\y in {-2.35/0.45,-3.05/-0.25,-1.85/-0.55} {
+    \node[carrier, fill=red!70] at (\x,\y) {};
+  }
+  \node[pnthin, anchor=west] at (-2.95,0.75) {$h^+$};
+
+  \foreach \x/\y in {2.35/-0.35,3.05/0.45,1.85/0.15} {
+    \node[carrier, fill=blue!70] at (\x,\y) {};
+  }
+  \node[pnthin, anchor=east] at (2.95,0.75) {$e^-$};
+
+  % built-in E field (N+ -> P-, below ion columns)
+  \draw[->, thick, red!70!black] (0.95,-0.42) -- (-0.95,-0.42)
+    node[midway, below=2pt, pnthin] {$\vec{E}_{\mathrm{bi}}$};
+
+\end{tikzpicture}
+\end{document}

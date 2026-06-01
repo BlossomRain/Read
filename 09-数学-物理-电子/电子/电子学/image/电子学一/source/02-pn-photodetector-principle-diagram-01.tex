@@ -1,0 +1,76 @@
+\documentclass[border=16pt,crop=true]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+
+\tikzset{
+  pnfont/.style={font=\small},
+  pnthin/.style={font=\scriptsize},
+  ion/.style={circle, draw, thick, inner sep=1.2pt, minimum size=5pt},
+  carrier/.style={circle, fill, inner sep=0.8pt, minimum size=3.8pt},
+}
+
+\begin{document}
+\begin{tikzpicture}[pnfont, x=0.95cm, y=0.55cm]
+
+  \def\boxTop{1.2}
+  \def\boxBot{-1.2}
+  \def\depL{-1.05}
+  \def\depR{1.05}
+
+  % --- incident light (above slab, separate from region labels) ---
+  \node[pnthin, orange!80!black, anchor=south] at (0,2.35) {$h\nu$ (light)};
+  \foreach \x in {-0.42,0,0.42} {
+    \draw[-{Stealth[length=2.2mm]}, thick, orange!80!black]
+      (\x,2.22) -- (\x,1.38);
+  }
+
+  % --- slab ---
+  \draw[thick] (-4.2,\boxBot) rectangle (4.2,\boxTop);
+  \draw[thick, dashed] (0,\boxBot) -- (0,\boxTop);
+  \fill[gray!12] (\depL,\boxBot) rectangle (\depR,\boxTop);
+
+  \node[pnfont, anchor=south] at (-2.55,\boxTop+0.1) {P};
+  \node[pnfont, anchor=south] at (2.55,\boxTop+0.1) {N};
+  \node[pnthin, gray, anchor=north] at (0,\boxBot+0.08) {depletion};
+
+  % fixed ions (side columns)
+  \foreach \y in {-0.55,-0.05,0.45,0.95} {
+    \node[ion, fill=red!15] at (-0.62,\y) {$-$};
+    \node[ion, fill=blue!12] at (0.62,\y) {$+$};
+  }
+
+  % photogenerated e-h pair (upper depletion, clear of E arrow)
+  \node[carrier, fill=blue!75] at (-0.18,0.62) {};
+  \node[carrier, fill=red!75] at (0.18,0.42) {};
+  \node[pnthin, blue!70!black, anchor=south] at (-0.18,0.78) {$e^-$};
+  \node[pnthin, red!70!black, anchor=south] at (0.18,0.58) {$h^+$};
+  \node[pnthin, anchor=west] at (0.48,0.52) {e-h pair};
+
+  % drift (outward, labels near P/N sides)
+  \draw[-{Stealth[length=2mm]}, very thick, blue!70!black]
+    (0.05,0.58) .. controls (0.55,0.62) .. (1.55,0.72);
+  \node[pnthin, blue!70!black, anchor=west] at (1.58,0.76) {drift $\to$ N};
+
+  \draw[-{Stealth[length=2mm]}, very thick, red!70!black]
+    (-0.05,0.48) .. controls (-0.55,0.44) .. (-1.55,0.34);
+  \node[pnthin, red!70!black, anchor=east] at (-1.58,0.38) {drift $\to$ P};
+
+  % built-in field (bottom of depletion, below e-h)
+  \draw[-{Stealth[length=2mm]}, thick, red!70!black]
+    (0.88,-0.38) -- (-0.88,-0.38)
+    node[midway, below=3pt, pnthin] {$\vec{E}_{\mathrm{bi}}$};
+
+  % --- external circuit (bottom, I_ph N to P through load) ---
+  \coordinate (Pout) at (-4.2,0);
+  \coordinate (Nout) at (4.2,0);
+  \draw[thick] (Pout) -- (-4.2,-1.85);
+  \draw[thick] (Nout) -- (4.2,-1.85);
+  \draw[thick] (-4.2,-1.85) -- (4.2,-1.85);
+  \draw[-{Stealth[length=2.2mm]}, thick, green!50!black]
+    (3.0,-1.85) -- (-3.0,-1.85)
+    node[midway, below=3pt, pnthin] {$I_{\mathrm{ph}}$};
+  \node[pnthin, green!50!black, anchor=north] at (0,-2.15)
+    {(external: N $\to$ P, same as forward-diode direction)};
+
+\end{tikzpicture}
+\end{document}
