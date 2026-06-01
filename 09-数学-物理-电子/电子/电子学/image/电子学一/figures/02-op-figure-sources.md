@@ -21,7 +21,15 @@ $figs = @(
   "02-op-adder-diagram-01",
   "02-op-inverting-amplifier-diagram-01",
   "02-op-integrator-diagram-01",
+  "02-op-integrator-rf-diagram-01",
   "02-op-integrator-step-saturation-waveforms-01",
+  "02-op-integrator-offset-drift-waveforms-01",
+  "02-op-integrator-bode-plot-01",
+  "02-op-integrator-rf-bode-plot-01",
+  "02-op-differentiator-diagram-01",
+  "02-op-differentiator-bode-plot-01",
+  "02-op-differentiator-rs-diagram-01",
+  "02-op-differentiator-rs-bode-plot-01",
   "02-op-inverter-example-diagram-01",
   "02-op-instrumentation-amplifier-diagram-01",
   "02-op-closed-loop-transfer-saturation-plot-01",
@@ -37,5 +45,6 @@ foreach ($f in $figs) {
 | 文件 | 说明 |
 |------|------|
 | `02-op-ekg-right-leg-drive-diagram-01.png` | EKG 完整原理图（AD620/AD705）；笔记中与 `02-op-ekg-right-leg-drive-block-diagram-01.svg` 对照 |
+| `02-op-analog-computer-mass-spring-damper-01.png` | §2.4.6 质量–弹簧–阻尼模拟计算机板书（参考 [I4CY](https://www.i4cy.com/analog_computing/)） |
 
 波形图（转移特性、正弦→方波）仍为独立 TikZ 源文件，不在此列。

@@ -1,0 +1,39 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\input{02-op-circuit-style.tex}
+
+% 微分器：与积分器对偶，输入 C、反馈 R
+\def\OpIntVmX{-1.0}
+\def\OpIntVmY{-0.5}
+\def\OpIntViX{-3.0}
+\def\OpIntFbY{-2.0}
+\def\OpIntFbRx{1.5}
+\def\OpIntVoX{2.5}
+\def\OpIntPlusGnd{1.15}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \coordinate (OAC) at (0, 0);
+  \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
+
+  \coordinate (VM) at (\OpIntVmX, \OpIntVmY);
+  \coordinate (Vi) at (\OpIntViX, \OpIntVmY);
+  \coordinate (FBL) at (\OpIntVmX, \OpIntFbY);
+  \coordinate (FBR) at (\OpIntFbRx, \OpIntFbY);
+  \coordinate (OutRise) at (\OpIntFbRx, 0);
+  \coordinate (Vo) at (\OpIntVoX, 0);
+
+  \draw (OA.+) -- ++(0, -\OpIntPlusGnd) node[ground, scale=0.85]{};
+
+  \draw (OA.-) -| (VM);
+  \node[circ, fill=black, inner sep=0.9pt] at (VM) {};
+  \draw (VM) to[C, l=$C$, l^=$+$] (Vi);
+  \draw (Vi) to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_i$};
+
+  \draw (VM) -- (FBL);
+  \draw (FBL) to[R, l_=$R$, l^=] (FBR);
+  \draw (FBR) -- (OutRise) -- (OA.out);
+
+  \draw (OA.out) to[short, -o] (Vo) node[right, opfig]{$v_o$};
+\end{circuitikz}
+\end{document}

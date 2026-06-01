@@ -19,8 +19,8 @@
   \pgfmathsetmacro{\Xrec}{\Trec*\xms}
   \pgfmathsetmacro{\Xstep}{\Tstep*\xms}
 
-  % ----- $v_i$ -----
-  \begin{scope}[shift={(0,2.8)}]
+  % ----- $v_i$（与 $v_o$ 子图拉开）-----
+  \begin{scope}[shift={(0,4.0)}]
     \draw[->] (0,0) -- (\Xend+0.5,0) node[right] {$t$ (ms)};
     \draw[->] (0,-0.15) -- (0,\ViH+0.35) node[above] {$v_i$ (V)};
     \node[left, font=\scriptsize] at (0,0) {$0$};
@@ -28,9 +28,7 @@
     \draw[very thick] (0,0) -- (0,\ViH) -- (\Xstep,\ViH) -- (\Xstep,0);
     \draw[dashed, gray] (\Xrec,-0.12) -- (\Xrec,\ViH+0.2);
     \node[font=\scriptsize, fill=white, inner sep=1pt, anchor=south]
-      at (\Xrec,\ViH+0.18) {$T_{\mathrm{step}}\!=\!10$};
-    \node[font=\scriptsize, anchor=south] at (0.5*\Xstep,\ViH+0.08)
-      {step holds at $1$ V};
+      at (\Xrec,\ViH+0.18) {$10$ ms};
   \end{scope}
 
   % ----- $v_o$ -----
