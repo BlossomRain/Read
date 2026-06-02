@@ -1,0 +1,57 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+\input{02-op-circuit-style.tex}
+
+% PD branch geometry (cm)
+\def\PdStub{0.28}
+\def\PdBranchSep{1.05}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  % op amp first (same style as 02-op-voltage-follower-diagram-01)
+  \coordinate (OAC) at (5.1, 0);
+  \node[op amp, noinv input up](OA) at (OAC) {};
+
+  \coordinate (VM) at ($(OA.-)+(-\OpJuncL, 0)$);
+  \coordinate (Vo) at ($(OA.out)+(\OpOutLen, 0)$);
+  \coordinate (Pin) at ($(OA.+)+(-1.55, 0)$);
+
+  \draw (Pin) -- (OA.+);
+  \draw (OA.-) -- (VM);
+  \draw (OA.out) to[short, -o] (Vo) node[right=2.5mm, opfig]{$v_o$};
+
+  \coordinate (FBLOW) at ($(OA.south) + (0, -\OpFbClear)$);
+  \draw (OA.out) -- ++(\OpFbStub, 0) coordinate (STUB);
+  \draw (STUB) |- (FBLOW) -| (VM);
+
+  % photodetector: align p with Pin / v_+
+  \path let \p1=(Pin) in
+    coordinate (Ptop) at ($ (\x1, \y1) + (-1.75, 0) $)
+    coordinate (Nbot) at ($ (\x1, \y1) + (-1.75, -1.85) $);
+
+  \node[circ, fill=black, inner sep=0.8pt] at (Ptop) {};
+  \node[circ, fill=black, inner sep=0.8pt] at (Nbot) {};
+  \node[left=2mm, opfig] at (Ptop) {p};
+  \node[left=2mm, opfig] at (Nbot) {n};
+  \draw (Nbot) node[ground, scale=0.85]{};
+
+  \coordinate (DLt) at ($ (Ptop) + (\PdStub, 0) $);
+  \coordinate (DLb) at ($ (Nbot) + (\PdStub, 0) $);
+  \coordinate (IRt) at ($ (Ptop) + (\PdStub + \PdBranchSep, 0) $);
+  \coordinate (IRb) at ($ (Nbot) + (\PdStub + \PdBranchSep, 0) $);
+
+  \draw (Ptop) -- (DLt);
+  \draw (Ptop) -- (IRt);
+  \draw (Nbot) -- (DLb);
+  \draw (Nbot) -- (IRb);
+  \draw (Ptop) -- (Pin);
+
+  \draw (DLt) to[D] (DLb);
+  \draw (IRt) to[I] (IRb);
+
+  \node[opfigThin] at ($ (DLt)!0.5!(DLb) + (-3.5mm, 0) $) {$D$};
+  \node[opfigThin] at ($ (IRt)!0.5!(IRb) + (3.5mm, 0) $) {$I_{\mathrm{ph}}$};
+  \node[opfigThin, above=1.5mm] at ($ (DLt)!0.5!(IRt) $) {PD};
+\end{circuitikz}
+\end{document}

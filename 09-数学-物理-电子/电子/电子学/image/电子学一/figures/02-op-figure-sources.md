@@ -22,6 +22,10 @@ Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.m
 | `02-pn-diode-iv-characteristic-01` | `source/02-pn-diode-iv-characteristic-01.tex` | Shockley $I$–$V$（$I_s=10^{-14}$ A） |
 | `02-pn-photodetector-principle-diagram-01` | `source/02-pn-photodetector-principle-diagram-01.tex` | 光生 e-h、$\vec{E}_{\mathrm{bi}}$ 漂移、$I_{\mathrm{ph}}$ |
 | `02-pn-photodetector-equivalent-model-01` | `source/02-pn-photodetector-equivalent-model-01.tex` | $I_{\mathrm{ph}}$ 源 $\parallel$ 二极体 $D$ |
+| `02-op-photodetector-voltage-follower-diagram-01` | `source/02-op-photodetector-voltage-follower-diagram-01.tex` | 光侦测器等效模型 + 电压跟随器 |
+| `02-op-photodetector-iv-converter-diagram-01` | `source/02-op-photodetector-iv-converter-diagram-01.tex` | 光侦测器等效模型 + 反相 I–V 转换（$R_f$） |
+| `02-street-light-control-circuit-diagram-01` | `source/02-street-light-control-circuit-diagram-01.tex` | 街灯链：PD→I–V→比较→$Q$→$D_p$–$R$–$K_1$∥$D_f$→ST→灯 |
+| `02-bjt-npn-terminal-model-diagram-01` | `source/02-bjt-npn-terminal-model-diagram-01.tex` | NPN BJT 三端 B/E/C 与 $I_B$、$I_C$、$I_E$ |
 
 图内标注为英文（pdflatex 无 CJK）；笔记正文为中文。
 
@@ -56,7 +60,11 @@ $figs = @(
   "02-pn-diode-symbol-diagram-01",
   "02-pn-diode-iv-characteristic-01",
   "02-pn-photodetector-principle-diagram-01",
-  "02-pn-photodetector-equivalent-model-01"
+  "02-pn-photodetector-equivalent-model-01",
+  "02-op-photodetector-voltage-follower-diagram-01",
+  "02-op-photodetector-iv-converter-diagram-01",
+  "02-street-light-control-circuit-diagram-01",
+  "02-bjt-npn-terminal-model-diagram-01"
 )
 foreach ($f in $figs) {
   .\build-tex-figure.ps1 -TexFile "..\image\电子学一\source\$f.tex"

@@ -1,0 +1,128 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+\input{02-op-circuit-style.tex}
+
+% Pipeline layout (cm)
+\def\SigY{-0.45}
+\def\Ny{0.9}
+\def\Py{-1.6}
+\def\PdLeft{-4.2}
+\def\PdStub{0.36}
+\def\PdSep{1.1}
+\def\VmX{-0.95}
+\def\AoneX{2.85}
+\def\RfY{2.1}
+\def\RfRx{3.45}
+\def\VoX{5.85}
+\def\AtwoX{9.2}
+\def\CmpOutX{10.55}
+\def\QbaseX{11.55}
+\def\Qx{11.85}
+\def\CoilParX{0.55}
+\def\CoilX{15.35}
+\def\CoilBotY{0.72}
+\def\CoilTopY{2.52}
+\def\ProtH{1.05}
+\def\LampRailX{17.05}
+\def\LampRailY{2.55}
+\def\LampX{18.35}
+\def\LampBotY{-1.75}
+
+\begin{document}
+\begin{circuitikz}[american, scale=0.92, transform shape]
+
+  % ===== Stage 1: PD + inverting I-V (A1) =====
+  % noinv input down (no yscale): (-) top, (+) bottom
+  \coordinate (OAC1) at (\AoneX, \SigY);
+  \node[op amp, noinv input down](OA1) at (OAC1) {};
+
+  \coordinate (VM1) at (\VmX, \Ny);
+  \coordinate (NbusL) at (\PdLeft, \Ny);
+  \coordinate (Pbus) at (\PdLeft, \Py);
+  \coordinate (Vo1) at (\VoX, \SigY);
+  \coordinate (FBL1) at (\VmX, \RfY);
+  \coordinate (FBR1) at (\RfRx, \RfY);
+  \coordinate (OutTap1) at (\RfRx, \SigY);
+
+  \draw (OA1.+) -- ++(0, -1.05) node[ground, scale=0.8]{};
+  \draw (OA1.-) -| (VM1);
+  \node[circ, fill=black, inner sep=0.75pt] at (VM1) {};
+  \draw (NbusL) -- (VM1);
+  \node[left=2mm, opfigThin] at (NbusL) {n};
+  \node[left=2mm, opfigThin] at (Pbus) {p};
+
+  % PD: orthogonal n/p buses; I_ph arrow down
+  \coordinate (DLb) at ($ (Pbus) + (\PdStub, 0) $);
+  \coordinate (DLt) at ($ (NbusL) + (\PdStub, 0) $);
+  \coordinate (IRb) at ($ (Pbus) + (\PdStub + \PdSep, 0) $);
+  \coordinate (IRt) at ($ (NbusL) + (\PdStub + \PdSep, 0) $);
+  \draw (Pbus) -- (DLb);
+  \draw (NbusL) -- (DLt);
+  \draw (Pbus) -- (IRb);
+  \draw (NbusL) -- (IRt);
+  \draw (DLb) to[D] (DLt);
+  \draw (IRt) to[I, i=$I_{\mathrm{ph}}$] (IRb);
+  \draw (Pbus) node[ground, scale=0.8]{};
+  \node[opfigThin] at ($ (DLb)!0.5!(DLt) + (-3.5mm, 0) $) {$D$};
+  \node[opfigThin] at ($ (IRb)!0.5!(IRt) + (4mm, 0) $) {$I_{\mathrm{ph}}$};
+  \node[opfigThin, below=2mm] at ($ (DLb)!0.5!(IRb) $) {PD};
+
+  \draw (VM1) |- (FBL1);
+  \draw (FBL1) to[R, l^=$R_f$] (FBR1);
+  \draw (FBR1) -- (OutTap1) -- (OA1.out);
+  \draw (OA1.out) -- (Vo1) node[midway, above=0.5mm, opfigThin] {$v_o$};
+
+  % ===== Stage 2: comparator A2 =====
+  \coordinate (OAC2) at (\AtwoX, \SigY);
+  \node[op amp, noinv input down](OA2) at (OAC2) {};
+
+  \draw (Vo1) -| (OA2.+);
+  \coordinate (VrefNode) at ($(OA2.-)+(0, 1.05)$);
+  \draw (OA2.-) -- (VrefNode);
+  \draw (VrefNode) -- ++(-0.55, 0)
+    node[opfigThin, left] {$V_{\mathrm{ref}}=-5\,\mathrm{V}$};
+
+  % ===== Stage 3: BJT (body clear of coil branch) =====
+  \coordinate (CmpOut) at (\CmpOutX, \SigY);
+  \draw (OA2.out) -- (CmpOut);
+  \draw (CmpOut) to[R, l^=$R_B$] (\QbaseX, \SigY);
+  \node[npn, anchor=B, scale=0.88](Q) at (\Qx, \SigY) {};
+  \draw (Q.B) -- (\QbaseX, \SigY);
+  \draw (Q.E) -- ++(0, -0.95) node[ground, scale=0.8]{};
+
+  % ===== Stage 4: Q.C ↑ → D_p → R → (CoilJ) ↑ K1 ∥ D_f → V_CC =====
+  \coordinate (CoilJ) at (\CoilX, \CoilBotY);
+  \coordinate (CoilTop) at (\CoilX, \CoilTopY);
+  \coordinate (Kmid) at ($ (CoilJ)!0.5!(CoilTop) + (\CoilParX, 0) $);
+  \coordinate (FlyL) at ($ (CoilJ)!0.5!(CoilTop) + (-\CoilParX, 0) $);
+  \coordinate (Ktop) at (Kmid |- CoilTop);
+  \coordinate (Ftop) at (FlyL |- CoilTop);
+  \coordinate (Cout) at ($(Q.C)+(0, 0.38)$);
+  \coordinate (AfterDp) at ($ (Cout) + (\ProtH, 0) $);
+  \coordinate (AfterR) at ($ (AfterDp) + (\ProtH, 0) $);
+
+  \draw (Q.C) -- (Cout);
+  \draw (Cout) to[D, l^=$D_p$] (AfterDp);
+  \draw (AfterDp) to[R, l^=$R$] (AfterR);
+  \draw (AfterR) -- (CoilJ);
+
+  \draw (CoilJ) |- (Kmid);
+  \draw (Kmid) to[R, l_=$K_1$] (Ktop);
+  \draw (CoilJ) |- (FlyL);
+  \draw (FlyL) to[D, l_=$D_f$] (Ftop);
+  \draw (Ktop) -- (CoilTop) -- (Ftop);
+  \draw (CoilTop) -- ++(0, 0.45) node[vcc, scale=0.78, font=\scriptsize] {$V_{CC}$};
+
+  % ===== Stage 5: lamp loop (separate from coil V_CC) =====
+  \coordinate (LampRailL) at (\LampRailX, \LampRailY);
+  \coordinate (LampSwR) at (\LampX, \LampRailY);
+  \coordinate (LampBot) at (\LampX, \LampBotY);
+
+  \draw (LampRailL) -- ++(0, 0.5) node[vcc, scale=0.78, font=\scriptsize] {$V_{CC}$};
+  \draw (LampRailL) to[nos, l=ST] (LampSwR);
+  \draw (LampSwR) to[lamp, l=] (LampBot);
+  \draw (LampBot) node[ground, scale=0.8]{};
+
+\end{circuitikz}
+\end{document}

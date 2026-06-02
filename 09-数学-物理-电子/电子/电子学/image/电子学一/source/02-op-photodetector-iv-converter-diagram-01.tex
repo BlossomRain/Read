@@ -1,0 +1,69 @@
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+\input{02-op-circuit-style.tex}
+
+% Layout (cm): op amp right; PD left; R_f above, no overlap
+\def\OpCx{3.0}
+\def\OpCy{-0.45}
+\def\Ny{0.9}
+\def\Py{-1.6}
+\def\PdLeft{-4.35}
+\def\PdStub{0.38}
+\def\PdSep{1.18}
+\def\VmX{-1.05}
+\def\RfY{2.15}
+\def\RfRx{3.55}
+\def\VoX{5.05}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  % Op amp: + bottom (ground), - top (input n)
+  \coordinate (OAC) at (\OpCx, \OpCy);
+  \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
+
+  \coordinate (VM) at (\VmX, \Ny);
+  \coordinate (NbusL) at (\PdLeft, \Ny);
+  \coordinate (Pbus) at (\PdLeft, \Py);
+  \coordinate (Vo) at (\VoX, \OpCy);
+  \coordinate (FBL) at (\VmX, \RfY);
+  \coordinate (FBR) at (\RfRx, \RfY);
+  \coordinate (OutTap) at (\RfRx, \OpCy);
+
+  % v_+ → ground
+  \draw (OA.+) -- ++(0, -1.1) node[ground, scale=0.85]{};
+
+  % v_- → node n (VM)
+  \draw (OA.-) -| (VM);
+  \node[circ, fill=black, inner sep=0.8pt] at (VM) {};
+
+  % n rail (top) → VM; p rail (bottom) → ground
+  \draw (NbusL) -- (VM);
+  \node[left=2.5mm, opfig] at (NbusL) {n};
+  \draw (Pbus) node[ground, scale=0.85]{};
+  \node[left=2.5mm, opfig] at (Pbus) {p};
+
+  % PD: D ∥ I_ph between n and p
+  \coordinate (DLb) at ($ (Pbus) + (\PdStub, 0) $);
+  \coordinate (DLt) at ($ (NbusL) + (\PdStub, 0) $);
+  \coordinate (IRb) at ($ (Pbus) + (\PdStub + \PdSep, 0) $);
+  \coordinate (IRt) at ($ (NbusL) + (\PdStub + \PdSep, 0) $);
+
+  \draw (Pbus) -- (DLb);
+  \draw (NbusL) -- (DLt);
+  \draw (Pbus) -- (IRb);
+  \draw (NbusL) -- (IRt);
+  \draw (DLb) to[D] (DLt);
+  \draw (IRt) to[I, i=$I_{\mathrm{ph}}$] (IRb);
+
+  \node[opfigThin] at ($ (DLb)!0.5!(DLt) + (-4mm, 0) $) {$D$};
+  \node[opfigThin] at ($ (IRb)!0.5!(IRt) + (4.5mm, 0) $) {$I_{\mathrm{ph}}$};
+  \node[opfigThin, below=2.5mm] at ($ (DLb)!0.5!(IRb) $) {PD};
+
+  % R_f above: v_- bus ↑ → horizontal → ↓ to output
+  \draw (VM) |- (FBL);
+  \draw (FBL) to[R, l^=$R_f$] (FBR);
+  \draw (FBR) -- (OutTap) -- (OA.out);
+  \draw (OA.out) to[short, -o] (Vo) node[right=2.5mm, opfig]{$v_o$};
+\end{circuitikz}
+\end{document}

@@ -1,0 +1,27 @@
+\documentclass[border=8pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{calc, arrows.meta}
+\input{02-op-circuit-style.tex}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.05, transform shape]
+  \coordinate (B) at (0, 0);
+  \node[npn, anchor=B, scale=1.05](Q) at (B) {};
+  \node[opfig, left=2mm] at (Q.B) {B};
+  \node[opfig, below=2mm] at (Q.E) {E};
+  \node[opfig, right=2mm] at (Q.C) {C};
+
+  \draw (Q.B) -- ++(-1.35, 0) coordinate (IbIn);
+  \draw (Q.E) -- ++(0, -0.95) node[ground, scale=0.85]{};
+  \draw (Q.C) -- ++(1.35, 0) coordinate (IcOut);
+
+  \draw[-{Stealth[length=2.2mm]}] ($(IbIn)+(-0.15,0.12)$) -- ++(0.55, 0)
+    node[midway, above, opfigThin] {$I_B$};
+  \draw[-{Stealth[length=2.2mm]}] ($(Q.C)+(0.15,0.12)$) -- ++(0.55, 0)
+    node[midway, above, opfigThin] {$I_C$};
+  \draw[-{Stealth[length=2.2mm]}] ($(Q.E)+(0.12,-0.15)$) -- ++(0, -0.55)
+    node[midway, right, opfigThin] {$I_E$};
+
+  \node[opfigThin, align=center] at (0, 1.35) {NPN};
+\end{circuitikz}
+\end{document}
