@@ -26,6 +26,9 @@ Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.m
 | `02-op-photodetector-iv-converter-diagram-01` | `source/02-op-photodetector-iv-converter-diagram-01.tex` | 光侦测器等效模型 + 反相 I–V 转换（$R_f$） |
 | `02-street-light-control-circuit-diagram-01` | `source/02-street-light-control-circuit-diagram-01.tex` | 街灯链：PD→I–V→比较→$Q$→$D_p$–$R$–$K_1$∥$D_f$→ST→灯 |
 | `02-bjt-npn-terminal-model-diagram-01` | `source/02-bjt-npn-terminal-model-diagram-01.tex` | NPN BJT 三端 B/E/C 与 $I_B$、$I_C$、$I_E$ |
+| `02-op-iv-converter-model-diagram-01` | `source/02-op-iv-converter-model-diagram-01.tex` | I–V 转换器（左）与 $R_i$、$A i_i$、$R_o$、$R_L$ 模型（右） |
+| `02-op-two-port-h-parameters-diagram-01` | `source/02-op-two-port-h-parameters-diagram-01.tex` | 双端口网络与 h 参数方程组 |
+| `02-op-vi-converter-model-diagram-01` | `source/02-op-vi-converter-model-diagram-01.tex` | V–I 转换器（左）与 $R_i$、$G v_i$、$R_o$、$R_L$ 模型（右） |
 
 图内标注为英文（pdflatex 无 CJK）；笔记正文为中文。
 
@@ -64,7 +67,10 @@ $figs = @(
   "02-op-photodetector-voltage-follower-diagram-01",
   "02-op-photodetector-iv-converter-diagram-01",
   "02-street-light-control-circuit-diagram-01",
-  "02-bjt-npn-terminal-model-diagram-01"
+  "02-bjt-npn-terminal-model-diagram-01",
+  "02-op-iv-converter-model-diagram-01",
+  "02-op-two-port-h-parameters-diagram-01",
+  "02-op-vi-converter-model-diagram-01"
 )
 foreach ($f in $figs) {
   .\build-tex-figure.ps1 -TexFile "..\image\电子学一\source\$f.tex"
