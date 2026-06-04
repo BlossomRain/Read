@@ -1,5 +1,8 @@
 # 第二章运放电路图（LaTeX / CircuiTikZ）
 
+**手画代表图规范（Designer → Agent 批量重绘）：** [`designer-sample-brief.md`](designer-sample-brief.md)  
+交稿目录：`source/designer-samples/`
+
 Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.mdc`（含用户 prompt 模板与验收清单）。
 
 全部电路原理图由 **CircuiTikZ** 统一生成，共享样式见：
@@ -29,6 +32,7 @@ Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.m
 | `02-op-iv-converter-model-diagram-01` | `source/02-op-iv-converter-model-diagram-01.tex` | I–V 转换器（左）与 $R_i$、$A i_i$、$R_o$、$R_L$ 模型（右） |
 | `02-op-two-port-h-parameters-diagram-01` | `source/02-op-two-port-h-parameters-diagram-01.tex` | 双端口网络与 h 参数方程组 |
 | `02-op-vi-converter-model-diagram-01` | `source/02-op-vi-converter-model-diagram-01.tex` | V–I 转换器（左）与 $R_i$、$G v_i$、$R_o$、$R_L$ 模型（右） |
+| `02-op-iv-converter-model-designer-01` | `source/02-op-iv-converter-model-designer-01.tex` | [CircuiTikZ Designer](https://circuit2tikz.tf.fau.de/designer/) 手绘导出草稿（I–V + 受控电压源模型，未整理） |
 
 图内标注为英文（pdflatex 无 CJK）；笔记正文为中文。
 
@@ -70,7 +74,8 @@ $figs = @(
   "02-bjt-npn-terminal-model-diagram-01",
   "02-op-iv-converter-model-diagram-01",
   "02-op-two-port-h-parameters-diagram-01",
-  "02-op-vi-converter-model-diagram-01"
+  "02-op-vi-converter-model-diagram-01",
+  "02-op-iv-converter-model-designer-01"
 )
 foreach ($f in $figs) {
   .\build-tex-figure.ps1 -TexFile "..\image\电子学一\source\$f.tex"

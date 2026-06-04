@@ -1,0 +1,25 @@
+% Hand-drawn in CircuiTikZ Designer — https://circuit2tikz.tf.fau.de/designer/
+\documentclass[border=8pt,crop=true]{standalone}
+\usepackage{circuitikz}
+\usetikzlibrary{calc}
+
+\begin{document}
+\begin{tikzpicture}[transform shape, scale=0.85]
+  % Paths, nodes and wires (exported from designer)
+  \node[op amp] at (-2.25, 4.75){};
+  \draw (-3.94, 5.24) to[american resistor, l={$R$}] (-5.69, 5.24);
+  \draw (-3.94, 5.24) -| (-3.44, 5.22);
+  \draw (-1.06, 4.73) |- (-1.19, 6.49) -- (-5.69, 6.49) -| (-5.69, 5.24) -- (-6.44, 5.24);
+  \node[ground] at (-6.44, 5.24){};
+  \draw (-3.94, 3.99) to[american voltage source] (-3.94, 1.99);
+  \draw (-3.94, 3.99) -| (-3.94, 4.24) -| (-3.44, 4.26);
+  \draw (3.5, 4) to[american resistor, l={$Ri$}] (3.5, 5.75);
+  \draw (3.5, 4) -- (0.75, 4);
+  \draw (3.5, 4) -- (9, 4);
+  \draw (1, 5.75) -- (3.5, 5.75);
+  \draw (5.75, 5.5) to[american controlled voltage source, l={$Ad(Vi)$}] (5.75, 4);
+  \draw (5.75, 5.5) -| (5.75, 5.75) -- (9, 5.75);
+  \node[ground] at (-3.94, 1.99){};
+  \draw (8.5, 4) to[american resistor, l={$Ro$}] (8.5, 5.75);
+\end{tikzpicture}
+\end{document}

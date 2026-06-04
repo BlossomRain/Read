@@ -1,95 +1,108 @@
 \documentclass[border=10pt,crop=true]{standalone}
 \usepackage{circuitikz}
-\usetikzlibrary{calc, arrows.meta}
-\input{02-op-circuit-style.tex}
+\usetikzlibrary{calc}
+
+\ctikzset{
+  bipoles/length=0.9cm,
+  bipoles/thickness=1,
+  label distance=2.5mm,
+}
+\tikzset{
+  opfig/.style={font=\small},
+  titlefig/.style={font=\small\bfseries},
+}
 
 % ---------------------------------------------------------------------------
-% Spacing knobs — mirror 02-op-iv-converter-model-diagram-01.tex
+% Layout — absolute X (cm), orthogonal wires
 % ---------------------------------------------------------------------------
 \def\BusY{1.45}
-\def\SepX{4.55}
+\def\GndY{0}
+\def\LeftShiftX{1.15}    % left panel (clear of || at SepX)
+\def\LeftShiftY{1.0}
+\def\SepX{3.85}          % double line (right of i_o terminal)
 \def\SepGap{0.11}
 \def\SepH{2.55}
-\def\RightX{5.55}
-\def\GndY{0}
-\def\RxInBase{0.9}
-\def\RxInL{-0.55}
-\def\RxIsrcX{3.25}
-\def\RxRoSpan{1.6}
-\def\RxGndW{8.2}
+\def\RxOff{0.75}           % model block shift right (cm)
+\def\RxVi{4.0}
+\def\RxRi{5.2}
+\def\RxIsrc{6.7}
+\def\RxRo{8.0}
+\def\RxRl{9.3}
+\def\RxOut{10.15}
+\def\RxGndEnd{10.6}
 
 \begin{document}
 \begin{circuitikz}[american, scale=1.0, transform shape]
 
   % ========================================================================
-  % LEFT — v-i converter (non-inverting; virtual short, R from v_- to gnd)
+  % LEFT — v-i converter
   % ========================================================================
-  \begin{scope}
-    \node[opfigThin, anchor=south] at (1.85, 2.95) {v--i converter};
+  \begin{scope}[shift={(\LeftShiftX, \LeftShiftY)}]
+    \node[titlefig, anchor=south] at (0, 2.35) {v-i converter};
 
-    \coordinate (OAC) at (2.35, \GndY);
-    \node[op amp, noinv input down](OA) at (OAC) {};
+    \node[op amp, noinv input down] (opamp) at (0, 0) {};
 
-    \coordinate (Rm) at (2.55, \BusY);
-    \coordinate (Vi) at (2.35, -0.95);
-    \coordinate (Io) at (3.55, \GndY);
+    % (-) -> left -> up: vertical R (offset left) -> ground above R
+    \draw (opamp.-) -- ++(-0.55, 0) coordinate (Rfork);
+    \draw (Rfork) -- ++(0, 0.45) coordinate (Rbot);
+    \draw (Rbot) to[R=$R$] ++(0, 0.55) coordinate (Rtop);
+    \node[ground, scale=0.85, anchor=east] (gndR) at ($(Rtop)+(-0.55,0)$) {};
+    \draw (gndR) -- (Rtop);
 
-    % v_i -> (+), bottom pin
-    \draw (Vi) to[short, o-] ++(-0.55, 0) node[left, opfig]{$v_i$};
-    \draw (Vi) -- (OA.+);
+    % (+) left, down -> v_i terminal
+    \draw (opamp.+) -- ++(-0.85, 0) coordinate (Vmid);
+    \draw (Vmid) -- ++(0, -0.65) coordinate (Vstub);
+    \draw (Vstub) to[short, o-] ++(-0.25, 0)
+      node[left=1.5mm, opfig]{$v_i$};
 
-    % R from v_- (top) down to ground
-    \draw (OA.-) -| (Rm);
-    \draw (Rm) to[R] (2.55, \GndY);
-    \node[opfigThin] at ($ (Rm)!0.5!(2.55, \GndY)+(4.5mm,0) $) {$R$};
-
-    % i_o output terminal (current out of op amp)
-    \draw (OA.out) to[short, -o, i=$i_o$] (Io);
+    % i_o (shorter — stays left of ||)
+    \draw (opamp.out) to[short, -o, i=$i_o$] ++(0.85, 0);
   \end{scope}
 
   % ========================================================================
-  % MIDDLE — divider
+  % MIDDLE — ||
   % ========================================================================
   \begin{scope}[xshift=\SepX cm]
     \coordinate (SepBot) at (0, \GndY-0.35);
     \coordinate (SepTop) at (0, \GndY-0.35+\SepH);
     \draw (SepBot) -- (SepTop);
     \draw ([xshift=\SepGap cm]SepBot) -- ([xshift=\SepGap cm]SepTop);
-    \node[opfigThin, anchor=south west] at (0, 2.35) {model};
   \end{scope}
 
   % ========================================================================
-  % RIGHT — port model (isolated input v_i / R_i, output G v_i / R_o / R_L)
+  % RIGHT — model (shifted right by RxOff)
   % ========================================================================
-  \begin{scope}[xshift=\RightX cm]
-    \coordinate (InL) at (\RxInBase+\RxInL, \BusY);
-    \coordinate (In) at (\RxInBase, \BusY);
-    \coordinate (GndIn) at (\RxInBase, \GndY);
-    \coordinate (Isbot) at (\RxIsrcX, \GndY);
-    \coordinate (Istop) at (\RxIsrcX, \BusY);
-    \coordinate (IoM) at (\RxIsrcX+2*\RxRoSpan, \BusY);
-    \coordinate (GndRo) at (\RxIsrcX+2*\RxRoSpan, \GndY);
-    \coordinate (IoTerm) at (\RxIsrcX+2*\RxRoSpan+0.55, \BusY);
-    \coordinate (GndRL) at (\RxIsrcX+2*\RxRoSpan+0.55, \GndY);
-    \coordinate (GndEnd) at (\RxGndW, \GndY);
+  \begin{scope}[xshift=\RxOff cm]
+  \node[titlefig, anchor=south west] at (\RxVi, 2.35) {model};
 
-    \draw (GndIn) -- (GndEnd);
-    \node[ground, scale=0.85] at ($(GndIn)!0.38!(GndEnd)$) {};
+  \coordinate (Vbot) at (\RxVi, \GndY);
+  \coordinate (Vtop) at (\RxVi, \BusY);
+  \coordinate (Ritop) at (\RxRi, \BusY);
+  \coordinate (Ribot) at (\RxRi, \GndY);
+  \coordinate (Isbot) at (\RxIsrc, \GndY);
+  \coordinate (Istop) at (\RxIsrc, \BusY);
+  \coordinate (RoTop) at (\RxRo, \BusY);
+  \coordinate (RoBot) at (\RxRo, \GndY);
+  \coordinate (RlTop) at (\RxRl, \BusY);
+  \coordinate (RlBot) at (\RxRl, \GndY);
+  \coordinate (OutN) at (\RxOut, \BusY);
+  \coordinate (GndEnd) at (\RxGndEnd, \GndY);
 
-    % input loop: v_i only (no top tie to output)
-    \draw (InL) to[short, v=$v_i$] (In);
-    \draw (In) to[R] (GndIn);
-    \node[opfigThin, anchor=east] at ($ (In)!0.5!(GndIn)+(-5mm,0) $) {$R_i$};
+  \draw (Vbot) -- (GndEnd);
+  \node[ground, scale=0.85] at ($(Vbot)!0.22!(GndEnd)$) {};
 
-    % output loop: G v_i (vertical I), R_o shunt at IoM, i_o -- R_L series to gnd
-    \draw (Isbot) to[I, i=$G v_i$] (Istop);
-    \draw (Istop) -- (IoM);
-    \draw (IoM) to[R] (GndRo);
-    \node[opfigThin, anchor=west] at ($ (IoM)!0.5!(GndRo)+(5mm,0) $) {$R_o$};
+  % input loop only: v_i || R_i (top tie Vtop--Ritop; no tie to output loop)
+  \draw (Vbot) to[V, v=$v_i$] (Vtop);
+  \draw (Ritop) to[R=$R_i$] (Ribot);
+  \draw (Vtop) -- (Ritop);
 
-    \draw (IoM) to[short, -o] (IoTerm) node[right, opfig]{$i_o$};
-    \draw (IoTerm) to[R] (GndRL);
-    \node[opfigThin, anchor=west] at ($ (IoTerm)!0.5!(GndRL)+(5mm,0) $) {$R_L$};
+  % output loop only: G v_i -> R_o -> R_L -> i_o (top bus NOT connected to R_i)
+  \draw (Isbot) to[I, l_=$G v_i$] (Istop);
+  \draw (Istop) -- (RoTop) -- (RlTop) -- (OutN);
+  \draw (RoTop) to[R=$R_o$] (RoBot);
+  \draw (RlTop) to[R=$R_L$] (RlBot);
+
+  \draw (OutN) to[short, -o, i=$i_o$] ++(0.4, 0);
   \end{scope}
 
 \end{circuitikz}
