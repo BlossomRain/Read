@@ -40,20 +40,21 @@
   \begin{scope}[shift={(\LeftShiftX, \LeftShiftY)}]
     \node[titlefig, anchor=south] at (0, 2.35) {v-i converter};
 
-    \node[op amp, noinv input down] (opamp) at (0, 0) {};
+    % + on top, - on bottom (mirrored handmade layout)
+    \node[op amp, noinv input down, yscale=-1] (opamp) at (0, 0) {};
 
-    % (-) -> left -> up: vertical R (offset left) -> ground above R
-    \draw (opamp.-) -- ++(-0.55, 0) coordinate (Rfork);
-    \draw (Rfork) -- ++(0, 0.45) coordinate (Rbot);
-    \draw (Rbot) to[R=$R$] ++(0, 0.55) coordinate (Rtop);
-    \node[ground, scale=0.85, anchor=east] (gndR) at ($(Rtop)+(-0.55,0)$) {};
-    \draw (gndR) -- (Rtop);
-
-    % (+) left, down -> v_i terminal
+    % (+) top -> left -> v_i terminal
     \draw (opamp.+) -- ++(-0.85, 0) coordinate (Vmid);
-    \draw (Vmid) -- ++(0, -0.65) coordinate (Vstub);
+    \draw (Vmid) -- ++(0, 0.65) coordinate (Vstub);
     \draw (Vstub) to[short, o-] ++(-0.25, 0)
       node[left=1.5mm, opfig]{$v_i$};
+
+    % (-) bottom -> left -> R down -> ground
+    \draw (opamp.-) -- ++(-0.55, 0) coordinate (Rfork);
+    \draw (Rfork) -- ++(0, -0.45) coordinate (Rtop);
+    \draw (Rtop) to[R=$R$] ++(0, -0.55) coordinate (Rbot);
+    \node[ground, scale=0.85, anchor=east] (gndR) at ($(Rbot)+(-0.55,0)$) {};
+    \draw (gndR) -- (Rbot);
 
     % i_o (shorter — stays left of ||)
     \draw (opamp.out) to[short, -o, i=$i_o$] ++(0.85, 0);
