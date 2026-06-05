@@ -10,7 +10,7 @@
 | `integral.tikz` | `04-integrator.tex` | `04-integrator.svg` |
 | `iv.tikz` | `05-iv-model.tex` | `05-iv-model.svg` |
 
-`.tikz` 为 Designer 原始导出；`01`–`05` 的 `.tex` **沿用相同坐标与顶线反馈**，只补端子/元件标注（非仓库正式图的底母线版式）。
+`.tikz` 为 Designer 原始导出（上 − 下 +、顶线）；`01`–`05` 为 **镜像后** 的预览（**+ 在上**、底母线），与正式图源一致。
 
 ## 重新编译
 

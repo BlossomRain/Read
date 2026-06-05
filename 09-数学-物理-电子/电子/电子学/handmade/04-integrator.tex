@@ -1,31 +1,37 @@
-% Wires = integral.tikz coordinates; labels outside components (no l_=$+$)
+% Mirrored: same as inverting; C on bottom bus (+ label off bipole)
 \documentclass[border=10pt,crop=true]{standalone}
 \usepackage{circuitikz}
+\input{../image/电子学一/source/02-op-circuit-style.tex}
 
-\ctikzset{label distance=3mm}
+\def\OpIntVmX{-1.0}
+\def\OpIntVmY{-0.5}
+\def\OpIntViX{-3.0}
+\def\OpIntFbY{-2.0}
+\def\OpIntFbRx{1.5}
+\def\OpIntVoX{2.5}
+\def\OpIntPlusGnd{1.15}
 
 \begin{document}
 \begin{circuitikz}[american, scale=1.0, transform shape]
-  \node[op amp] at (7.75, 5.75) {};
+  \coordinate (OAC) at (0, 0);
+  \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
 
-  % (+) bottom — fixed coords like Designer export (avoid OA.+ anchor clash)
-  \draw (5.75, 5.25) -- (5.75, 3.5) node[ground, scale=0.85]{};
-  \draw (5.75, 5.25) -| (6.56, 5.26);
+  \coordinate (VM) at (\OpIntVmX, \OpIntVmY);
+  \coordinate (Vi) at (\OpIntViX, \OpIntVmY);
+  \coordinate (FBL) at (\OpIntVmX, \OpIntFbY);
+  \coordinate (FBR) at (\OpIntFbRx, \OpIntFbY);
+  \coordinate (OutRise) at (\OpIntFbRx, 0);
+  \coordinate (Vo) at (\OpIntVoX, 0);
 
-  % (-) / summing node
-  \draw (5.25, 6.25) -| (6.56, 6.24);
-  \node[circ, fill=black, inner sep=0.9pt] at (5.25, 6.25) {};
+  \draw (OA.+) -- ++(0, -\OpIntPlusGnd) node[ground, scale=0.85]{};
+  \draw (OA.-) -| (VM);
+  \node[circ, fill=black, inner sep=0.9pt] at (VM) {};
+  \draw (VM) to[R, l=$R$, l^=] (Vi);
+  \draw (Vi) to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_i$};
 
-  \draw (1.75, 6.25) node[left, font=\small]{$v_i$} to[short, o-] (2.5, 6.25);
-  \draw (2.5, 6.25) -- (3.5, 6.25);
-  \draw (3.5, 6.25) to[american resistor] (5.25, 6.25);
-  \node[font=\small] at (4.35, 6.55) {$R$};
-
-  % feedback C (no polarity label — l_=$+$ was drawn on top of op-amp "-" )
-  \draw (5.25, 6.25) -- (5.25, 7.25) -- (6.5, 7.25);
-  \draw (6.5, 7.25) to[capacitor] (7.75, 7.25);
-  \node[font=\small] at (7.1, 7.55) {$C$};
-  \draw (7.75, 7.25) -- (9, 7.25) |- (8.94, 5.75) -- (10.5, 5.75)
-    node[right, font=\small]{$v_o$};
+  \draw (VM) -- (FBL);
+  \draw (FBL) to[C, l_=$C$] (FBR);
+  \draw (FBR) -- (OutRise) -- (OA.out);
+  \draw (OA.out) to[short, -o] (Vo) node[right, opfig]{$v_o$};
 \end{circuitikz}
 \end{document}

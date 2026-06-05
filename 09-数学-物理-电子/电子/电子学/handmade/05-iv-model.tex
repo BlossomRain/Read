@@ -1,38 +1,87 @@
-% Wires = iv.tikz coordinates; $i_i$ label off the source (no i=$i_i$ on bipole)
+% Mirrored layout aligned with 02-op-iv-converter-model-diagram-01 (+ on top left block)
 \documentclass[border=10pt,crop=true]{standalone}
 \usepackage{circuitikz}
+\usetikzlibrary{calc, arrows.meta}
+\input{../image/电子学一/source/02-op-circuit-style.tex}
 
-\ctikzset{label distance=3mm}
+\def\BusY{1.45}
+\def\RfY{2.35}
+\def\SepX{4.55}
+\def\SepGap{0.11}
+\def\SepH{2.55}
+\def\RightX{5.55}
+\def\GndY{0}
+\def\RxInBase{0.9}
+\def\RxInL{-0.55}
+\def\RxVSrcX{3.25}
+\def\RxRoSpan{1.6}
+\def\RxGndW{8.2}
+\def\OpIvPlusGnd{0.95}
 
 \begin{document}
 \begin{circuitikz}[american, scale=1.0, transform shape]
-  \node[font=\scriptsize, anchor=south west] at (0.9, 7.55) {i--v converter};
 
-  \node[op amp] at (4.5, 5.25) {};
-  \node[ground, scale=0.85] at (1.56, 4.25) {};
-  \draw (1.56, 4.25) to[american controlled current source] (1.56, 5.25);
-  \node[font=\scriptsize, anchor=east] at (1.2, 4.78) {$i_i$};
+  \begin{scope}
+    \node[opfigThin, anchor=south] at (1.85, 2.95) {i--v converter};
+    \coordinate (OAC) at (2.35, \GndY);
+    \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
 
-  \draw (1.56, 5.25) -| (1.56, 5.75) -- (3.31, 5.75);
-  \node[ground, scale=0.85] at (3.31, 4.75) {};
+    \coordinate (VM) at (0.65, \BusY);
+    \coordinate (Vo) at (3.55, \GndY);
+    \coordinate (FBL) at (0.65, \RfY);
+    \coordinate (FBR) at (2.55, \RfY);
+    \coordinate (OutTap) at (2.55, \GndY);
 
-  \draw (5.75, 5.25) to[short, -o] (7.5, 5.25) node[right, font=\small]{$v_o$};
-  \draw (3.25, 7) to[american resistor] (5.75, 7);
-  \node[font=\scriptsize] at (4.5, 7.22) {$R$};
-  \draw (5.75, 7) |- (5.69, 5.25);
-  \draw (3.25, 7) -- (3.25, 5.75);
-  \node[circ, fill=black, inner sep=0.9pt] at (3.25, 5.75) {};
+    \draw (OA.+) -- ++(0, -\OpIvPlusGnd) node[ground, scale=0.85]{};
+    \draw (OA.-) -| (VM);
+    \node[circ, fill=black, inner sep=0.75pt] at (VM) {};
 
-  \draw (8.5, 3.5) -- (8.5, 7.5);
-  \draw (8.65, 3.5) -- (8.65, 7.5);
-  \node[font=\scriptsize, anchor=south west] at (8.72, 7.2) {model};
+    \draw ($(VM)+(-1.35,0)$) node[left, opfig]{$i_i$} to[short, o-] ($(VM)+(-1.05,0)$);
+    \draw ($(VM)+(-1.05,0)$) to[I] (VM);
+    \draw (VM) |- (FBL);
+    \draw (FBL) to[R] (FBR);
+    \node[opfigThin] at ($ (FBL)!0.5!(FBR)+(0,4mm) $) {$R$};
+    \draw (FBR) -- (OutTap) -- (OA.out);
+    \draw (OA.out) to[short, -o] (Vo) node[right=2.5mm, opfig]{$v_o$};
+  \end{scope}
 
-  \node[ground, scale=0.85] at (11.25, 4) {};
-  \draw (10.25, 4) -- (15, 4);
-  \draw (10.25, 6.5) to[american resistor, l^=$R_i$] (10.25, 4);
-  \draw (12.5, 6.5) to[american controlled voltage source, l^=$A i_i$] (12.5, 4);
-  \draw (12.5, 6.5) -- (15, 6.5)
-    to[american resistor, l^=$R_o$] (16.4, 6.5)
-    to[short, -o] (16.75, 6.5) node[right, font=\small]{$v_o$};
+  \begin{scope}[xshift=\SepX cm]
+    \coordinate (SepBot) at (0, \GndY-0.35);
+    \coordinate (SepTop) at (0, \GndY-0.35+\SepH);
+    \draw (SepBot) -- (SepTop);
+    \draw ([xshift=\SepGap cm]SepBot) -- ([xshift=\SepGap cm]SepTop);
+    \node[opfigThin, anchor=south west] at (0, 2.35) {model};
+  \end{scope}
+
+  \begin{scope}[xshift=\RightX cm]
+    \coordinate (InL) at (\RxInBase+\RxInL, \BusY);
+    \coordinate (In) at (\RxInBase, \BusY);
+    \coordinate (GndIn) at (\RxInBase, \GndY);
+    \coordinate (Vbot) at (\RxVSrcX, \GndY);
+    \coordinate (Vtop) at (\RxVSrcX, \BusY);
+    \coordinate (RoL) at (\RxVSrcX+\RxRoSpan, \BusY);
+    \coordinate (RoR) at (\RxVSrcX+2*\RxRoSpan, \BusY);
+    \coordinate (VoM) at (RoR);
+    \coordinate (GndR) at (\RxVSrcX+2*\RxRoSpan, \GndY);
+    \coordinate (GndEnd) at (\RxGndW, \GndY);
+
+    \draw (GndIn) -- (GndEnd);
+    \node[ground, scale=0.85] at ($(GndIn)!0.38!(GndEnd)$) {};
+
+    \draw (InL) to[short, o-, i=$i_i$] (In);
+    \draw (In) to[R] (GndIn);
+    \node[opfigThin, anchor=east] at ($ (In)!0.5!(GndIn)+(-5mm,0) $) {$R_i$};
+
+    \draw (Vbot) to[V, l=$A i_i$] (Vtop);
+    \draw (Vtop) -- (RoL);
+    \draw (RoL) to[R] (RoR);
+    \node[opfigThin] at ($ (RoL)!0.5!(RoR)+(0,4.5mm) $) {$R_o$};
+
+    \draw (RoR) -- (VoM);
+    \draw (VoM) to[short, -o] ++(0.55, 0) node[right, opfig]{$v_o$};
+    \draw (VoM) to[R] (GndR);
+    \node[opfigThin, anchor=west] at ($ (VoM)!0.5!(GndR)+(5mm,0) $) {$R_L$};
+  \end{scope}
+
 \end{circuitikz}
 \end{document}

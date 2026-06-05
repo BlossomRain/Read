@@ -1,27 +1,37 @@
-% Layout from inverting_amp.tikz — top-bus R2 feedback
+% Mirrored: + on top (grounded), - below; R2 on bottom bus
 \documentclass[border=10pt,crop=true]{standalone}
 \usepackage{circuitikz}
+\input{../image/电子学一/source/02-op-circuit-style.tex}
 
-\ctikzset{label distance=3mm}
+\def\OpInvVmX{-1.0}
+\def\OpInvVmY{-0.5}
+\def\OpInvViX{-3.0}
+\def\OpInvFbY{-2.0}
+\def\OpInvFbRx{1.5}
+\def\OpInvVoX{2.5}
+\def\OpInvPlusGnd{1.15}
 
 \begin{document}
 \begin{circuitikz}[american, scale=1.0, transform shape]
-  \node[op amp] (OA) at (7.75, 5.75) {};
-  \coordinate (VM) at (5.25, 6.25);
-  \coordinate (OUTJ) at (9, 7.5);
+  \coordinate (OAC) at (0, 0);
+  \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
 
-  \draw (OA.+) -| (5.75, 5.25) node[ground, scale=0.85]{};
+  \coordinate (VM) at (\OpInvVmX, \OpInvVmY);
+  \coordinate (Vi) at (\OpInvViX, \OpInvVmY);
+  \coordinate (FBL) at (\OpInvVmX, \OpInvFbY);
+  \coordinate (FBR) at (\OpInvFbRx, \OpInvFbY);
+  \coordinate (OutRise) at (\OpInvFbRx, 0);
+  \coordinate (Vo) at (\OpInvVoX, 0);
 
+  \draw (OA.+) -- ++(0, -\OpInvPlusGnd) node[ground, scale=0.85]{};
   \draw (OA.-) -| (VM);
   \node[circ, fill=black, inner sep=0.9pt] at (VM) {};
+  \draw (VM) to[R, l=$R_1$, l^=] (Vi);
+  \draw (Vi) to[short, o-] ++(-\OpInGap, 0) node[left, opfig]{$v_i$};
 
-  \draw (1.75, 6.25) node[left, font=\small]{$v_i$} to[short, o-] (2.5, 6.25);
-  \draw (2.5, 6.25) -- (3.5, 6.25);
-  \draw (3.5, 6.25) to[american resistor, l^=$R_1$] (VM);
-
-  \draw (VM) -- (5.25, 7.5) -- (6.5, 7.5)
-    to[american resistor, l^=$R_2$] (7.75, 7.5) -- (OUTJ) coordinate(OUTTAP);
-  \draw (OUTTAP) |- (OA.out);
-  \draw (OA.out) -- (10.5, 5.75) node[right, font=\small]{$v_o$};
+  \draw (VM) -- (FBL);
+  \draw (FBL) to[R, l_=$R_2$] (FBR);
+  \draw (FBR) -- (OutRise) -- (OA.out);
+  \draw (OA.out) to[short, -o] (Vo) node[right, opfig]{$v_o$};
 \end{circuitikz}
 \end{document}
