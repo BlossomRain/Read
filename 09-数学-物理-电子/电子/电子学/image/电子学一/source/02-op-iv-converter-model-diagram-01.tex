@@ -30,7 +30,7 @@
     \node[opfigThin, anchor=south] at (1.85, 2.95) {i--v converter};
 
     \coordinate (OAC) at (2.35, \GndY);
-    \node[op amp, noinv input down](OA) at (OAC) {};
+    \node[op amp, noinv input down, yscale=-1](OA) at (OAC) {};
 
     \coordinate (VM) at (0.65, \BusY);
     \coordinate (Vo) at (3.55, \GndY);
@@ -42,7 +42,8 @@
     \draw (OA.-) -| (VM);
     \node[circ, fill=black, inner sep=0.75pt] at (VM) {};
 
-    \draw ($(VM)+(-1.05,0)$) to[I, i=$i_i$] (VM);
+    \draw ($(VM)+(-1.35,0)$) node[left, opfig]{$i_i$} to[short, o-] ($(VM)+(-1.05,0)$);
+    \draw ($(VM)+(-1.05,0)$) to[I] (VM);
     \draw (VM) |- (FBL);
     \draw (FBL) to[R] (FBR);
     \node[opfigThin] at ($ (FBL)!0.5!(FBR)+(0,4mm) $) {$R$};

@@ -35,7 +35,7 @@
   % feedback: C on upper branch, R_f on lower branch (parallel)
   \draw (VM) -- (FbL);
   \draw (FbL) |- (\OpIntVmX, \OpFbCY)
-    to[C, l_=$C$, l^=$+$] (\OpIntFbRx, \OpFbCY)
+    to[C, l_=$C$] (\OpIntFbRx, \OpFbCY)
     -| (FbR);
   \draw (FbL) |- (\OpIntVmX, \OpFbRY)
     to[R, l_=$R_f$] (\OpIntFbRx, \OpFbRY)
