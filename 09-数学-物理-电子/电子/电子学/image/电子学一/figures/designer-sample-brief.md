@@ -10,7 +10,8 @@
 
 1. 按本文「代表图清单」在 Designer 中手画拓扑（不必抠像素级对齐）。
 2. 每张图：**Save JSON** + **Export CircuiTikZ code**（`Ctrl+S` / `Ctrl+E`）。
-3. 将导出文件放入 `image/电子学一/source/designer-samples/`（目录可新建），命名见下表。
+3. 将导出文件放入 `image/电子学一/source/designer-samples/`（目录可新建），命名见下表。  
+   **当前交稿（2026-06）：** `电子学/handmade/`（含 `*.tikz`、`01`–`05` 预览与 [`版式规范摘要.md`](../../../handmade/版式规范摘要.md)）。
 4. 交稿时在对话中 @ 该目录，或说明「代表图已放入 designer-samples」。
 5. Agent 先整理《版式规范摘要》供你确认，再批量重绘正式图源。
 

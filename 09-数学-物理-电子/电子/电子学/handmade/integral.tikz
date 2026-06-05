@@ -1,0 +1,14 @@
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[op amp] at (7.75, 5.75){};
+	\draw (5.25, 6.25) -| (6.56, 6.24);
+	\draw (5.75, 5.25) to[american voltage source] (5.75, 3.5);
+	\node[ground] at (2.5, 6.25){};
+	\draw (5.75, 5.25) -| (6.56, 5.26);
+	\node[ground] at (5.75, 3.5){};
+	\draw (5.25, 6.25) to[american resistor] (3.5, 6.25);
+	\draw (2.5, 6.25) -- (3.5, 6.25);
+	\draw (6.5, 6.25) -| (6.5, 7.25) -- (7.5, 7.25);
+	\draw (7.75, 7.25) -- (9, 7.25) -| (8.94, 5.75);
+	\draw (7.5, 7.25) to[capacitor] (7.75, 7.25);
+\end{tikzpicture}

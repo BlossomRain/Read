@@ -1,0 +1,31 @@
+% Wires = integral.tikz coordinates; labels outside components (no l_=$+$)
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\ctikzset{label distance=3mm}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \node[op amp] at (7.75, 5.75) {};
+
+  % (+) bottom — fixed coords like Designer export (avoid OA.+ anchor clash)
+  \draw (5.75, 5.25) -- (5.75, 3.5) node[ground, scale=0.85]{};
+  \draw (5.75, 5.25) -| (6.56, 5.26);
+
+  % (-) / summing node
+  \draw (5.25, 6.25) -| (6.56, 6.24);
+  \node[circ, fill=black, inner sep=0.9pt] at (5.25, 6.25) {};
+
+  \draw (1.75, 6.25) node[left, font=\small]{$v_i$} to[short, o-] (2.5, 6.25);
+  \draw (2.5, 6.25) -- (3.5, 6.25);
+  \draw (3.5, 6.25) to[american resistor] (5.25, 6.25);
+  \node[font=\small] at (4.35, 6.55) {$R$};
+
+  % feedback C (no polarity label — l_=$+$ was drawn on top of op-amp "-" )
+  \draw (5.25, 6.25) -- (5.25, 7.25) -- (6.5, 7.25);
+  \draw (6.5, 7.25) to[capacitor] (7.75, 7.25);
+  \node[font=\small] at (7.1, 7.55) {$C$};
+  \draw (7.75, 7.25) -- (9, 7.25) |- (8.94, 5.75) -- (10.5, 5.75)
+    node[right, font=\small]{$v_o$};
+\end{circuitikz}
+\end{document}

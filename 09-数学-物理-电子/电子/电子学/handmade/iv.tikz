@@ -1,0 +1,19 @@
+\begin{tikzpicture}[transform shape]
+	% Paths, nodes and wires:
+	\node[op amp] at (4.5, 5.25){};
+	\node[ground] at (1.56, 4.25){};
+	\draw (1.56, 4.25) to[american controlled current source] (1.56, 5.25);
+	\draw (1.56, 5.25) -| (1.56, 5.75) -- (3.31, 5.75);
+	\node[ground] at (3.31, 4.75){};
+	\draw (5.75, 5.25) -- (7.5, 5.25);
+	\node[ground] at (11.25, 4){};
+	\draw (3.25, 7) to[american resistor] (5.75, 7);
+	\draw (5.75, 7) |- (5.69, 5.25);
+	\draw (3.25, 7) -- (3.25, 5.75);
+	\draw (10.25, 6.5) to[american resistor, l={$Ri$}] (10.25, 4);
+	\draw (10.25, 4) -- (15, 4);
+	\draw (10.25, 4) -- (8.75, 4);
+	\draw (10.25, 6.5) -- (8.75, 6.5);
+	\draw (12.5, 6.5) to[american controlled voltage source, l={$AIi$}] (12.5, 4);
+	\draw (15, 6.5) to[american resistor, l={$Ro$}] (12.5, 6.5);
+\end{tikzpicture}

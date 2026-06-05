@@ -1,0 +1,38 @@
+% Wires = iv.tikz coordinates; $i_i$ label off the source (no i=$i_i$ on bipole)
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\ctikzset{label distance=3mm}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \node[font=\scriptsize, anchor=south west] at (0.9, 7.55) {i--v converter};
+
+  \node[op amp] at (4.5, 5.25) {};
+  \node[ground, scale=0.85] at (1.56, 4.25) {};
+  \draw (1.56, 4.25) to[american controlled current source] (1.56, 5.25);
+  \node[font=\scriptsize, anchor=east] at (1.2, 4.78) {$i_i$};
+
+  \draw (1.56, 5.25) -| (1.56, 5.75) -- (3.31, 5.75);
+  \node[ground, scale=0.85] at (3.31, 4.75) {};
+
+  \draw (5.75, 5.25) to[short, -o] (7.5, 5.25) node[right, font=\small]{$v_o$};
+  \draw (3.25, 7) to[american resistor] (5.75, 7);
+  \node[font=\scriptsize] at (4.5, 7.22) {$R$};
+  \draw (5.75, 7) |- (5.69, 5.25);
+  \draw (3.25, 7) -- (3.25, 5.75);
+  \node[circ, fill=black, inner sep=0.9pt] at (3.25, 5.75) {};
+
+  \draw (8.5, 3.5) -- (8.5, 7.5);
+  \draw (8.65, 3.5) -- (8.65, 7.5);
+  \node[font=\scriptsize, anchor=south west] at (8.72, 7.2) {model};
+
+  \node[ground, scale=0.85] at (11.25, 4) {};
+  \draw (10.25, 4) -- (15, 4);
+  \draw (10.25, 6.5) to[american resistor, l^=$R_i$] (10.25, 4);
+  \draw (12.5, 6.5) to[american controlled voltage source, l^=$A i_i$] (12.5, 4);
+  \draw (12.5, 6.5) -- (15, 6.5)
+    to[american resistor, l^=$R_o$] (16.4, 6.5)
+    to[short, -o] (16.75, 6.5) node[right, font=\small]{$v_o$};
+\end{circuitikz}
+\end{document}

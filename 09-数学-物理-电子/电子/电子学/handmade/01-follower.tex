@@ -1,0 +1,20 @@
+% Layout from follower.tikz — default op amp: + bottom, - top
+\documentclass[border=10pt,crop=true]{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+\begin{circuitikz}[american, scale=1.0, transform shape]
+  \node[op amp] (OA) at (7.75, 5.75) {};
+  \coordinate (VM) at (5.25, 6.25);
+  \coordinate (OUTJ) at (9, 7.5);
+
+  \draw (4.25, 5.25) node[left, font=\small]{$v_i$} to[short, o-] (5.75, 5.25);
+  \draw (5.75, 5.25) -| (OA.+);
+
+  \draw (OA.-) -| (VM);
+  \node[circ, fill=black, inner sep=0.9pt] at (VM) {};
+  \draw (VM) -- (OUTJ) coordinate(OUTTAP);
+  \draw (OUTTAP) |- (OA.out);
+  \draw (OA.out) -- (10.5, 5.75) node[right, font=\small]{$v_o$};
+\end{circuitikz}
+\end{document}
