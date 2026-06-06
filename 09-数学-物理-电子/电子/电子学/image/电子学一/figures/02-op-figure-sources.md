@@ -13,6 +13,17 @@ Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.m
 - 统一线宽、`bipoles/length=0.95cm`、`\small` 标注
 - 统一几何：输入/输出端子、$R_1$ 垂直接地、$R_2$ 水平反馈
 
+**§2.7.2 / §2.8.3 / §2.8.4 转换器双面板（与经典反相块不同）**
+
+| 项目 | I–V `02-op-iv-converter-model` | V–I `02-op-vi-converter-model` | I–I `02-op-ii-converter-model` |
+|------|-------------------------------|-------------------------------|-------------------------------|
+| 运放朝向 | Designer 默认：**− 上、+ 下** | 同左 | 同左 |
+| 顶母线 `\RfY` | $R$：$v_-\to v_o$ | $R$：$v_-\to v_o$ | **反馈线**（无 $R_1$）：$v_-\to v_o$ |
+| 输入 | $i_i$ → $v_-$ | $v_i$ → $v_+$ | $i_i\to R_2\to v_-$ |
+| 右 model | $R_i$ 顶与 $A i_i$ 顶**断开** | $R_i$ 顶与 $G v_i$ 顶**断开** | $R_i$ 顶与 $\alpha i_i$ 顶**断开** |
+
+版图细则见 `.cursor/rules/electronics-op-amp-figures.mdc` §B 与 `designer-sample-brief.md`「转换器左栏」。
+
 **§2.5 PN 结（TikZ / pgfplots，非 CircuiTikZ）**
 
 | SVG | 源文件 | 说明 |
@@ -32,6 +43,7 @@ Agent 供图与版图规则见仓库 `.cursor/rules/electronics-op-amp-figures.m
 | `02-op-iv-converter-model-diagram-01` | `source/02-op-iv-converter-model-diagram-01.tex` | I–V 转换器（左）与 $R_i$、$A i_i$、$R_o$、$R_L$ 模型（右） |
 | `02-op-two-port-h-parameters-diagram-01` | `source/02-op-two-port-h-parameters-diagram-01.tex` | 双端口网络与 h 参数方程组 |
 | `02-op-vi-converter-model-diagram-01` | `source/02-op-vi-converter-model-diagram-01.tex` | V–I 转换器（左）与 $R_i$、$G v_i$、$R_o$、$R_L$ 模型（右） |
+| `02-op-ii-converter-model-diagram-01` | `source/02-op-ii-converter-model-diagram-01.tex` | I–I 放大器（左）与 $R_i$、$\alpha i_i$、$R_o$、$R_L$ 模型（右） |
 | `02-op-iv-converter-model-designer-01` | `source/02-op-iv-converter-model-designer-01.tex` | [CircuiTikZ Designer](https://circuit2tikz.tf.fau.de/designer/) 手绘导出草稿（I–V + 受控电压源模型，未整理） |
 
 图内标注为英文（pdflatex 无 CJK）；笔记正文为中文。
@@ -75,6 +87,7 @@ $figs = @(
   "02-op-iv-converter-model-diagram-01",
   "02-op-two-port-h-parameters-diagram-01",
   "02-op-vi-converter-model-diagram-01",
+  "02-op-ii-converter-model-diagram-01",
   "02-op-iv-converter-model-designer-01"
 )
 foreach ($f in $figs) {

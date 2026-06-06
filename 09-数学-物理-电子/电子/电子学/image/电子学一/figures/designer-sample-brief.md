@@ -44,7 +44,8 @@ Export 的 `.tex` 片段可贴在同名 `.tex` 或 `.md` 中。
 | **必做** | `sample-ch2-03-non-inverting` | **同相放大器** | $(+)$ 接 $v_i$；$(-)$ 上 $R_1$ 地、$R_2$ 到 $v_o$ | `02-op-non-inverting-amplifier-diagram-01`、`02-op-adder-diagram-01` |
 | **必做** | `sample-ch2-04-iv-model` | **I–V 转换器 + model**（左电路 \| 右模型） | 双面板：`i-v converter` / `model` / `||`；**$R_i$ 顶与 $A i_i$ 顶断开**；$R_o$、$R_L$、公共地 | `02-op-iv-converter-model-diagram-01`、`02-op-photodetector-iv-converter-diagram-01`（PD 部分可沿用既有拓扑） |
 | **必做** | `sample-ch2-05-integrator` | **积分器** | 反相结构；输入 $R$；反馈 **$C$**（替代 $R_2$） | `02-op-integrator-diagram-01` → 推 `02-op-integrator-rf-diagram-01`（加 $R_f$） |
-| **强烈建议** | `sample-ch2-06-vi-left` | **V–I 转换器左半电路**（可不画右侧 model） | $(-)$ 上：$R$ 垂直接地（地线偏左、横连）；$(+)$ 下：$v_i$ 折线；输出 $i_o$ | `02-op-vi-converter-model-diagram-01` 左侧；右侧 model 版式对齐 `sample-ch2-04` |
+| **强烈建议** | `sample-ch2-06-vi-left` | **V–I 转换器左半电路**（可不画右侧 model） | $(-)$ 上顶母线：$R$ 水平接 $v_o$；$(+)$ 下：$v_i$ 折线；输出 $i_o$ | `02-op-vi-converter-model-diagram-01` 左侧；右侧 model 版式对齐 `sample-ch2-04` |
+| **强烈建议** | `sample-ch2-07-ii-left` | **I–I 放大器左半电路**（可不画右侧 model） | 同 V–I/I–V 顶母线版式；$i_i\to R_2\to v_-$；**反馈线** $v_o\to v_-$（**不画** $R_1$）；$i_o$ 端子 | `02-op-ii-converter-model-diagram-01` 左侧；右侧 model 对齐 §2.8.3 |
 
 ### 第二章：有代表图即可 extrapolate、不必再画
 
@@ -128,12 +129,31 @@ Export 的 `.tex` 片段可贴在同名 `.tex` 或 `.md` 中。
 中间：||
 ```
 
+### Ch2 转换器左栏（§2.7.2 / §2.8.3 / §2.8.4 共用）
+
+Designer 默认 op amp：**− 在上、+ 在下**；反馈走 **顶母线** `\RfY`（与反相放大底母线不同）。
+
+```text
+顶母线 y=RfY：v_- 结点 VM ── 水平 ── FBR ── 竖落 ── out
+I–V：i_i → VM；母线上 R（VM→FBR）；+ 接地；vo 端子
+V–I：母线上 R（VM→FBR）；+ 下折 vi；io 端子
+I–I：i_i → R2 → VM；母线仅反馈线（无 R1）VM→FBR；+ 接地；io 端子
+```
+
 ### Ch2 `sample-ch2-06-vi-left`
 
 ```text
-(-) ──左/上── R ── 地（地线可在 R 左侧横连）
+(-) 顶母线 ── R ── out
 (+) ── 折线 ── vi 端子
 out ── io 端子
+```
+
+### Ch2 `sample-ch2-07-ii-left`
+
+```text
+i_i ── R2 ── v_-（顶母线结点）
+顶母线反馈线 v_o → v_-（不画 R1）
++ 接地；out ── i_o 端子
 ```
 
 ### Ch1 `sample-ch1-01-series-dc`

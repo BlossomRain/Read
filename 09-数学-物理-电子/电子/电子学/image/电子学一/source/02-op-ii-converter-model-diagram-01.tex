@@ -4,7 +4,8 @@
 \input{02-op-circuit-style.tex}
 
 % ---------------------------------------------------------------------------
-% Left panel: Designer default op amp (− top, + bottom) — matches §2.8.3 V–I
+% I–I converter — left panel: − top / + bottom (§2.8.3 / §2.7.2 style)
+%   R2 input; top-bus feedback wire v_o → v_- (no R1 symbol)
 % ---------------------------------------------------------------------------
 \def\OpCy{1.05}
 \def\RfY{2.35}
@@ -13,23 +14,21 @@
 \def\SepH{2.55}
 \def\RightX{5.55}
 \def\GndY{0}
-\def\BusY{1.45}
-% --- right model: isolated input loop vs output loop ---
-\def\RxInBase{0.9}        % R_i / input node x (shift right past double line)
-\def\RxInL{-0.55}         % i_i wire starts left of input node
-\def\RxVSrcX{3.25}        % A i_i column (RxInBase + gap; no top tie to R_i)
-\def\RxRoSpan{1.6}       % Vtop to R_o to output node horizontal span
-\def\RxGndW{8.2}         % common ground rail length
+\def\RxInBase{0.9}
+\def\RxInL{-0.55}
+\def\RxIsrcX{3.55}
+\def\RxRoSpan{1.6}
+\def\RxGndW{8.2}
 
 \begin{document}
 \begin{circuitikz}[american, scale=1.0, transform shape]
 
   % ========================================================================
-  % LEFT — i-v converter
-  %   − on top (R feedback bus); + on bottom (ground); no input/feedback crossing
+  % LEFT — i-i converter
+  %   − on top (i_i via R2); + on bottom (ground); feedback wire on top bus
   % ========================================================================
   \begin{scope}
-    \node[opfigThin, anchor=south] at (1.85, 2.95) {i--v converter};
+    \node[opfigThin, anchor=south] at (1.85, 2.95) {i--i converter};
 
     \coordinate (OAC) at (2.35, \OpCy);
     \node[op amp](OA) at (OAC) {};
@@ -37,22 +36,23 @@
     \coordinate (VM) at (0.65, \RfY);
     \coordinate (FBR) at (2.55, \RfY);
     \coordinate (OutTap) at (2.55, \OpCy);
-    \coordinate (Vo) at (3.55, \OpCy);
+    \coordinate (Io) at (3.55, \OpCy);
 
     % v_- : VM (top bus) -- vertical down -- OA.-
     \draw (VM) -- (VM |- OA.-);
     \draw (VM |- OA.-) -- (OA.-);
     \node[circ, fill=black, inner sep=0.75pt] at (VM) {};
 
-    % i_i into v_- node
+    % i_i -- R2 -- v_-
     \draw ($(VM)+(-1.35,0)$) node[left, opfig]{$i_i$} to[short, o-] ($(VM)+(-1.05,0)$);
-    \draw ($(VM)+(-1.05,0)$) to[I] (VM);
+    \draw ($(VM)+(-1.05,0)$) to[R] (VM);
+    \node[opfigThin, anchor=south] at ($ (VM)+(-0.7,0)+(0,-4mm) $) {$R_2$};
 
-    % R on top bus: VM → output
-    \draw (VM) to[R] (FBR);
-    \node[opfigThin] at ($ (VM)!0.5!(FBR)+(0,4mm) $) {$R$};
+    % feedback wire on top bus: v_- → v_o (R1 omitted; sets α in text)
+    \draw (VM) -- (FBR);
     \draw (FBR) -- (OutTap) -- (OA.out);
-    \draw (OA.out) to[short, -o] (Vo) node[right=2.5mm, opfig]{$v_o$};
+    \draw (OA.out) to[short, -o] (Io);
+    \node[above=1mm, opfig] at (Io) {$i_o$};
 
     % v_+ grounded on bottom
     \draw (OA.+) -- ++(0, -0.95) node[ground, scale=0.85]{};
@@ -70,43 +70,39 @@
   \end{scope}
 
   % ========================================================================
-  % RIGHT — port model
-  %   Left:  i_i wire -> node -> R_i only (no top bus to the right)
-  %   Right: A i_i (V) top -> R_o -> v_o / R_L  (isolated from R_i top)
-  %   Bottom: single ground rail ties all shunt/source bottoms
+  % RIGHT — port model (current out; tops disconnected)
   % ========================================================================
   \begin{scope}[xshift=\RightX cm]
-    \coordinate (InL) at (\RxInBase+\RxInL, \BusY);
-    \coordinate (In) at (\RxInBase, \BusY);
+    \coordinate (InL) at (\RxInBase+\RxInL, \RfY);
+    \coordinate (In) at (\RxInBase, \RfY);
     \coordinate (GndIn) at (\RxInBase, \GndY);
-    \coordinate (Vbot) at (\RxVSrcX, \GndY);
-    \coordinate (Vtop) at (\RxVSrcX, \BusY);
-    \coordinate (RoL) at (\RxVSrcX+\RxRoSpan, \BusY);
-    \coordinate (RoR) at (\RxVSrcX+2*\RxRoSpan, \BusY);
-    \coordinate (VoM) at (RoR);
-    \coordinate (GndR) at (\RxVSrcX+2*\RxRoSpan, \GndY);
+    \coordinate (Isbot) at (\RxIsrcX, \GndY);
+    \coordinate (Istop) at (\RxIsrcX, \RfY);
+    \coordinate (RoL) at (\RxIsrcX+\RxRoSpan, \RfY);
+    \coordinate (RoR) at (\RxIsrcX+2*\RxRoSpan, \RfY);
+    \coordinate (IoM) at (RoR);
+    \coordinate (GndR) at (\RxIsrcX+2*\RxRoSpan, \GndY);
     \coordinate (GndEnd) at (\RxGndW, \GndY);
 
-    % common ground (R_i, V source, R_L bottoms — no top connection between loops)
     \draw (GndIn) -- (GndEnd);
-    \node[ground, scale=0.85] at ($(GndIn)!0.38!(GndEnd)$) {};
+    \node[ground, scale=0.85] at ($(GndIn)!0.22!(GndEnd)$) {};
 
-    % --- left input loop only ---
-    \draw (InL) to[short, i=$i_i$] (In);
+    \draw (InL) to[short, o-] (In);
+    \node[above=1mm, opfig] at ($ (InL)!0.5!(In) $) {$i_i$};
     \draw (In) to[R] (GndIn);
     \node[opfigThin, anchor=east] at ($ (In)!0.5!(GndIn)+(-5mm,0) $) {$R_i$};
-    % (no \draw (In) -- (Vtop);  top buses intentionally disconnected)
 
-    % --- right output loop only (V top connects solely to R_o left end) ---
-    \draw (Vbot) to[V, l=$A i_i$] (Vtop);
-    \draw (Vtop) -- (RoL);
+    \draw (Isbot) to[I] (Istop);
+    \node[opfigThin, anchor=east] at ($ (Isbot)!0.5!(Istop)+(-5mm,0) $) {$\alpha i_i$};
+    \draw (Istop) -- (RoL);
     \draw (RoL) to[R] (RoR);
     \node[opfigThin] at ($ (RoL)!0.5!(RoR)+(0,4.5mm) $) {$R_o$};
 
-    \draw (RoR) -- (VoM);
-    \draw (VoM) to[short, -o] ++(0.55, 0) node[right, opfig]{$v_o$};
-    \draw (VoM) to[R] (GndR);
-    \node[opfigThin, anchor=west] at ($ (VoM)!0.5!(GndR)+(5mm,0) $) {$R_L$};
+    \draw (RoR) -- (IoM);
+    \draw (IoM) to[short, -o] ++(0.55, 0);
+    \node[above=1mm, opfig] at (IoM) {$i_o$};
+    \draw (IoM) to[R] (GndR);
+    \node[opfigThin, anchor=west] at ($ (IoM)!0.5!(GndR)+(5mm,0) $) {$R_L$};
   \end{scope}
 
 \end{circuitikz}

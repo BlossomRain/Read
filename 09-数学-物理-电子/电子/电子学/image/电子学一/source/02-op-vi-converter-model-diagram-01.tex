@@ -1,109 +1,116 @@
 \documentclass[border=10pt,crop=true]{standalone}
 \usepackage{circuitikz}
-\usetikzlibrary{calc}
-
-\ctikzset{
-  bipoles/length=0.9cm,
-  bipoles/thickness=1,
-  label distance=2.5mm,
-}
-\tikzset{
-  opfig/.style={font=\small},
-  titlefig/.style={font=\small\bfseries},
-}
+\usetikzlibrary{calc, arrows.meta}
+\input{02-op-circuit-style.tex}
 
 % ---------------------------------------------------------------------------
-% Layout — absolute X (cm), orthogonal wires
+% Left panel: Designer default op amp (− top, + bottom) — input low, R bus high
 % ---------------------------------------------------------------------------
-\def\BusY{1.45}
-\def\GndY{0}
-\def\LeftShiftX{1.15}    % left panel (clear of || at SepX)
-\def\LeftShiftY{1.0}
-\def\SepX{3.85}          % double line (right of i_o terminal)
+\def\OpCy{1.05}           % op-amp center y
+\def\RfY{2.35}            % top feedback bus (v_- → R → v_o)
+\def\SepX{4.55}
 \def\SepGap{0.11}
 \def\SepH{2.55}
-\def\RxOff{0.75}           % model block shift right (cm)
-\def\RxVi{4.0}
-\def\RxRi{5.2}
-\def\RxIsrc{6.7}
-\def\RxRo{8.0}
-\def\RxRl{9.3}
-\def\RxOut{10.15}
-\def\RxGndEnd{10.6}
+\def\RightX{5.55}
+\def\GndY{0}
+\def\ViSrcDx{0.65}
+\def\ViSrcDrop{1.15}
+% --- right model ---
+\def\BusY{1.45}
+\def\RxVi{0.9}
+\def\RxRi{2.05}
+\def\RxIsrc{3.55}
+\def\RxRoSpan{1.6}
+\def\RxGndW{8.2}
 
 \begin{document}
 \begin{circuitikz}[american, scale=1.0, transform shape]
 
   % ========================================================================
   % LEFT — v-i converter
+  %   − on top (R feedback bus); + on bottom (v_i); no input/feedback crossing
   % ========================================================================
-  \begin{scope}[shift={(\LeftShiftX, \LeftShiftY)}]
-    \node[titlefig, anchor=south] at (0, 2.35) {v-i converter};
+  \begin{scope}
+    \node[opfigThin, anchor=south] at (1.85, 2.95) {v--i converter};
 
-    % + on top, - on bottom (mirrored handmade layout)
-    \node[op amp, noinv input down, yscale=-1] (opamp) at (0, 0) {};
+    \coordinate (OAC) at (2.35, \OpCy);
+    \node[op amp](OA) at (OAC) {};
 
-    % (+) top -> left -> v_i terminal
-    \draw (opamp.+) -- ++(-0.85, 0) coordinate (Vmid);
-    \draw (Vmid) -- ++(0, 0.65) coordinate (Vstub);
-    \draw (Vstub) to[short, o-] ++(-0.25, 0)
-      node[left=1.5mm, opfig]{$v_i$};
+    \coordinate (VM) at (0.65, \RfY);
+    \coordinate (FBR) at (2.55, \RfY);
+    \coordinate (OutTap) at (2.55, \OpCy);
+    \coordinate (Io) at (3.55, \OpCy);
 
-    % (-) bottom -> left -> R down -> ground
-    \draw (opamp.-) -- ++(-0.55, 0) coordinate (Rfork);
-    \draw (Rfork) -- ++(0, -0.45) coordinate (Rtop);
-    \draw (Rtop) to[R=$R$] ++(0, -0.55) coordinate (Rbot);
-    \node[ground, scale=0.85, anchor=east] (gndR) at ($(Rbot)+(-0.55,0)$) {};
-    \draw (gndR) -- (Rbot);
+    % v_- : VM (top bus) -- vertical down -- OA.-
+    \draw (VM) -- (VM |- OA.-);
+    \draw (VM |- OA.-) -- (OA.-);
+    \node[circ, fill=black, inner sep=0.75pt] at (VM) {};
 
-    % i_o (shorter — stays left of ||)
-    \draw (opamp.out) to[short, -o, i=$i_o$] ++(0.85, 0);
+    % R on top bus: VM → output  (Designer: 8.31,6.99 -- R -- 10.81,6.99 |- out)
+    \draw (VM) to[R] (FBR);
+    \node[opfigThin] at ($ (VM)!0.5!(FBR)+(0,4mm) $) {$R$};
+    \draw (FBR) -- (OutTap) -- (OA.out);
+    \draw (OA.out) to[short, -o] (Io);
+    \node[above=1mm, opfig] at (Io) {$i_o$};
+
+    % v_i -> (+) on bottom  (Designer: 7.75,4.75 -| 8.31,4.76; Vsrc to gnd)
+    \coordinate (VplusTap) at ($(OA.+)+(-0.2, 0)$);
+    \coordinate (VsrcTop) at ($(VplusTap)+(-\ViSrcDx, 0)$);
+    \coordinate (VsrcBot) at ($(VsrcTop)+(0, -\ViSrcDrop)$);
+    \draw (OA.+) -- (VplusTap);
+    \draw (VplusTap) -| (VsrcTop);
+    \draw (VsrcTop) to[V] (VsrcBot);
+    \node[ground, scale=0.85] at (VsrcBot) {};
+    \node[opfigThin, anchor=east] at ($ (VsrcTop)!0.5!(VsrcBot)+(-5mm,0) $) {$v_i$};
   \end{scope}
 
   % ========================================================================
-  % MIDDLE — ||
+  % MIDDLE — divider
   % ========================================================================
   \begin{scope}[xshift=\SepX cm]
     \coordinate (SepBot) at (0, \GndY-0.35);
     \coordinate (SepTop) at (0, \GndY-0.35+\SepH);
     \draw (SepBot) -- (SepTop);
     \draw ([xshift=\SepGap cm]SepBot) -- ([xshift=\SepGap cm]SepTop);
+    \node[opfigThin, anchor=south west] at (0, 2.35) {model};
   \end{scope}
 
   % ========================================================================
-  % RIGHT — model (shifted right by RxOff)
+  % RIGHT — port model
   % ========================================================================
-  \begin{scope}[xshift=\RxOff cm]
-  \node[titlefig, anchor=south west] at (\RxVi, 2.35) {model};
+  \begin{scope}[xshift=\RightX cm]
+    \coordinate (Vbot) at (\RxVi, \GndY);
+    \coordinate (Vtop) at (\RxVi, \BusY);
+    \coordinate (Ritop) at (\RxRi, \BusY);
+    \coordinate (Ribot) at (\RxRi, \GndY);
+    \coordinate (Isbot) at (\RxIsrc, \GndY);
+    \coordinate (Istop) at (\RxIsrc, \BusY);
+    \coordinate (RoL) at (\RxIsrc+\RxRoSpan, \BusY);
+    \coordinate (RoR) at (\RxIsrc+2*\RxRoSpan, \BusY);
+    \coordinate (IoM) at (RoR);
+    \coordinate (GndR) at (\RxIsrc+2*\RxRoSpan, \GndY);
+    \coordinate (GndEnd) at (\RxGndW, \GndY);
 
-  \coordinate (Vbot) at (\RxVi, \GndY);
-  \coordinate (Vtop) at (\RxVi, \BusY);
-  \coordinate (Ritop) at (\RxRi, \BusY);
-  \coordinate (Ribot) at (\RxRi, \GndY);
-  \coordinate (Isbot) at (\RxIsrc, \GndY);
-  \coordinate (Istop) at (\RxIsrc, \BusY);
-  \coordinate (RoTop) at (\RxRo, \BusY);
-  \coordinate (RoBot) at (\RxRo, \GndY);
-  \coordinate (RlTop) at (\RxRl, \BusY);
-  \coordinate (RlBot) at (\RxRl, \GndY);
-  \coordinate (OutN) at (\RxOut, \BusY);
-  \coordinate (GndEnd) at (\RxGndEnd, \GndY);
+    \draw (Vbot) -- (GndEnd);
+    \node[ground, scale=0.85] at ($(Vbot)!0.22!(GndEnd)$) {};
 
-  \draw (Vbot) -- (GndEnd);
-  \node[ground, scale=0.85] at ($(Vbot)!0.22!(GndEnd)$) {};
+    \draw (Vbot) to[V] (Vtop);
+    \node[opfigThin, anchor=east] at ($ (Vbot)!0.5!(Vtop)+(-5mm,0) $) {$v_i$};
+    \draw (Vtop) -- (Ritop);
+    \draw (Ritop) to[R] (Ribot);
+    \node[opfigThin, anchor=east] at ($ (Ritop)!0.5!(Ribot)+(-5mm,0) $) {$R_i$};
 
-  % input loop only: v_i || R_i (top tie Vtop--Ritop; no tie to output loop)
-  \draw (Vbot) to[V, v=$v_i$] (Vtop);
-  \draw (Ritop) to[R=$R_i$] (Ribot);
-  \draw (Vtop) -- (Ritop);
+    \draw (Isbot) to[I] (Istop);
+    \node[opfigThin, anchor=east] at ($ (Isbot)!0.5!(Istop)+(-5mm,0) $) {$G v_i$};
+    \draw (Istop) -- (RoL);
+    \draw (RoL) to[R] (RoR);
+    \node[opfigThin] at ($ (RoL)!0.5!(RoR)+(0,4.5mm) $) {$R_o$};
 
-  % output loop only: G v_i -> R_o -> R_L -> i_o (top bus NOT connected to R_i)
-  \draw (Isbot) to[I, l_=$G v_i$] (Istop);
-  \draw (Istop) -- (RoTop) -- (RlTop) -- (OutN);
-  \draw (RoTop) to[R=$R_o$] (RoBot);
-  \draw (RlTop) to[R=$R_L$] (RlBot);
-
-  \draw (OutN) to[short, -o, i=$i_o$] ++(0.4, 0);
+    \draw (RoR) -- (IoM);
+    \draw (IoM) to[short, -o] ++(0.55, 0);
+    \node[above=1mm, opfig] at (IoM) {$i_o$};
+    \draw (IoM) to[R] (GndR);
+    \node[opfigThin, anchor=west] at ($ (IoM)!0.5!(GndR)+(5mm,0) $) {$R_L$};
   \end{scope}
 
 \end{circuitikz}
